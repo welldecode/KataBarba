@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800');
+
+@import 'resets';
+@import 'variables';
+@import 'cart';
+@import 'header';
+@import 'footer';
+@import 'home';
+
+a {
+  color: $text-color;
+  text-transform: none;
+}
+
+html,
+body {
+  background-color: $bg-color;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: unquote('min(100% - 20px, 1480px)');
+  margin-inline: auto;
+  position: relative;
+}

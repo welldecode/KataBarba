@@ -1,0 +1,56 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+
+    .nav_logo {
+      font-family: 'new-spirit';
+      font-size: 20px;
+    }
+
+    ul {
+      display: flex;
+      gap: 45px;
+      li {
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'new-spirit'; 
+         a {
+          transition: all .3s;
+          &:hover {
+            color: $primary-color;
+          }
+         }
+      }
+    }
+
+    .cart_button {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+        img {
+          width: 27px;
+          height: 27px;
+        }
+      span {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $primary-color;
+        padding: 1px 5px;
+        font-size: 12px;
+        border-radius: 50px;
+        color: #ffffff;
+      }
+    }
+  }
+}
