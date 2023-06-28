@@ -65,16 +65,15 @@
 .about_product {
   position: relative;
   margin: 10rem 0;
-  .about_content { 
-
+  .about_content {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 35px; 
+    grid-column-gap: 85px;
     grid-row-gap: 0px;
   }
 
-  .about_left { 
+  .about_left {
     display: flex;
     flex-direction: column;
     gap: 55px;
@@ -118,12 +117,12 @@
     width: 100%;
 
     .card_content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 55px;
-
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 35px;
+      grid-row-gap: 30px;
       .card_about {
-        width: calc(100% / 3 - 45px);
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -215,17 +214,17 @@
       text-align: center;
     }
 
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        appearance: none;
-        margin: 0;
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
     }
-    
-    input[type="number"] {
-        -moz-appearance: textfield;
+
+    input[type='number'] {
+      -moz-appearance: textfield;
     }
-    
+
     .buy_c {
       background: $primary-color;
       padding: 10px 15px;
