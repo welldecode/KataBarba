@@ -4,9 +4,9 @@ get_header();
 $editables = get_itens('editables');
 ?>
 <main>
-    <section class="home_container">
-        <div class="home_content container">
-            <div class="title-content">
+    <section class="dashboard">
+        <div class="dashboard_content container">
+            <div class="dashboard_content_title">
                 <?php
                 foreach ($editables['highlights']['itens'] as $highlights) {
                 ?>
@@ -37,16 +37,16 @@ $editables = get_itens('editables');
             </div>
         </section>
     </section>
-    <section class="about_product container">
+    <section class="about container">
         <div class="about_content">
-            <div class="about_left">
+            <div class="about_content_left">
                 <div class="titles_left">
                     <span>SOBRE O PRODUTO</span>
                     <h1>Elimine até 98% da sujeira causada por pelos ao fazer a barba em casa.</h1>
                 </div>
                 <p>Tenha uma experiência de barbear mais prática e confortável, que pode tornar o processo de barbear em casa mais agradável. Além disso a pessoa que mora com você agradece. Hábitos de higiene são um reflexo de quem você é!</p>
             </div>
-            <div class="about_right">
+            <div class="about_content_right">
                 <div class="card_content flex flex_wrap">
                     <article class="card_about">
                         <figure>
@@ -92,6 +92,29 @@ $editables = get_itens('editables');
                         <h4>Tecido gabardine: Um algodão resistente, com característica diagonal, confortável.</h4>
                     </article>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="depoiments container">
+        <div class="depoiments_content">
+            <div class="depoiments_content_left">
+                <figure>
+                    <img src="<?= THEME_URI ?>/assets/img/image.svg" alt="">
+                </figure>
+            </div>
+            <div class="depoiments_content_right">
+                <div class="depoiments_content_title">O DEPOIMENTO</div>
+                <h1>“Eu não aguentava mais ouvir reclamação da minha mulher porque fiz a barba e deixei pelos espalhados pela pia. Eu gastava mais tempo limpando a bagunça do que fazendo a barba. ”</h1>
+            </div>
+            <div class="depoiments_content_left">
+                <div class="title_top">O DEPOIMENTO</div>
+                <h1>“Eu não aguentava mais ouvir reclamação da minha mulher porque fiz a barba e deixei pelos espalhados pela pia. Eu gastava mais tempo limpando a bagunça do que fazendo a barba. ”</h1>
+            </div>
+            <div class="depoiments_content_right">
+                <figure>
+                    <img src="<?= THEME_URI ?>/assets/img/image.svg" alt="">
+                </figure>
             </div>
         </div>
     </section>

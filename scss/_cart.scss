@@ -75,3 +75,104 @@
     }
   }
 }
+
+.cart_container {
+  position: relative;
+  .cart_content {
+    form {
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -2rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 5;
+      background: $dark-color;
+      padding: 15px;
+      width: 30%;
+      border-radius: 15px;
+      transition: bottom 0.5s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.329);
+
+      .cart_items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+      }
+
+      &.hidden {
+        background-color: #0f0d0d;
+      }
+
+      &.hidden .buy_c {
+        background-color: #686868;
+        cursor: no-drop;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .number_c {
+        display: flex;
+        width: 35%;
+      }
+      .number_c .btn_number {
+        background: transparent;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        color: #fff;
+      }
+
+      .number_c .btn_number img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    input {
+      background: transparent;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 500;
+      width: 100%;
+      text-align: center;
+    }
+
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+
+    .buy_c {
+      background: $primary-color;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+
+    .buy_c:hover {
+      background-color: $hover-color;
+    }
+
+    .total_number {
+      font-size: 24px;
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+}
