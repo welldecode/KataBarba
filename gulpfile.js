@@ -39,12 +39,27 @@ function pluginJS() {
   return gulp
     .src([ 
       "lib/jquery/jquery.min.js",  
+      "lib/aos/aos.js",  
     ])
     .pipe(concat("libs.js"))
     .pipe(gulp.dest("assets/js/"))
     .pipe(browserSync.stream());
 }
 gulp.task("libsjs", pluginJS);
+
+
+function pluginCSS() {
+  return gulp
+  .src([ 
+    'lib/aos/aos.css',
+ 
+  ])
+  .pipe(concat('libs.css'))
+  .pipe(gulp.dest('assets/css/'))
+  .pipe(browserSync.stream());
+}
+gulp.task('libscss', pluginCSS);
+
 function watch() {
   gulp.watch("./scss/*.scss", minSass);
   gulp.watch("assets/js/*.js", minJS);
@@ -54,5 +69,5 @@ gulp.task("watch", watch);
  
 gulp.task(
   "default",
-  gulp.parallel("watch", "libsjs","minjs", "minsass")
+  gulp.parallel("watch", "libsjs", "libscss","minjs", "minsass")
 );
