@@ -13,8 +13,7 @@
             $_product =  wc_get_product( $values['data']->get_id() );
             //product image
             $getProductDetail = wc_get_product( $values['product_id'] );
-            echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
-
+     
             echo "<b>".$_product->get_title() .'</b>  <br> Quantity: '.$values['quantity'].'<br>'; 
             $price = get_post_meta($values['product_id'] , '_price', true);
             echo "  Price: ".$price."<br>";
