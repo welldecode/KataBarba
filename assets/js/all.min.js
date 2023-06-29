@@ -21,3 +21,8 @@ window.addEventListener("scroll", e => {
     cart_content.classList.remove('sticky'); 
   }
 });
+
+AOS.init({
+  once: true,
+  duration: 800,
+});
