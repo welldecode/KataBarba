@@ -140,14 +140,25 @@ $editables = get_itens('editables');
             </div>
 
             <div class="product_content_right">
-                <div class="image_highligts"  data-aos="fade-in" data-aos-delay="900"></div>
+                <div class="image_highligts" data-aos="fade-in" data-aos-delay="900"></div>
                 <div class="image_right">
-                    <div class="image_secundary"  data-aos="fade-left" data-aos-delay="900"></div>
-                    <div class="image_secundary"  data-aos="fade-left" data-aos-delay="1000"></div>
+                    <div class="image_secundary" data-aos="fade-left" data-aos-delay="900"></div>
+                    <div class="image_secundary" data-aos="fade-left" data-aos-delay="1000"></div>
                 </div>
             </div>
         </div>
     </section>
-    <section>asd</section>
+    <section class="video container">
+        <div class="video_content">
+            <div class="video_player">
+  
+            </div>
+
+            <div class="video_title">
+                Assista o vídeo para entender na prática, como o produto funciona!
+            </div>
+        </div>
+    </section>
+    <section class="depoiments_kata"></section>
 </main>
 <?php get_footer(); ?>

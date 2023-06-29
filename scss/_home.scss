@@ -43,9 +43,10 @@
         right: 3rem;
         -webkit-animation: 10s linear infinite rotate;
         animation: 10s linear infinite rotate;
-
+ 
         @keyframes rotate {
           0% {
+            
             -webkit-transform: rotate(0);
             transform: rotate(0);
           }
@@ -385,6 +386,46 @@
           height: 220px;
         }
       }
+    }
+  }
+}
+
+.video {
+  
+  &_content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 0px;
+    gap: 4rem;
+    .video_player {
+      width: 870px;
+      height: 550px;
+      background-color: #C4C4C4;
+      border-radius: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::before {
+        content: "";  
+        background: url(../img/icons/icon_play.svg) center no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 195px;
+        width: 195px;
+      }
+    }
+
+    .video_title {
+      font-family: 'new-spirit';
+      font-size: 50px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
     }
   }
 }
