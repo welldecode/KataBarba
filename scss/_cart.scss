@@ -41,12 +41,12 @@
         justify-content: space-between;
         width: 100%;
 
-        .info_item {  
-          display: flex; 
+        .info_item {
+          display: flex;
           flex-direction: column;
           gap: 5px;
         }
-        .info_price_item { 
+        .info_price_item {
           font-size: 20px;
         }
       }
@@ -57,9 +57,9 @@
       width: 100%;
       align-items: center;
       justify-content: space-between;
-      
-        border-top: 1px solid #cccccc;
-    padding-top: 25px;
+
+      border-top: 1px solid #cccccc;
+      padding-top: 25px;
       .btn_continue {
         padding: 12px 16px;
         background: #995018;
@@ -79,6 +79,7 @@
 .cart_container {
   position: relative;
   .cart_content {
+    position: relative;
     form {
       position: absolute;
       right: 0;
@@ -91,7 +92,8 @@
       z-index: 5;
       background: $dark-color;
       padding: 15px;
-      width: 30%;
+      width:100%;
+      max-width: 550px;
       border-radius: 15px;
       transition: bottom 0.5s;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.329);

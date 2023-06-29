@@ -46,11 +46,12 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: $primary-color;
-        padding: 1px 5px;
+        background: $primary-color; 
         font-size: 12px;
         border-radius: 50px;
         color: #ffffff;
+        width: 20px;
+        height: 20px;
       }
     }
   }
