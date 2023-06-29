@@ -10,7 +10,7 @@ $editables = get_itens('editables');
                 <?php
                 foreach ($editables['highlights']['itens'] as $highlights) :
                 ?>
-                    <h1 data-aos="fade-up" data-aos-delay="700"><?= $highlights['title'] ?></h1>
+                    <h1 data-aos="fade-down" data-aos-delay="700"><?= $highlights['title'] ?></h1>
                     <p data-aos="fade-up" data-aos-delay="800"><?= $highlights['subtitle'] ?></p>
                 <?php
                 endforeach;
@@ -42,10 +42,10 @@ $editables = get_itens('editables');
         <div class="about_content">
             <div class="about_content_left">
                 <div class="titles_left">
-                    <span data-aos="fade-right" data-aos-delay="600">SOBRE O PRODUTO</span>
-                    <h1 data-aos="fade-in" data-aos-delay="800">Elimine até 98% da sujeira causada por pelos ao fazer a barba em casa.</h1>
+                    <span data-aos="fade-right" data-aos-delay="800">SOBRE O PRODUTO</span>
+                    <h1 data-aos="fade-in" data-aos-delay="600">Elimine até 98% da sujeira causada por pelos ao fazer a barba em casa.</h1>
                 </div>
-                <p data-aos="fade-in" data-aos-delay="1000">Tenha uma experiência de barbear mais prática e confortável, que pode tornar o processo de barbear em casa mais agradável. Além disso a pessoa que mora com você agradece. Hábitos de higiene são um reflexo de quem você é!</p>
+                <p data-aos="fade-in" data-aos-delay="800">Tenha uma experiência de barbear mais prática e confortável, que pode tornar o processo de barbear em casa mais agradável. Além disso a pessoa que mora com você agradece. Hábitos de higiene são um reflexo de quem você é!</p>
             </div>
             <div class="about_content_right">
                 <div class="card_content flex flex_wrap">
@@ -100,23 +100,23 @@ $editables = get_itens('editables');
 
     <section class="functions">
         <div class="functions_content container">
-            <div class="functions_content_title" data-aos="fade-in" data-aos-delay="500">
+            <div class="functions_content_title" data-aos="fade-in" data-aos-delay="700">
                 Como funciona o katabarba?
             </div>
             <div class="functions_content_cards">
-                <article class="functions_cards" data-aos="fade-up" data-aos-delay="600">
+                <article class="functions_cards" data-aos="fade-up" data-aos-delay="800">
                     <h1>Passo 1</h1>
                     <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
                 </article>
-                <article class="functions_cards" data-aos="fade-up" data-aos-delay="700">
+                <article class="functions_cards" data-aos="fade-up" data-aos-delay="900">
                     <h1>Passo 2</h1>
                     <p>Faça a sua barba tranquilamente e sem preocupar com os pelos que caem sujando a pia do seu banheiro.</p>
                 </article>
-                <article class="functions_cards" data-aos="fade-up" data-aos-delay="800">
+                <article class="functions_cards" data-aos="fade-up" data-aos-delay="1000">
                     <h1>Passo 3</h1>
                     <p>Após terminar de fazer a sua barba, tire a capa Katabarba, começando pelo velcro e por ultimo as ventosas “solta fácil”.</p>
                 </article>
-                <article class="functions_cards" data-aos="fade-up" data-aos-delay="900">
+                <article class="functions_cards" data-aos="fade-up" data-aos-delay="1200">
                     <h1>Passo 4</h1>
                     <p>Com muito cuidado, embrulhe os pelos que ficaram sob a capa Katabarba e descarte em um lixo apropriado.</p>
                 </article>
@@ -126,27 +126,28 @@ $editables = get_itens('editables');
     <section class="product container">
         <div class="product_content">
             <div class="product_content_left">
-                <div class="product_content_left_title">NON É CHINGLINK, OK?</div>
-                <div class="product_content_left_about">
+                <div class="product_content_left_title" data-aos="fade-in" data-aos-delay="700">NON É CHINGLINK, OK?</div>
+                <div class="product_content_left_about" data-aos="fade-in" data-aos-delay="500">
                     <h1>Produto de confecção nacional.</h1>
                     <p>Um produto de confecção nacional, com materiais que foram cuidadosamente escolhidos. Como resultado a capa Katabarba é um produto confiável e extremamente durável. Acompanha:</p>
                 </div>
 
                 <ul>
-                    <li><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Bag para transporte</li>
-                    <li><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de mini mosquete de alumínio</li>
-                    <li><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de ventosa “solta rápido”</li>
+                    <li data-aos="fade-right" data-aos-delay="700"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Bag para transporte</li>
+                    <li data-aos="fade-right" data-aos-delay="900"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de mini mosquete de alumínio</li>
+                    <li data-aos="fade-right" data-aos-delay="1000"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de ventosa “solta rápido”</li>
                 </ul>
             </div>
 
             <div class="product_content_right">
-                <div class="image_highligts"></div>
+                <div class="image_highligts"  data-aos="fade-in" data-aos-delay="900"></div>
                 <div class="image_right">
-                    <div class="image_secundary"></div>
-                    <div class="image_secundary"></div>
+                    <div class="image_secundary"  data-aos="fade-left" data-aos-delay="900"></div>
+                    <div class="image_secundary"  data-aos="fade-left" data-aos-delay="1000"></div>
                 </div>
             </div>
         </div>
     </section>
+    <section>asd</section>
 </main>
 <?php get_footer(); ?>
