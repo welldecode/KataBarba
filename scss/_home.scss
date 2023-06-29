@@ -2,7 +2,6 @@
   position: relative;
   background-color: #fcf3ec;
   z-index: 2;
-
   padding: 3rem 0 0 0;
   &_content {
     position: relative;
@@ -74,9 +73,13 @@
         animation: fadein 3s;
 
         @keyframes fadein {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-      }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
       }
     }
   }
@@ -84,7 +87,6 @@
 
 .about {
   position: relative;
-  margin: 10rem 0;
   &_content {
     display: grid;
     grid-template-columns: 2fr 3fr;
@@ -241,6 +243,50 @@
         color: $text-color;
         font-size: 16px;
         font-weight: 500;
+      }
+    }
+  }
+}
+
+.functions {
+  padding: 105px;
+  background-color: #fcf3ec;
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    &_title {
+      font-family: 'new-spirit';
+      font-size: 50px;
+      font-weight: 700;
+      color: $text-color;
+    }
+
+    &_cards {
+      display: flex;
+      gap: 25px;
+      .functions_cards {
+        background-color: #fff;
+        padding: 35px;
+        border-radius: 50px;
+        box-shadow: 0px 0px 13px 2px rgba(97, 41, 41, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        h1 {
+          font-family: 'new-spirit';
+          font-size: 38px;
+          font-weight: 600;
+          color: $primary-color;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 160%;
+          font-weight: 400;
+          color: #6f6f6f;
+        }
       }
     }
   }

@@ -1,0 +1,27 @@
+/* SCROLL BAR */
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: #fff;
+  transition: 0.2s;
+}
+
+::-webkit-scrollbar-thumb {
+  transition: 0.2s;
+  background-color: $primary-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  transition: 0.2s;
+  background-color: $hover-color;
+}
+.container {
+  width: unquote('min(100% - 20px, 1480px)');
+  margin-inline: auto;
+  position: relative;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
