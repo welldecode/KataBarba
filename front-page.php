@@ -106,10 +106,16 @@ $editables = get_itens('editables');
             <div class="depoiments_content_right">
                 <div class="depoiments_content_title">O DEPOIMENTO</div>
                 <h1>“Eu não aguentava mais ouvir reclamação da minha mulher porque fiz a barba e deixei pelos espalhados pela pia. Eu gastava mais tempo limpando a bagunça do que fazendo a barba. ”</h1>
+                <div class="depoiments_content_user">
+                    <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata">
+                    <span>Urso Kata, pai de família.</span>
+                </div>
+
             </div>
             <div class="depoiments_content_left">
-                <div class="title_top">O DEPOIMENTO</div>
-                <h1>“Eu não aguentava mais ouvir reclamação da minha mulher porque fiz a barba e deixei pelos espalhados pela pia. Eu gastava mais tempo limpando a bagunça do que fazendo a barba. ”</h1>
+                <div class="depoiments_content_title">POUPE TEMPO</div>
+                <h1>Um homem ao longo da sua vida gasta em média pouco mais de 3 anos fazendo a barba.</h1>
+                <p>Economize tempo e foque no que você gosta de fazer, jogando aquela partida de videogame, assistindo seu time do coração ou quem sabe uma jantar especial pra sua companheira?!</p>
             </div>
             <div class="depoiments_content_right">
                 <figure>
