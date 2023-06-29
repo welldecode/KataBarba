@@ -17,7 +17,7 @@ $editables = get_itens('editables');
                 ?>
             </div>
         </div>
-        <section class="cart_container" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
+        <div class="cart_container" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
             <div class="cart_content">
                 <form action="#" method="POST">
                     <div class="cart_items">
@@ -35,8 +35,9 @@ $editables = get_itens('editables');
                     </div>
                 </form>
             </div>
-        </section>
+        </div>
     </section>
+
     <section class="about container">
         <div class="about_content">
             <div class="about_content_left">
@@ -50,7 +51,7 @@ $editables = get_itens('editables');
                 <div class="card_content flex flex_wrap">
                     <?php
                     $animation = 0;
-                    foreach ($editables['about']['itens'] as $about):
+                    foreach ($editables['about']['itens'] as $about) :
                     ?>
                         <article class="card_about" data-aos="fade-up" data-aos-delay="<?= $animation; ?>00">
                             <figure>
@@ -84,25 +85,25 @@ $editables = get_itens('editables');
                 </div>
 
             </div>
-            <div class="depoiments_content_left"  data-aos="fade-up" data-aos-delay="700">
+            <div class="depoiments_content_left" data-aos="fade-up" data-aos-delay="700">
                 <div class="depoiments_content_title">POUPE TEMPO</div>
                 <h1>Um homem ao longo da sua vida gasta em média pouco mais de 3 anos fazendo a barba.</h1>
                 <p>Economize tempo e foque no que você gosta de fazer, jogando aquela partida de videogame, assistindo seu time do coração ou quem sabe uma jantar especial pra sua companheira?!</p>
             </div>
             <div class="depoiments_content_right">
-                <figure  data-aos="fade-left" data-aos-delay="800">
+                <figure data-aos="fade-left" data-aos-delay="800">
                     <img src="<?= THEME_URI ?>/assets/img/image.svg" alt="">
                 </figure>
             </div>
         </div>
     </section>
+
     <section class="functions">
         <div class="functions_content container">
-            <div class="functions_content_title" data-aos="fade-in" data-aos-delay="500"> 
+            <div class="functions_content_title" data-aos="fade-in" data-aos-delay="500">
                 Como funciona o katabarba?
             </div>
             <div class="functions_content_cards">
-
                 <article class="functions_cards" data-aos="fade-up" data-aos-delay="600">
                     <h1>Passo 1</h1>
                     <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
@@ -119,6 +120,31 @@ $editables = get_itens('editables');
                     <h1>Passo 4</h1>
                     <p>Com muito cuidado, embrulhe os pelos que ficaram sob a capa Katabarba e descarte em um lixo apropriado.</p>
                 </article>
+            </div>
+        </div>
+    </section>
+    <section class="product container">
+        <div class="product_content">
+            <div class="product_content_left">
+                <div class="product_content_left_title">NON É CHINGLINK, OK?</div>
+                <div class="product_content_left_about">
+                    <h1>Produto de confecção nacional.</h1>
+                    <p>Um produto de confecção nacional, com materiais que foram cuidadosamente escolhidos. Como resultado a capa Katabarba é um produto confiável e extremamente durável. Acompanha:</p>
+                </div>
+
+                <ul>
+                    <li><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Bag para transporte</li>
+                    <li><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de mini mosquete de alumínio</li>
+                    <li><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de ventosa “solta rápido”</li>
+                </ul>
+            </div>
+
+            <div class="product_content_right">
+                <div class="image_highligts"></div>
+                <div class="image_right">
+                    <div class="image_secundary"></div>
+                    <div class="image_secundary"></div>
+                </div>
             </div>
         </div>
     </section>
