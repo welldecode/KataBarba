@@ -23,7 +23,6 @@ $editables = get_itens('editables');
                     <div class="cart_items">
                         <div class="number_c">
                             <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="1" min="0" max="10"  id="quantity" ><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
-                     
                         </div>
                         <div class="total_number"><?= $woocommerce->cart->get_cart_total()  ?></div>
                         <div class="payment_content">

@@ -11,10 +11,8 @@ if (class_exists('WooCommerce')) {
 
     add_action('after_setup_theme', 'woocommerce_support');
 
-    // Remove Woocommerce Style  
-    if (is_home() || is_front_page()) {
-          add_filter('woocommerce_enqueue_styles', '__return_false');
-    }
+    // Remove Woocommerce Style   
+          add_filter('woocommerce_enqueue_styles', '__return_false'); 
 
     // Remove Shop Title 
     add_filter('woocommerce_show_page_title', '__return_false');

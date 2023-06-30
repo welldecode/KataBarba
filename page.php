@@ -1,19 +1,7 @@
-<?php
-get_header(); ?>
-
-<?php
-
-if(have_posts(  )) {
-    while(have_posts()) : the_post();
-
-?> <br>
-<br><br><br><br><br><br><br><br><br><br><br>
-<div class="container"> 
-
-<?php the_content(); ?>
+<?php get_header(); 
+if ( have_posts() ) { while ( have_posts() ) { the_post(); ?>
+<div class="postI"> 
+  	<?php the_content(); ?> 
+  <div class="clear"></div>
 </div>
-
-<?php endwhile; } ?>
-
-
-<?php get_footer(); ?>
+<?php }}  get_footer(); ?>
