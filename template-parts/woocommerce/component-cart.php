@@ -29,6 +29,12 @@
                                 </div>
                                 <div class="info_price_item">
                                     <?php echo get_post_meta($values['product_id'], '_price', true); ?>
+                                    <div class="quantity">
+
+                                        <span>-</span>
+                                        <span>1</span>
+                                        <span>+</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -42,7 +48,7 @@
             ?>
         </div>
         <div class="cart-price">
-        <div class="cart-subtotal">
+            <div class="cart-subtotal">
                 <span>Total:</span>
                 <div class="value_total">asd</div>
             </div>
@@ -53,7 +59,7 @@
 
         </div>
         <div class="footer_cart">
-         
+
             <a href="#" class="btn_continue">Continuar Comprando</a>
             <a href="#" class="btn_cancel">Cancelar compra</a>
         </div>

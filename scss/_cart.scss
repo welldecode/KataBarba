@@ -7,11 +7,11 @@
     top: 0;
     right: 0;
     z-index: 15;
-    background: #ffffff; 
+    background: #ffffff;
     width: 450px;
     height: 100vh;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     box-shadow: -12px 0px 17px -7px rgba(0, 0, 0, 0.1);
 
     .title_block_cart {
@@ -99,6 +99,44 @@
         border-radius: 5px;
         font-size: 16px;
       }
+    }
+
+    .cart-price {
+      color: #222;
+      display: flex;
+      flex-direction: column;
+
+      .cart-subtotal {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        span {
+          font-size: 18px;
+          font-weight: 400;
+          color: #222;
+        }
+        .value_total {
+          font-size: 18px;
+          font-weight: 700;
+        }
+      }
+    }
+    .cart-cupom {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+
+      input[type='text'] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px 10px;
+      }
+   span {
+        font-size: 16px;
+        font-weight: 400;
+    }
     }
   }
 }
