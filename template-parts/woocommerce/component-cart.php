@@ -23,14 +23,17 @@
                                 ?>
                             </figure>
                             <div class="info">
-                                <h2><?php echo $_product->get_title(); ?></h2>
-                                <span>Descrição</span>
+                                <div class="info_title">
+                                    <h2><?php echo $_product->get_title(); ?></h2>
+                                    <span>Descrição</span>
+                                </div>
+                                <div class="info_price_item">
+                                    <?php echo get_post_meta($values['product_id'], '_price', true); ?>
+                                </div>
                             </div>
 
                         </div>
-                        <div class="info_price_item">
-                            <?php echo get_post_meta($values['product_id'], '_price', true); ?>
-                        </div>
+
                     </a>
                 </div>
 
