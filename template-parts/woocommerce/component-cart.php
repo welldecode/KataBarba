@@ -18,12 +18,15 @@
                         <div class="info_item">
                             <figure>
                                 <?php
-                                    $getProductDetail = wc_get_product($values['product_id']);
-                                    echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
-                                    ?>
+                                $getProductDetail = wc_get_product($values['product_id']);
+                                echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
+                                ?>
                             </figure>
-                            <h2><?php echo $_product->get_title(); ?></h2>
-                            <span>Descrição</span>
+                            <div class="info">
+                                <h2><?php echo $_product->get_title(); ?></h2>
+                                <span>Descrição</span>
+                            </div>
+
                         </div>
                         <div class="info_price_item">
                             <?php echo get_post_meta($values['product_id'], '_price', true); ?>
