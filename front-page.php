@@ -22,9 +22,8 @@ $editables = get_itens('editables');
                 <form action="#" method="POST">
                     <div class="cart_items">
                         <div class="number_c">
-                            <div id="decrement" class="btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></div>
-                            <input type="number" value="1" id="quantity" />
-                            <div id="increment" class="btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></div>
+                            <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" type="number" value="1" min="0" max="10"  id="quantity" ><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
+                     
                         </div>
                         <div class="total_number"><?= $woocommerce->cart->get_cart_total()  ?></div>
                         <div class="payment_content">
@@ -151,7 +150,7 @@ $editables = get_itens('editables');
     <section class="video container">
         <div class="video_content">
             <div class="video_player">
-  
+
             </div>
 
             <div class="video_title">
