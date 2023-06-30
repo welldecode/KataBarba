@@ -27,10 +27,30 @@
                     <li>Carrinho</li>
                     <li>Carrinho</li>
                 </ul>
-                <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://wordpress.devstep.com.br/finalizar-compra/" enctype="multipart/form-data">
-
+                <form name="checkout" method="post" class="checkout woocommerce-checkout" action="http://localhost/temas_wordpress/katabarba/index.php/checkout/" enctype="multipart/form-data">
+                    <div id="wc-stripe-payment-request-wrapper" style="clear:both;padding-top:1.5em;display:none;">
+                        <div id="wc-stripe-payment-request-button"></div>
+                    </div>
+                    <div class="col2-set" id="customer_details">
+<div class="col-1">
+<div class="woocommerce-billing-fields">
+<h3>Detalhes de faturamento</h3>
+<div class="woocommerce-billing-fields__field-wrapper">
+</div>
+</div>
+</div>
+<div class="col-2">
+<div class="woocommerce-shipping-fields">
+</div>
+<div class="woocommerce-additional-fields">
+<h3>Informação adicional</h3>
+<div class="woocommerce-additional-fields__field-wrapper">
+</div>
+</div>
+</div>
+</div>
                     <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Finalizar pedido" data-value="Finalizar pedido">Finalizar pedido</button>
-                 
+
                 </form>
             </div>
             <div class="checkout_items">
