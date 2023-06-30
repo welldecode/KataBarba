@@ -41,8 +41,8 @@
             }
             ?>
         </div>
-        <div class="footer_cart">
-            <div class="cart-subtotal">
+        <div class="cart-price">
+        <div class="cart-subtotal">
                 <span>Total:</span>
                 <div class="value_total">asd</div>
             </div>
@@ -51,6 +51,9 @@
                 <span>Digite seu Cupom</span>
             </div>
 
+        </div>
+        <div class="footer_cart">
+         
             <a href="#" class="btn_continue">Continuar Comprando</a>
             <a href="#" class="btn_cancel">Cancelar compra</a>
         </div>
