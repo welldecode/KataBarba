@@ -42,6 +42,15 @@
             ?>
         </div>
         <div class="footer_cart">
+            <div class="cart-subtotal">
+                <span>Total:</span>
+                <div class="value_total">asd</div>
+            </div>
+            <div class="cart-cupom">
+                <input type="text">
+                <span>Digite seu Cupom</span>
+            </div>
+
             <a href="#" class="btn_continue">Continuar Comprando</a>
             <a href="#" class="btn_cancel">Cancelar compra</a>
         </div>
