@@ -17,11 +17,62 @@
 </head>
 
 <main>
-    <section class="checkout container">
-        <div class="checkout_content"></div>
-        <?php
-        the_content(); ?>
-        </section>
+    <section class="checkout">
+        <div class="checkout_content container">
+            <div class="checkout_woocommerce">
+                <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
+
+                <ul class="breadcrumb">
+                    <li>Carrinho</li>
+                    <li>Carrinho</li>
+                    <li>Carrinho</li>
+                </ul>
+                <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://wordpress.devstep.com.br/finalizar-compra/" enctype="multipart/form-data">
+
+                    <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Finalizar pedido" data-value="Finalizar pedido">Finalizar pedido</button>
+                 
+                </form>
+            </div>
+            <div class="checkout_items">
+                <div class="checkout_items_content">
+
+                    <?php
+                    global $woocommerce;
+                    $items = $woocommerce->cart->get_cart();
+
+                    foreach ($items as $item => $values) {
+                        $_product = wc_get_product($values['data']->get_id());
+                    ?>
+
+                        <div class="info_item">
+                            <figure>
+                                <?php
+                                $getProductDetail = wc_get_product($values['product_id']);
+                                echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
+                                ?>
+                                <div class="quantity">3</div>
+                            </figure>
+                            <div class="info">
+                                <div class="info_title">
+                                    <h2><?php echo $_product->get_title(); ?></h2>
+                                    <span>Descrição</span>
+                                </div>
+                                <div class="sub_total">
+                                    <span> R$ <?php echo WC()->cart->get_subtotal(); ?> </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                </div>
+
+            <?php
+                    }
+            ?>
+            </div>
+        </div>
+        </div>
+    </section>
 </main>
 
 <script>
