@@ -1,4 +1,4 @@
-<section class="cart_block_container">
+<section class="cart_block_container" style="display: none">
     <div class="cart_block_content">
         <div class="topo_block_content">
             <div class="title_block_cart">
