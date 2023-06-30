@@ -9,22 +9,28 @@
             global $woocommerce;
             $items = $woocommerce->cart->get_cart();
 
-            foreach ($items as $item => $values) { 
-                $_product = wc_get_product( $values['data']->get_id() );
+            foreach ($items as $item => $values) {
+                $_product = wc_get_product($values['data']->get_id());
             ?>
 
                 <div class="cart_block_item">
                     <a href="#">
                         <div class="info_item">
+                            <figure>
+                                <?php
+                                    $getProductDetail = wc_get_product($values['product_id']);
+                                    echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
+                                    ?>
+                            </figure>
                             <h2><?php echo $_product->get_title(); ?></h2>
                             <span>Descrição</span>
                         </div>
                         <div class="info_price_item">
-                            <?php echo get_post_meta($values['product_id'] , '_price', true); ?>
+                            <?php echo get_post_meta($values['product_id'], '_price', true); ?>
                         </div>
                     </a>
                 </div>
-             
+
             <?php
             }
             ?>
