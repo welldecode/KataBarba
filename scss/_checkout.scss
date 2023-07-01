@@ -1,16 +1,17 @@
 .checkout {
   &_content {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: row;
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 25px;
+    grid-row-gap: 0px;
   }
   &_woocommerce {
-    width: calc(100% - 50%);
     background-color: #fff;
-    padding: 5rem 0;
     display: flex;
     flex-direction: column;
+    padding: 2rem 0;
     gap: 25px;
     .breadcrumb {
       display: flex;
@@ -22,10 +23,65 @@
         font-weight: 400;
       }
     }
+    .title_order {
+      color: #6f6f6f;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      .input_group {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        input {
+          padding: 12px 20px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          color: #6f6f6f;
+        }
+      }
+      .input_list_group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+        justify-content: space-between;
+        .input_group {
+          width: calc(100% / 2 - 10px);
+        }
+      }
+
+      :focus {
+        outline: none;
+        border: 1px solid #afafaf !important;
+      }
+
+      .footer_button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        a {
+          font-size: 18px;
+          font-weight: 600;
+          color: #000;
+        }
+        a:last-child {
+          background-color: $primary-color;
+          color: #ffffff;
+          padding: 12px 20px;
+          border-radius: 8px;
+        }
+      }
+    }
   }
   &_items {
-    width: 50%; 
-
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     &::before {
       content: '';
       background-color: #fcf3ec;
@@ -38,7 +94,12 @@
     &_content {
       position: relative;
       z-index: 12;
-      padding: 15rem 0 15rem 4rem; 
+      padding-left: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      hr {
+      }
       .info_item {
         display: flex;
         align-items: center;
@@ -61,7 +122,7 @@
           .wp-post-image {
             width: 145px;
             height: 145px;
-            border: 1px solid #DBDBDB;
+            border: 1px solid #dbdbdb;
             border-radius: 12px;
           }
         }
@@ -69,7 +130,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 100%; 
+          width: 100%;
 
           .info_title {
             h2 {
@@ -89,6 +150,75 @@
             line-height: 137.5%;
           }
         }
+      }
+      .cupom_content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h1 {
+          font-size: 20px;
+          font-family: 'new-spirit';
+          line-height: 156%;
+          font-weight: 600;
+          color: #28282b;
+        }
+
+        .input_cupom {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          align-items: center;
+          input[type='text'] {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+          }
+          :focus {
+            outline: none;
+            border: 1px solid #afafaf !important;
+          }
+          a {
+            padding: 10px 20px;
+            background: #28272c;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .price_total {
+        .left_price {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 15px;
+          .col-1 {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+
+            span:first-child {
+              font-family: 'new-spirit';
+              font-weight: 600;
+              font-size: 20px;
+            }
+            span {
+              font-size: 20px;
+              color: $text-color;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+      .total_order {
+        display: flex;
+        justify-content: end;
+        font-size: 20px;
+        font-weight: 700;
       }
     }
   }
