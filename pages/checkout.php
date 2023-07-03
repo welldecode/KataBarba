@@ -51,6 +51,7 @@
                     </div> <br>
 
                     <span class="title_order">Endereço de entrega</span>
+                    
                     <div class="input_group">
                         <input type="number" placeholder="CEP">
                     </div>
@@ -131,8 +132,8 @@
                         <div class="left_price">
                             <div class="col-1">
                                 <span>SubTotal</span>
-                                <span>R$ <?php echo  WC()->cart->get_subtotal(); ?></span>
-                            </div> 
+                                <span>R$ <?php echo WC()->cart->get_subtotal(); ?></span>
+                            </div>
                             <div class="col-1">
                                 <span>Frete</span>
                                 <span>R$ <?php echo WC()->cart->get_subtotal_tax(); ?></span>
@@ -141,7 +142,7 @@
                     </div>
                     <hr>
                     <div class="total_order">
-                     <?php echo WC()->cart->get_cart_subtotal(); ?>  
+                        <?php echo WC()->cart->get_cart_subtotal(); ?>
                     </div>
                 </div>
             </div>

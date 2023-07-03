@@ -23,13 +23,13 @@ header {
       li {
         font-size: 20px;
         font-weight: 600;
-        font-family: 'new-spirit'; 
-         a {
-          transition: all .3s;
+        font-family: 'new-spirit';
+        a {
+          transition: all 0.3s;
           &:hover {
             color: $primary-color;
           }
-         }
+        }
       }
     }
 
@@ -37,16 +37,17 @@ header {
       display: flex;
       align-items: center;
       gap: 5px;
-        img {
-          width: 27px;
-          height: 27px;
-        }
+      cursor: pointer;
+      img {
+        width: 27px;
+        height: 27px;
+      }
       span {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: $primary-color; 
+        background: $primary-color;
         font-size: 12px;
         border-radius: 50px;
         color: #ffffff;

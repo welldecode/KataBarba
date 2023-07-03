@@ -27,9 +27,9 @@
                 <li><a href="#">Vídeo explicativo</a></li>
                 <li><a href="#">FAQ</a></li>
             </ul>
-            <a href="<?= wc_get_cart_url(); ?>" class="cart_button">
+            <div class="cart_button">
                 <img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="Carrinho de Compras">
                 <span id="total_cart"><?= WC()->cart->get_cart_contents_count(); ?> </span>
-            </a>
+            </div>
         </nav>
     </header>

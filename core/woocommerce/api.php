@@ -21,39 +21,54 @@ function add_to_cart_product()
         $data = ['code' => 'no_verify_nonce', 'message' => 'Nonce não corresponde.', 'data' => array('status' => '200')];
     } else {
 
-        $data = [];
-        $product_id = '14';
+        $results = new WP_Query(
+            [
+                'post_type'       => 'product',
+                'posts_per_page'  => -1,
+                'post_status'     => 'publish',
+                'order'           => 'DESC',
+            ]
+        );
 
-        $found = false;
+        if (!empty($results->posts)) {
+            $data = [];
 
-        if (is_null($woocommerce->cart)) {
-            wc_load_cart();
-        }
+            foreach ($results->posts as $p) {
 
-        //check if product already in cart
-        if (sizeof($woocommerce->cart->get_cart()) > 0) {
-            foreach ($woocommerce->cart->get_cart() as $cart_item_key => $values) {
-                $_product = $values['data'];
-                if ($_product->get_id() == $product_id)
-                    $found = true;
+                $product_id = $p->ID;
+
+                $found = false;
+                if (is_null($woocommerce->cart)) {
+                    wc_load_cart();
+                }
+
+                WC()->cart->generate_cart_id($product_id);
+                if (sizeof(WC()->cart->get_cart()) > 0) {
+                    foreach (WC()->cart->get_cart() as $cart_item_key => $values) {
+                        $_product = $values['data'];
+                        if ($_product->get_id() == $product_id)
+                            $found = true;
+                    }
+
+                    if (!$found)
+                        WC()->cart->generate_cart_id($product_id);
+                    WC()->cart->add_to_cart($product_id, $quantity);
+                    $data['codigo'] = 1;
+                    $data['ID'] = $product_id;
+                    $data['quantity'] = $quantity;
+                    $data['count_itens'] = WC()->cart->get_cart_contents_count();
+                    $data['type'] = $woocommerce->cart->get_cart_total();
+                } else {
+
+                    WC()->cart->add_to_cart($product_id, $quantity);
+
+                    $data['codigo'] = 2;
+                    $data['ID'] = $product_id;
+                    $data['quantity'] = $quantity;
+                    $data['count_itens'] = WC()->cart->get_cart_contents_count();
+                    $data['type'] = $woocommerce->cart->get_cart_total();
+                }
             }
-
-            if (!$found) $woocommerce->cart->add_to_cart($product_id);
-
-            $data['codigo'] = 1;
-            $data['ID'] = $product_id;
-            $data['quantity'] = $quantity;
-            $data['count_itens'] = $woocommerce->cart->get_cart_contents_count();
-            $data['type'] = $woocommerce->cart->get_cart_total();
-        } else {
-
-            WC()->cart->add_to_cart($product_id);
-
-            $data['codigo'] = 2;
-            $data['ID'] = $product_id;
-            $data['quantity'] = $quantity;
-            $data['count_itens'] = $woocommerce->cart->get_cart_contents_count();
-            $data['type'] = $woocommerce->cart->get_cart_total();
         }
     }
     return $data;

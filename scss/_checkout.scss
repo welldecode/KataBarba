@@ -58,7 +58,7 @@
 
       :focus {
         outline: none;
-        border: 1px solid #afafaf !important;
+        border: 1px solid #979595 !important;
       }
 
       .footer_button {
@@ -215,9 +215,10 @@
           }
         }
       }
+      
       .total_order {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         font-size: 20px;
         font-weight: 700;
       }
