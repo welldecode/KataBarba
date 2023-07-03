@@ -3,8 +3,10 @@
 
 function list_item_cart()
 {
-
+    error_reporting(E_ALL);
+    ini_set('display_errors', 0);
     header('Content-Type: application/json;charset=utf-8');
+
     $data = [];
 
     if (!verificarNonce('tokenCart-nonce', setConfig($_GET, 'token'))) {
@@ -13,15 +15,14 @@ function list_item_cart()
 
         global $woocommerce;
 
-        if (is_null($woocommerce->cart))  wc_load_cart();
-        if ( $woocommerce->cart->get_cart_contents_count() == 0 ) { 
-            $data['codigo'] = 1;
-            $data['empty'] = 'Carrinho vazio!'; 
-        } else { 
+        if (is_null($woocommerce->cart))  wc_load_cart(); 
+     
+
         foreach ($woocommerce->cart->get_cart() as $item => $values) {
 
+            WC()->cart->generate_cart_id($item);
             $_product = wc_get_product($values['data']->get_id());
- 
+  
             $data['codigo'] = 2;
             $data['cart'][] = [
                 'id' => $_product->get_id(),
@@ -41,7 +42,6 @@ function list_item_cart()
                 'date' => get_the_date('d/m/Y', $values['product_id'])
             ];
         }
-    }}
-    return $data;
-    exit;
+    } 
+    return $data; 
 }
