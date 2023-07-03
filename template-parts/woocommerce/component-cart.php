@@ -92,7 +92,7 @@
         </div>
 
         <div class="cart-price">
-            <?php if (WC()->cart->coupons_enabled()) { ?>
+            <?php if (WC()->cart->wc_coupons_enabled()) { ?>
                 <div class="cart-cupom">
                     <span>Digite seu Cupom</span>
                     <input type="text">
