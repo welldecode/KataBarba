@@ -1,11 +1,11 @@
 <section class="cart_block_container">
-    <div class="cart_block_content">
-        <div class="title_block_cart">
+    <div class="cart_block_content active">
+        <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
             <div class="title_header">
                 <h1>Carrinho de Compras</h1>
                 <div class="close-cart"> <img src="<?= THEME_URI ?>/assets/img/woocommerce/close-circle-line.svg" alt=""></div>
             </div>
-            <span>(2 Itens)</span>
+
         </div>
         <?php
         global $woocommerce;
@@ -13,61 +13,7 @@
 
         ?>
 
-        <?php
-
-        foreach ($items as $item => $values) {
-            $_product = wc_get_product($values['data']->get_id());
-            $product_id   = apply_filters('woocommerce_cart_item_product_id', $values['product_id'], $values, $item);
-
-        ?>
-
-            <div class="cart_block_item">
-                <div class="info_item">
-                    <figure>
-                        <?php
-                        $getProductDetail = wc_get_product($values['product_id']);
-                        echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
-                        ?>
-                    </figure>
-                    <div class="info">
-                        <div class="info_title">
-                            <h2><?php echo $_product->get_title(); ?></h2>
-                            <span><?php echo $getProductDetail->get_description(); ?></span>
-                        </div>
-                        <div class="quantiy_item">
-                            <?php
-                            if ($_product->is_sold_individually()) {
-                                $product_quantity = sprintf('1 <input type="hidden" name="cart[%s][qty]" value="1" />', $item);
-                            } else {
-                                $product_quantity = woocommerce_quantity_input(array(
-                                    'input_name'  => "cart[{$item}][qty]",
-                                    'input_value' => $values['quantity'],
-                                    'max_value'   => $_product->backorders_allowed() ? '' : $_product->get_stock_quantity(),
-                                    'min_value'   => '0'
-                                ), $_product, false);
-                            }
-
-                            echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $item, $values);
-                            ?>
-                            <?php
-                            echo apply_filters('woocommerce_cart_item_remove_link', sprintf(
-                                '<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">Remover</a>',
-                                esc_url(wc_get_cart_remove_url($item)),
-                                __('Remove this item', 'woocommerce'),
-                                esc_attr($product_id),
-                                esc_attr($_product->get_sku())
-                            ), $item);
-                            ?></div>
-                        <div class="info_price_item">
-                            R$ <?php echo get_post_meta($values['product_id'], '_price', true); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <?php
-        }
-        ?>
+        <div class="item_lists"></div>
 
         <div class="depoiments_clients">
             <section class="splide" aria-label="Splide Basic HTML Example">
@@ -92,8 +38,7 @@
         </div>
 
         <div class="cart-price">
-        <?php if ( wc_coupons_enabled() ) { ?>
-
+            <?php if (wc_coupons_enabled()) { ?>
                 <div class="cart-cupom">
                     <span>Digite seu Cupom</span>
                     <input type="text">
@@ -101,9 +46,13 @@
             <?php } ?>
         </div>
         <div class="footer_cart">
-            <a href="#" class="btn_continue">Finalizar Compra > <?= $woocommerce->cart->get_cart_total()  ?> BLR</a>
-            <a href="#" class="btn_cancel">Cancelar compra</a>
+
+            <a href="<?php echo wc_get_checkout_url(); ?>" class="btn_continue">Finalizar Compra > <?= $woocommerce->cart->get_cart_total()  ?> BLR</a>
+
+            <a href="#" class="btn_cancel close-cart">Cancelar compra</a>
+
             <p>Taxas e envio calculados no final</p>
         </div>
+
     </div>
 </section>

@@ -58,7 +58,7 @@ AOS.init({
 for (var x of document.querySelectorAll(".splide.splide")) {
   var splide = new Splide(x, {
     type: "loop",
-    perPage: 1, 
+    perPage: 1,
     arrows: false,
     autoplay: true,
     interval: 5000,
@@ -67,12 +67,12 @@ for (var x of document.querySelectorAll(".splide.splide")) {
   splide.mount();
   x.style.display = "inherit";
 }
- 
+
 $(".cart_button").on("click touchstart", function (e) {
   e.preventDefault();
-  $('.cart_block_content').addClass("active"); 
+  $(".cart_block_content").addClass("active");
 });
 $(".close-cart").on("click touchstart", function (e) {
   e.preventDefault();
-  $('.cart_block_content').removeClass("active"); 
+  $(".cart_block_content").removeClass("active");
 });

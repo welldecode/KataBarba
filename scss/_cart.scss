@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: -12px 0px 17px -7px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ;
+    transition: all 0.5s;
 
     &.active {
       right: 0;
@@ -42,17 +42,19 @@
         font-size: 24px;
         font-family: 'new-spirit';
         font-weight: 600;
-      }.close-cart {
+      }
+      .close-cart {
         display: flex;
-        align-items: center; 
-      img {
-        width:30px;
-        height: 30px;
-        cursor: pointer;
+        align-items: center;
+        img {
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+        }
       }
     }
-    }
     .cart_block_item {
+      
       color: #fff;
       display: flex;
       width: 100%;
@@ -92,6 +94,49 @@
               color: #acacac;
             }
           }
+          .quantity_item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            .number_c {
+              border: 1px solid #dbdbdb;
+              display: flex;
+              border-radius: 5px;
+              text-align: center;
+
+              .btn_number {
+                display: flex;
+                align-items: center;
+                padding: 6px;
+                img {
+                  width: 13px;
+                  height: 13px;
+                  filter: brightness(0.5);
+                }
+              }
+              input#quantity {
+                text-align: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: #6f6f6f;
+              }
+              .input-number-decrement {
+                border-right: 1px solid #dbdbdb;
+              }
+              .input-number-increment {
+                border-left: 1px solid #dbdbdb;
+              }
+            }
+
+            a.remove {
+              font-size: 13px;
+              display: flex;
+              align-items: center;
+              color: #acacac;
+              font-weight: 300;
+              text-decoration: revert;
+            }
+          }
         }
       }
       .info_price_item {
@@ -100,6 +145,8 @@
         font-weight: 700;
         color: $text-color;
       }
+
+      
     }
 
     .footer_cart {
@@ -208,6 +255,13 @@
         }
       }
     }
+
+    .empty_cart {
+      color: #ababab;
+      text-align: center;
+      font-weight: 500;
+      padding: 40px;
+  }
   }
 }
 
