@@ -1,8 +1,9 @@
-// On load, show last animes
-$(window).on("load", function () {
+ // On load, show last animes
+$(document).ready(function () {
   // Faz a requisicao
   item_cart();
 });
+
 
 const button_cart = document.querySelector(".button_cart");
 button_cart.addEventListener("click", function (e) {
@@ -28,6 +29,7 @@ button_cart.addEventListener("click", function (e) {
       $(".total_number").html(items["type"]);
       $("#total_cart").html(items["count_itens"]);
 
+      $(".cart_block_content").addClass("active");
       $(".item_lists").empty().fadeIn(1500).html(item_cart());
     },
   });
@@ -37,18 +39,20 @@ button_cart.addEventListener("click", function (e) {
 function item_cart() {
   var token = $(".title_block_cart").attr("data-secury");
 
-  var request_data = {
-    token: token,
+  var request_data = { 
+    action: "woocommerce_ajax_get_cart",
   };
-  $.ajax({
-    url: base_url + "/wp-json/v1/list_item_cart/",
+  $.ajax({ 
+    url: cart_obj.ajax_url,
     method: "GET",
-    data: request_data,
-    dataType: "json",
+    data: request_data, 
     beforeSend: function () {
-      $(".item_lists").html(
-        '<div class="loading-post"><div class="loading-wrapper"><div class="sk-chase"><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div></div><div class="sk-chase-2"><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div></div></div></div>'
-      );
+      var divs = "";
+      var result = range(1, 1);
+      $.each(result, function (i, item) {
+          divs += `<div class="card"><div class="header"><div class="img"></div><div class="details"><div class="titles"> <span class="name"></span><span class="about"></span></div><span class="price"></span></div></div></div>`;
+      });
+      $('.item_lists').html(divs);
       $(".btn_continue").hide();
       $(".cart-cupom").hide();
     },
@@ -72,13 +76,10 @@ function item_cart() {
                 <span>${item.description}</span>
             </div>
             <div class="quantity_item">
-            <div class="number_c">
-                            <span class="input-number-decrement btn_number"><img src="http://localhost/wordpress/wp-content/themes/katabarba_v0.5/assets/img/icons/min.svg" alt=""></span>
-                            <input class="input-number" disabled type="number" value="${item.quantity}" min="1" max="10"  id="quantity" >
-                            <span class="input-number-increment  btn_number"><img src="http://localhost/wordpress/wp-content/themes/katabarba_v0.5/assets/img/icons/plus.svg" alt=""></span>
-                        </div>
-             
-            ${item.remove_btn}
+            
+            ${response.btn_quantity}
+         
+            ${response.btn_remove}
             </div>
             <div class="info_price_item">${item.price}</div>
         </div>
@@ -95,4 +96,9 @@ function item_cart() {
       }
     },
   });
+}
+
+ // Range Array Jquery
+ function range(start, end) {
+  return Array(end - start + 1).fill().map((_, idx) => start + idx)
 }

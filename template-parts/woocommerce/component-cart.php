@@ -1,5 +1,5 @@
 <section class="cart_block_container">
-    <div class="cart_block_content active">
+    <div class="cart_block_content">
         <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
             <div class="title_header">
                 <h1>Carrinho de Compras</h1>

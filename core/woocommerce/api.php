@@ -41,7 +41,8 @@ function add_to_cart_product()
                 if (is_null($woocommerce->cart)) {
                     wc_load_cart();
                 }
- 
+
+                WC()->cart->generate_cart_id($product_id);
                 if (sizeof(WC()->cart->get_cart()) > 0) {
                     foreach (WC()->cart->get_cart() as $cart_item_key => $values) {
                         $_product = $values['data'];
@@ -50,7 +51,7 @@ function add_to_cart_product()
                     }
 
                     if (!$found)
-             
+                        WC()->cart->generate_cart_id($product_id);
                     WC()->cart->add_to_cart($product_id, $quantity);
                     $data['codigo'] = 1;
                     $data['ID'] = $product_id;
@@ -59,6 +60,7 @@ function add_to_cart_product()
                     $data['type'] = $woocommerce->cart->get_cart_total();
                 } else {
 
+                    WC()->cart->generate_cart_id($product_id);
                     WC()->cart->add_to_cart($product_id, $quantity);
 
                     $data['codigo'] = 2;
@@ -92,13 +94,6 @@ add_action('rest_api_init', function () {
     register_rest_route('v1', 'add_to_cart_product/', [
         'methods' => 'POST',
         'callback' => 'add_to_cart_product',
-
-        'permission_callback' => '__return_true',
-    ]);
-    /* Add to cart product api */
-    register_rest_route('v1', 'list_item_cart/', [
-        'methods' => 'GET',
-        'callback' => 'list_item_cart',
 
         'permission_callback' => '__return_true',
     ]);
