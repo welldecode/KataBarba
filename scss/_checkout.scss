@@ -14,6 +14,25 @@
     flex-direction: column;
     padding: 2rem 0;
     gap: 25px;
+
+    .thwmscf-tabs {
+      display: flex;
+      gap: 15px;
+    }
+    .thwmscf-tabs li a {
+      padding: unset !important;
+      display: block;
+      outline: none;
+      font-size: 16px;
+      background-color: transparent !important;
+      border: 0 !important;
+      color: $primary-color;
+
+      &.active {
+        background-color: transparent !important;
+        color: $primary-color !important;
+      }
+    }
     .breadcrumb {
       display: flex;
       gap: 12px;
@@ -215,7 +234,7 @@
           }
         }
       }
-      
+
       .total_order {
         display: flex;
         justify-content: flex-end;
@@ -224,4 +243,4 @@
       }
     }
   }
-}
+} 
