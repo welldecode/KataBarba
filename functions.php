@@ -36,11 +36,7 @@ if (!function_exists('devstep_setup')) {
 	}
 	 
 	function style_scripts()
-	{ 
-		wp_dequeue_style('classic-theme-styles');
-		wp_dequeue_style('wp-block-library'); // WordPress core
-		wp_dequeue_style('wp-block-library-theme'); // WordPress core 
-		wp_dequeue_style('storefront-gutenberg-blocks'); // Storefront theme
+	{  
  
 		wp_register_script('libs-js', get_template_directory_uri() . '/assets/js/libs.js', array(), true, true);
 		wp_register_script('main-js', get_template_directory_uri() . '/assets/js/all.min.js', array(), true, true); 
