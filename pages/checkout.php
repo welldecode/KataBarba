@@ -149,27 +149,7 @@
         </div>
     </section>
 </main>
-<?php
-function customhaywoo()
-{
-$order = new WC_Order( $order_id );
-$total = $order->get_total();
-$order_total = floatval( preg_replace( '#[^\d.]#', '', $order->get_total()) );
-if (!$order_total) {
-return; 
-   }
-ob_start();
-$pay_link = 'https://venmo.com/hayden-595?txn=pay&amount='.$order_total;
-
-$payment_text = __('Click here to pay '.$order_total, 'text_domain'); 
-   
-echo  '<a href="' . $pay_link . '">' . $payment_text . '</a>';
-
-$contents = ob_get_contents();
-ob_end_clean();
-return $contents; '<a href="'.$href.'">'.$content.'</a>';
-}
-add_shortcode('haywoo', 'customhaywoo');
+<?php require __DIR__ . '/includes/shortcodes/class-wc-shortcode-checkout.php';
 ?>
 <script>
     const base_url = '<?php echo get_site_url(); ?>';
