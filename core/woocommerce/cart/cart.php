@@ -5,7 +5,7 @@
 function woocommerce_ajax_add_to_cart()
 {
 
-    $product_id = '33';
+    $product_id = '14';
     $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']); 
     $data = [];
 
