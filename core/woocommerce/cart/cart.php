@@ -5,23 +5,39 @@
 function woocommerce_ajax_add_to_cart()
 {
 
-    $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
-    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
-    $variation_id = absint($_POST['variation_id']);
-    $passed_validation = apply_filters('woocommerce_add_to_cart_validation', true, $product_id, $quantity);
-    $product_status = get_post_status($product_id);
+    $product_id = '33';
+    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']); 
+    $data = [];
 
-    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && 'publish' === $product_status) {
+    if (is_null(WC()->cart)) {
+        wc_load_cart();
+    }
 
-        do_action('woocommerce_ajax_added_to_cart', $product_id);
+    if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id($product_id))) {
 
-        if ('yes' === get_option('woocommerce_cart_redirect_after_add')) {
-            wc_add_to_cart_message(array($product_id => $quantity), true);
+        foreach (WC()->cart->get_cart() as $cart_item) {
+            WC()->cart->set_quantity($cart_item['key'], $quantity);
+
+            $data['codigo'] = 1;
+            $data['ID'] = $product_id;
+            $data['quantity'] = $quantity;
+            $data['count_itens'] = WC()->cart->get_cart_contents_count();
+            $data['type'] = WC()->cart->get_cart_total();
+
+            wp_send_json($data);
+            return;
         }
+    }
+    if (WC()->cart->add_to_cart($product_id, $quantity)) {
 
-        WC_AJAX::get_refreshed_fragments();
+        $data['codigo'] = 1;
+        $data['ID'] = $product_id;
+        $data['quantity'] = $quantity;
+        $data['count_itens'] = WC()->cart->get_cart_contents_count();
+        $data['type'] = WC()->cart->get_cart_total();
+
+        wp_send_json($data);
     } else {
-
         $data = array(
             'error' => true,
             'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id)
@@ -33,7 +49,7 @@ function woocommerce_ajax_add_to_cart()
 }
 add_action('wp_ajax_woocommerce_ajax_add_to_cart', 'woocommerce_ajax_add_to_cart');
 add_action('wp_ajax_nopriv_woocommerce_ajax_add_to_cart', 'woocommerce_ajax_add_to_cart');
- 
+
 
 function woocommerce_ajax_get_cart()
 {
@@ -71,19 +87,97 @@ function woocommerce_ajax_get_cart()
             esc_attr($_product->get_id()),
             esc_attr($_product->get_sku())
         ), $item);
-         if ( $_product->is_sold_individually() ) {
-            $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $item );
+        if ($_product->is_sold_individually()) {
+            $product_quantity = sprintf('1 <input type="hidden" name="cart[%s][qty]" value="1" />', $item);
         } else {
-            $product_quantity = woocommerce_quantity_input( array(
+            $product_quantity = woocommerce_quantity_input(array(
                 'input_name'  => "cart[{$item}][qty]",
                 'input_value' => $values['quantity'],
                 'max_value'   => $_product->backorders_allowed() ? '' : $_product->get_stock_quantity(),
                 'min_value'   => '0'
-            ), $_product, false );
+            ), $_product, false);
         }
-        $data['btn_quantity']  = apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $item, $values );
+        $data['btn_quantity']  = apply_filters('woocommerce_cart_item_quantity', $product_quantity, $item, $values);
         wp_send_json($data);
     }
 }
 add_action('wp_ajax_woocommerce_ajax_get_cart', 'woocommerce_ajax_get_cart');
 add_action('wp_ajax_nopriv_woocommerce_ajax_get_cart', 'woocommerce_ajax_get_cart');
+ 
+function woocommerce_ajax_get_coupon()
+{
+    global $woocommerce;
+
+    $data = [];
+
+    if (is_null($woocommerce->cart)) {
+        wc_load_cart();
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $type = $_POST;
+    } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $type = $_GET;
+    }
+    $couponcode = setConfig($type, 'coupon_code');
+
+    // Initializing variables 
+    $applied_coupons  = $woocommerce->cart->get_applied_coupons(); 
+
+    if(!wc_get_coupon_id_by_code($couponcode) ) { 
+        $data['msg'] = 'Esse cupom não existe.';
+        wp_send_json($data);
+        return;
+    }  
+    
+    if ($woocommerce->cart->has_discount(sanitize_text_field($couponcode))) {
+        $woocommerce->cart->remove_coupons(sanitize_text_field($couponcode));
+    } 
+    
+    if ($woocommerce->cart->add_discount(sanitize_text_field($couponcode))) {
+        $woocommerce->cart->calculate_totals();
+        $data['msg'] = 'Seu cupom foi aplicado com sucesso!';
+        wp_send_json($data);
+    } else {
+        $woocommerce->cart->calculate_totals();
+        $data['msg'] = 'Seu cupom foi aplicado automaticamente.';
+        wp_send_json($data);
+    }
+}
+
+
+add_action('wp_ajax_woocommerce_ajax_get_coupon', 'woocommerce_ajax_get_coupon');
+add_action('wp_ajax_nopriv_woocommerce_ajax_get_coupon', 'woocommerce_ajax_get_coupon');
+
+function woocommerce_ajax_remove_coupon()
+{
+    global $woocommerce;
+
+    $data = [];
+
+    if (is_null($woocommerce->cart)) {
+        wc_load_cart();
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $type = $_POST;
+    } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $type = $_GET;
+    }
+    $couponcode = setConfig($type, 'coupon_code');
+
+    // Initializing variables 
+    $applied_coupons  = $woocommerce->cart->get_applied_coupons();
+    $woocommerce->cart->add_discount($couponcode);
+
+    if ($woocommerce->cart->has_discount(sanitize_text_field($couponcode))) {
+        $woocommerce->cart->remove_coupons(sanitize_text_field($couponcode));
+        $woocommerce->cart->calculate_totals();
+        $data['msg'] = 'Seu cupom foi removido com sucesso!';
+        wp_send_json($data);
+    }
+}
+
+
+add_action('wp_ajax_woocommerce_ajax_remove_coupon', 'woocommerce_ajax_remove_coupon');
+add_action('wp_ajax_nopriv_woocommerce_ajax_remove_coupon', 'woocommerce_ajax_remove_coupon');

@@ -2,15 +2,7 @@
 
 
 if (!function_exists('devstep_setup')) {
-	function op_bypass_add_to_cart_sold_individually_found_in_cart( $found_in_cart, $product_id ) {
-		if ( $found_in_cart ) {
-			global $woocommerce;
-			wp_redirect( wc_get_checkout_url() );
-			exit;
-	}
-		return $found_in_cart;
-	}
-	add_filter( 'woocommerce_add_to_cart_sold_individually_found_in_cart', 'op_bypass_add_to_cart_sold_individually_found_in_cart', 10,33 );
+ 
 	function devstep_setup()
 	{
 
@@ -18,22 +10,7 @@ if (!function_exists('devstep_setup')) {
 		define('THEME_DIR', get_template_directory());
 
 		add_theme_support('automatic-feed-links');
-
-		add_theme_support(
-			'post-formats',
-			array(
-				'link',
-				'aside',
-				'gallery',
-				'image',
-				'quote',
-				'status',
-				'video',
-				'audio',
-				'chat',
-			)
-		);
-
+ 
 		add_theme_support('post-thumbnails');
 		add_theme_support('menus');
 
@@ -51,8 +28,7 @@ if (!function_exists('devstep_setup')) {
 		require get_parent_theme_file_path('core/library/post_types.php');
 
 		/*  WOOCOMMERCE */
-		require get_parent_theme_file_path('core/woocommerce/init.php'); 
-		require get_parent_theme_file_path('core/woocommerce/api.php'); 
+		require get_parent_theme_file_path('core/woocommerce/init.php');  
 
 		/*  PLUGINS */
 		require get_parent_theme_file_path('lib/tgm-plugin/class-tgm-plugin-activation.php');
@@ -65,14 +41,12 @@ if (!function_exists('devstep_setup')) {
 		wp_dequeue_style('wp-block-library'); // WordPress core
 		wp_dequeue_style('wp-block-library-theme'); // WordPress core 
 		wp_dequeue_style('storefront-gutenberg-blocks'); // Storefront theme
-
-
+ 
 		wp_register_script('libs-js', get_template_directory_uri() . '/assets/js/libs.js', array(), true, true);
 		wp_register_script('main-js', get_template_directory_uri() . '/assets/js/all.min.js', array(), true, true); 
  
 		wp_enqueue_script('libs-js');
-		wp_enqueue_script('main-js');		
-		wp_enqueue_script('cart-js');
+		wp_enqueue_script('main-js');		 
 	}
 	add_action('wp_enqueue_scripts', 'style_scripts');
 

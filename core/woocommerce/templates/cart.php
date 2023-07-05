@@ -3,11 +3,14 @@
         <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
             <div class="title_header">
                 <h1>Carrinho de Compras</h1>
-                <div class="close-cart"> <img src="<?= THEME_URI ?>/assets/img/woocommerce/close-circle-line.svg" alt=""></div>
+                <div class="close-cart"> <img src="<?= THEME_URI ?>/assets/img/woocommerce/close-circle-line.svg" alt="close_cart"></div>
             </div>
 
         </div>
+
+        <div class="msg_cart"></div>
         <?php
+
         global $woocommerce;
         $items = $woocommerce->cart->get_cart();
 
@@ -39,10 +42,29 @@
 
         <div class="cart-price">
             <?php if (wc_coupons_enabled()) { ?>
-                <div class="cart-cupom">
-                    <span>Digite seu Cupom</span>
-                    <input type="text">
-                </div>
+                <form action="#">
+                    <div class="cart-cupom">
+                        <div class="inputs">
+                            <span>Digite seu Cupom</span>
+                            <div class="input_group">
+                                <?php
+                                $applied_coupons = WC()->cart->get_applied_coupons(); 
+                                if (sizeof($applied_coupons) > 0) { 
+                                    foreach ($applied_coupons as $coupon_code) {
+                                ?>
+                                        <input type="text" id="coupon_code_valid" value="<?php echo $coupon_code ?>" placeholder="Digite seu cupom.">
+                                        <div class="remove_coupon"> <img src="<?= THEME_URI ?>/assets/img/icons/close-circle-line.svg" alt=""></div>
+                                    <?php
+                                    }
+                                } else { ?>
+                                    <input type="text" id="coupon_code" placeholder="Digite seu cupom.">
+                                    <div class="remove_coupon" style="display: none"> <img src="<?= THEME_URI ?>/assets/img/icons/close-circle-line.svg" alt=""></div> 
+                                <?php } ?>
+                                <div class="apply_cupom" type="submit" id="apply_coupon">Aplicar</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             <?php } ?>
         </div>
         <div class="footer_cart">

@@ -68,28 +68,4 @@ function criarNonce( $id ) {
     return get_option( $id );
 }
 
-/* ADMIN */  
-
-
-#----------------------------------------------------------------
-# - Criar paginas automaticamente ao salvar as opções
-#----------------------------------------------------------------
-if(is_admin() and current_user_can('administrator')){
-    // Pagina Lista de Animes
-    $page_art = get_option('save_page_lista');
-    if(empty($page_art)){
-        $post_id_art = wp_insert_post(array(
-          'post_content'   => '',
-          'post_name'      => 'checkout',
-          'post_title'     => 'Finalizar Compra',
-          'post_status'    => 'publish',
-          'post_type'      => 'page',
-          'ping_status'    => 'closed',
-          'post_date'      => date('Y-m-d H:i:s'),
-          'post_date_gmt'  => date('Y-m-d H:i:s'),
-          'comment_status' => 'closed',
-          'page_template'  => 'pages/checkout.php'
-        ));
-        update_option('save_page_lista', $post_id_art);
-    } 
-}
+/* ADMIN */   

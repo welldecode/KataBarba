@@ -20,17 +20,35 @@ $editables = get_itens('editables');
         <div class="cart_container" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
             <div class="cart_content">
                 <form action="#" method="POST">
-                    <div class="cart_items">
-                        <div class="number_c">
-                            <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="1" min="1" max="10"  id="quantity" ><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
-                        </div>
-                        <div class="total_number"><?= $woocommerce->cart->get_cart_total()  ?></div>
-                        <div class="payment_content">
-                            <div class="buy_c button_cart" id="button_cart">
-                                Comprar Agora
+                    <?php
+                    if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id('33'))) {
+                        foreach (WC()->cart->get_cart() as $cart_item) {
+                    ?>
+                            <div class="cart_items">
+                                <div class="number_c">
+                                    <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="<?php echo $cart_item['quantity']; ?>" min="1" max="10" id="quantity"><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
+                                </div>
+                                <div class="total_number"><?= $woocommerce->cart->get_cart_total()  ?></div>
+                                <div class="payment_content">
+                                    <div class="buy_c button_cart" id="button_cart">
+                                        Comprar Agora
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        <?php }
+                    } else { ?>
+                            <div class="cart_items">
+                                <div class="number_c">
+                                    <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="1" min="1" max="10" id="quantity"><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
+                                </div>
+                                <div class="total_number">R$ 49,50</div>
+                                <div class="payment_content">
+                                    <div class="buy_c button_cart" id="button_cart">
+                                        Comprar Agora
+                                    </div>
+                                </div>
+                            </div>
+                    <?php } ?>
                 </form>
             </div>
         </div>

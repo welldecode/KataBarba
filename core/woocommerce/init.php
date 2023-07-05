@@ -8,13 +8,10 @@ if (class_exists('WooCommerce')) {
     }
 
     add_action('after_setup_theme', 'woocommerce_support');
-
-
+    add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+ 
     // Remove Shop Title 
-    add_filter('woocommerce_show_page_title', '__return_false');
-    add_theme_support('wc-product-gallery-zoom');
-    add_theme_support('wc-product-gallery-lightbox');
-    add_theme_support('wc-product-gallery-slider');
+    add_filter('woocommerce_show_page_title', '__return_false'); 
 }
 
 function woocommerce_block_styles()
@@ -41,3 +38,4 @@ add_action('wp_enqueue_scripts', 'cart_script',  99);
 
 
 require get_parent_theme_file_path('core/woocommerce/cart/cart.php');
+ 
