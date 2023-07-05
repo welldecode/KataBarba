@@ -150,6 +150,7 @@
     </section>
 </main>
 
+<form id="order_review" method="post">
 <div id="payment"> 
 		<ul class="payment_methods methods">
 			<?php
@@ -193,6 +194,7 @@
 		</div>
 
 	</div>
+            </form>
 <script>
     const base_url = '<?php echo get_site_url(); ?>';
 </script>
