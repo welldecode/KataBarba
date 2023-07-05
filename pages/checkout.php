@@ -149,8 +149,7 @@
         </div>
     </section>
 </main>
-<div id="payment">
-		<?php if ( $order->needs_payment() ) : ?>
+<div id="payment"> 
 		<ul class="payment_methods methods">
 			<?php
 				if ( $available_gateways = WC()->payment_gateways->get_available_payment_gateways() ) {
@@ -180,8 +179,7 @@
 
 				}
 			?>
-		</ul>
-		<?php endif; ?>
+		</ul> 
 
 		<div class="form-row">
 			<?php wp_nonce_field( 'woocommerce-pay' ); ?>
