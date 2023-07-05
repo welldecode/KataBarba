@@ -149,7 +149,10 @@
         </div>
     </section>
 </main>
-<?php
+<div id="payment">
+		<?php if ( $order->needs_payment() ) : ?>
+		<ul class="payment_methods methods">
+			<?php
 				if ( $available_gateways = WC()->payment_gateways->get_available_payment_gateways() ) {
 					// Chosen Method
 					if ( sizeof( $available_gateways ) ) {
@@ -177,6 +180,21 @@
 
 				}
 			?>
+		</ul>
+		<?php endif; ?>
+
+		<div class="form-row">
+			<?php wp_nonce_field( 'woocommerce-pay' ); ?>
+			<?php
+				$pay_order_button_text = apply_filters( 'woocommerce_pay_order_button_text', __( 'Pay for order', 'woocommerce' ) );
+
+				echo apply_filters( 'woocommerce_pay_order_button_html', '<input type="submit" class="button alt" id="place_order" value="' . esc_attr( $pay_order_button_text ) . '" data-value="' . esc_attr( $pay_order_button_text ) . '" />' );
+			?>
+			<input type="hidden" name="woocommerce_pay" value="1" />
+		</div>
+
+	</div>
+
 <script>
     const base_url = '<?php echo get_site_url(); ?>';
 </script>
