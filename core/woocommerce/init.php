@@ -29,6 +29,12 @@ function cart_script()
 
 add_action('wp_enqueue_scripts', 'cart_script',  99); 
 
+// put this in functions.php, it will produce code before the form
+add_action('woocommerce_before_checkout_form','show_cart_summary',9);
 
+// gets the cart template and outputs it before the form
+function show_cart_summary( ) {
+    wc_get_template_part( 'cart/cart' );
+}
 require get_parent_theme_file_path('core/woocommerce/cart/cart.php');
  
