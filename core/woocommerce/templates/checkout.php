@@ -20,7 +20,7 @@
                  <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
 
                  <?php echo do_shortcode('[woocommerce_checkout]'); ?>
-
+ <?php echo do_shortcode('[calculadora_melhor_envio product_id="14"]');?>
              </div>
              <div class="checkout_items">
                  <div class="checkout_items_content">
