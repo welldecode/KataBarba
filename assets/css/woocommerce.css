@@ -107,7 +107,7 @@ h4 {
     left: unset;
 }
 
-.woocommerce-error p {
+.woocommerce-error li{
     font-size: 14px;
     font-weight: 500;
     text-align: inherit;
