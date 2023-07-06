@@ -101,8 +101,6 @@ h4 {
 .woocommerce-error::before,
 .woocommerce-info::before,
 .woocommerce-message::before {
-    font-family: WooCommerce;
-    content: "\e028";
     display: inline-block;
     position: relative !important;
     top: unset !important;
