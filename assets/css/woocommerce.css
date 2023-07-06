@@ -54,4 +54,9 @@ label {
 }.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
     width: 50%;
     overflow: visible;
+}.wpmc-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
 }
