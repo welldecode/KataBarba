@@ -6,12 +6,12 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <title><?= site_title(); ?></title>
-     <link rel="stylesheet" href="<?php echo THEME_URI ?>/assets/css/woocommerce.css">
+     <title><?= site_title(); ?></title> 
 
      <!--- WP HEAD --->
      <?php wp_head(); ?>
 
+     <link rel="stylesheet" href="<?php echo THEME_URI ?>/assets/css/woocommerce.css">
  </head>
 
  <main>
