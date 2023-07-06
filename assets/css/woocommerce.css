@@ -113,4 +113,9 @@ h4 {
     font-size: 14px;
     font-weight: 500;
     text-align: inherit;
+}.woocommerce-checkout-review-order {
+    display: none;
+}
+#order_review_heading {
+    display: none;
 }
