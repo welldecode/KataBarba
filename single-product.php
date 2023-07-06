@@ -5,7 +5,8 @@
  
  
  ?>
- 
+ 	<?php woocommerce_single_product_content(); ?>	
+	
 
 <?php endwhile; // end of the loop. ?>
  <?php get_footer(); ?>
