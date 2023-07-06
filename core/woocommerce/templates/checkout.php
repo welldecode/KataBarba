@@ -10,8 +10,7 @@
 
      <!--- WP HEAD --->
      <?php wp_head(); ?>
-
-     <link rel="stylesheet" href="<?php echo THEME_URI ?>/assets/css/woocommerce.css">
+ 
  </head>
 
  <main>

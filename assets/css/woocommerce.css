@@ -6,55 +6,72 @@
 
 label {
     display: none !important;
-} h3 {
-    font-size: 16px;
-    color: #6F6F6F;
-    font-weight: 500;
-    margin: 15px 0 !important;
-} h4 {
+}
+
+h3 {
     font-size: 16px;
     color: #6F6F6F;
     font-weight: 500;
     margin: 15px 0 !important;
 }
+
+h4 {
+    font-size: 16px;
+    color: #6F6F6F;
+    font-weight: 500;
+    margin: 15px 0 !important;
+}
+
 .select2-container--default .select2-selection--single {
     background-color: #fff;
-    border: 1px solid #C5C5C5  !important; 
+    border: 1px solid #C5C5C5 !important;
     border-radius: 4px;
 }
-.select2-container .select2-selection--single
-{
-    height: 41px !important; 
+
+.select2-container .select2-selection--single {
+    height: 41px !important;
 
 }
+
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: #444;
-    line-height: 39px  !important; 
-    font-size: 14px  !important; 
+    line-height: 39px !important;
+    font-size: 14px !important;
 }
+
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 32px;
     position: absolute;
-    top: 6px  !important;
+    top: 6px !important;
     right: 10px !important;
     width: 27px;
 }
+
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
-     
-    border-width: 6px 6px 0 6px !important; 
+
+    border-width: 6px 6px 0 6px !important;
 }
+
 .form-row-large-last {
 
     width: 30%;
     float: right;
-} 
+}
+
 .form-row-large-first {
     width: 68%;
     float: left;
-}.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
+}
+
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last,
+.woocommerce-page form .form-row-first,
+.woocommerce-page form .form-row-last {
     width: 50%;
     overflow: visible;
-}.wpmc-button {
+}
+
+.wpmc-button {
     padding: 12px 25px;
     font-size: 16px;
     font-weight: 600;
