@@ -12,7 +12,8 @@
       		
       console.log(json)
           if( json.logradouro ) {
-          	document.querySelector('input[name=billing_address_1]').value = json.logradouro; 
+          	document.querySelector('input[name=billing_address_1]').value = json.logradouro;
+            document.querySelector('input[name=billing_neighborhood]').value = json.bairro;
             document.querySelector('input[name=billing_city]').value = json.localidade;  
           }
       

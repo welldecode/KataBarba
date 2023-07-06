@@ -62,7 +62,13 @@ h4 {
     width: 68%;
     float: left;
 }
-
+.form-row-middle-first {
+    width: 58%;
+    float: left;
+}.form-row-middle-last {
+    width: 40%;
+    float: right;
+}
 .woocommerce form .form-row-first,
 .woocommerce form .form-row-last,
 .woocommerce-page form .form-row-first,
