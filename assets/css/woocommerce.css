@@ -43,3 +43,15 @@ label {
      
     border-width: 6px 6px 0 6px !important; 
 }
+.form-row-large-last {
+
+    width: 30%;
+    float: right;
+} 
+.form-row-large-first {
+    width: 68%;
+    float: left;
+}.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
+    width: 50%;
+    overflow: visible;
+}
