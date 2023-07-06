@@ -104,7 +104,7 @@ h4 {
     display: inline-block;
     position: relative !important;
     top: unset !important;
-    left: 1.5em;
+    left: unset;
 }
 
 .woocommerce-error p {
