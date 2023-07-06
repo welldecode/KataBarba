@@ -6,11 +6,11 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <title><?= site_title(); ?></title> 
+     <title><?= site_title(); ?></title>
 
      <!--- WP HEAD --->
      <?php wp_head(); ?>
- 
+
  </head>
 
  <main>
@@ -18,11 +18,9 @@
          <div class="checkout_content container">
              <div class="checkout_woocommerce">
                  <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
- 
-                 <?php 
-                 echo do_shortcode( '[woocommerce_checkout]');
-                 ?>
-             
+
+                 <?php echo do_shortcode('[woocommerce_checkout]'); ?>
+
              </div>
              <div class="checkout_items">
                  <div class="checkout_items_content">
@@ -61,7 +59,7 @@
 
                      <div class="cupom_content">
                          <h1>Tem um cupom de desconto?</h1>
-                         
+
                          <div class="input_cupom">
                              <input type="text" placeholder="cartão-presente ou código de desconto">
                              <a href="#">Aplicar</a>
@@ -90,7 +88,7 @@
          </div>
      </section>
  </main>
- 
+
  <script>
      const base_url = '<?php echo get_site_url(); ?>';
  </script>
