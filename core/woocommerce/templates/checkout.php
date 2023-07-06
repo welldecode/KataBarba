@@ -25,7 +25,7 @@
                      <li>Pagamento</li>
                  </ul>
 
-                 <span class="title_order">Informações</span>
+                 <h2 class="title_order">Informações</h2>
                  <form action="#" id="payment_order">
 
                      <?php
@@ -51,7 +51,7 @@
                          </div>
                      </div> <br>
 
-                     <span class="title_order">Endereço de entrega</span>
+                     <h2 class="title_order">Endereço de entrega</h2>
 
                      <div class="input_group">
                          <input type="number" placeholder="CEP" name="billing_postcode" id="billing_postcode">
@@ -74,9 +74,9 @@
                          <div class="input_group">
                              <input type="text" placeholder="Cidade" name="billing_city" id="billing_city">
                          </div>
- 
+
                          <div class="input_group">
-                             <input type="text" placeholder="Estado">
+                             <input type="text" placeholder="Estado"  name="billing_state" id="billing_state">
                          </div>
                      </div>
                      <div class="footer_button">

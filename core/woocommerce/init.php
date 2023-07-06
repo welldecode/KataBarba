@@ -29,6 +29,17 @@ function cart_script()
 
 add_action('wp_enqueue_scripts', 'cart_script',  99); 
 
+
+function checkout_script()
+{
+    wp_register_script('checkout',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/checkout.js', array('jquery'), '1.0', true);
+    wp_localize_script('checkout', 'checkout_obj', array(
+        'ajax_url' => admin_url("admin-ajax.php"),
+        'home_url' => home_url('/'),
+    ));wp_enqueue_script('checkout');
+}
+
+add_action('wp_enqueue_scripts', 'checkout_script',  99); 
 // put this in functions.php, it will produce code before the form
 add_action('woocommerce_before_checkout_form','show_cart_summary',9);
 
