@@ -77,3 +77,40 @@ h4 {
     font-weight: 600;
     border-radius: 6px;
 }
+
+.woocommerce_checkout_coupon {
+    display: none;
+}
+
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message {
+    padding: unset !important;
+    margin: unset !important;
+    position: relative;
+    background-color: unset !important;
+    color: #515151;
+    border-top: unset !important;
+    width: unset !important;
+    word-wrap: unset;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.woocommerce-error::before,
+.woocommerce-info::before,
+.woocommerce-message::before {
+    font-family: WooCommerce;
+    content: "\e028";
+    display: inline-block;
+    position: relative !important;
+    top: unset !important;
+    left: 1.5em;
+}
+
+.woocommerce-error p {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: inherit;
+}
