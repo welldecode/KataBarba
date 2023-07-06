@@ -1,4 +1,7 @@
 .checkout {
+&_logo {
+    margin: 20px 0 20px 0;
+}
   &_content {
     height: 100vh;
     display: grid;
@@ -9,8 +12,7 @@
   }
   &_woocommerce {
     background-color: #fff;
-    display: flex;
-    justify-content: center;
+    display: flex; 
     flex-direction: column;
     padding: 2rem 0;
     gap: 25px;
