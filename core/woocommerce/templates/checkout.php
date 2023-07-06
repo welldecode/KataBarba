@@ -19,17 +19,23 @@
              <div class="checkout_woocommerce">
                  <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
 
-                 <ul class="breadcrumb">
-                     <li>Carrinho</li>
-                     <li>Informações & Frete</li>
-                     <li>Pagamento</li>
-                 </ul>
-
+                 <div class="progress-container">
+                     <div class="circle active">
+                         <div class="caption">Carrinho</div>
+                     </div>
+                     <div class="circle active">
+                         <div class="caption">Informações & Frete</div>
+                     </div>
+                     <div class="circle">
+                         <div class="caption">Pagamento</div>
+                     </div>
+                 </div>
                  <h2 class="title_order">Informações</h2>
+                 <?php 
+                 $address_fields = apply_filters('woocommerce_billing_fields', $address_fields);
+                 echo $address_fields;
+                 ?>
                  <form action="#" id="payment_order">
-
-                     <?php
-                        ?>
 
                      <div class="input_group">
                          <input type="email" placeholder="Seu E-mail">
@@ -47,7 +53,7 @@
                          </div>
 
                          <div class="input_group">
-                             <input type="number" placeholder="Telefone" name="billing_phone" id="billing_phone">
+                             <input type="tel" placeholder="Telefone" name="billing_phone" id="billing_phone" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}">
                          </div>
                      </div> <br>
 
@@ -76,12 +82,16 @@
                          </div>
 
                          <div class="input_group">
-                             <input type="text" placeholder="Estado"  name="billing_state" id="billing_state">
+                             <input type="text" placeholder="Estado" name="billing_state" id="billing_state">
                          </div>
                      </div>
                      <div class="footer_button">
-                         <a href="#">Voltar ao Carrinho</a>
-                         <a href="#">Ir para Pagamento</a>
+
+                         <a href="<?php echo wc_get_cart_url(); ?>">Voltar ao Carrinho</a> 
+                         <div class="btn_steps">
+                             <button class="btn" id="prev" disabled>Anterior</button>
+                             <button class="btn" id="next">Ir para Pagamento</button>
+                         </div>
                      </div>
                  </form>
              </div>
@@ -122,6 +132,7 @@
 
                      <div class="cupom_content">
                          <h1>Tem um cupom de desconto?</h1>
+                         
                          <div class="input_cupom">
                              <input type="text" placeholder="cartão-presente ou código de desconto">
                              <a href="#">Aplicar</a>

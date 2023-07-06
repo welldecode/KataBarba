@@ -1,60 +1,76 @@
-var inputsCEP = $('#billing_address_1, #billing_neighborhood, #billing_city, #billing_state');
-var inputsRUA = $('#billing_postcode, #billing_neighborhood');
-var validacep = /^[0-9]{8}$/;
+(function(){
 
-function limpa_formulário_cep(alerta) {
-  if (alerta !== undefined) {
-    alert(alerta);
-  }
-
-  inputsCEP.val('');
-}
-
-function get(url) {
-
-  $.get(url, function(data) {
-
-    if (!("erro" in data)) {
-
-      if (Object.prototype.toString.call(data) === '[object Array]') {
-        var data = data[0];
-      }
-
-      $.each(data, function(nome, info) {
-        $('#' + nome).val(nome === 'billing_postcode' ? info.replace(/\D/g, '') : info).attr('info', nome === 'billing_postcode' ? info.replace(/\D/g, '') : info);
+	const cep = document.querySelector("input[name=billing_postcode]");
+  
+  cep.addEventListener('blur', e=> {
+  		const value = cep.value.replace(/[^0-9]+/, '');
+      const url = `https://viacep.com.br/ws/${value}/json/`;
+       
+      fetch(url)
+      .then( response => response.json())
+      .then( json => {
+      		
+      console.log(json)
+          if( json.logradouro ) {
+          	document.querySelector('input[name=billing_address_1]').value = json.logradouro;
+            document.querySelector('input[name=billing_neighborhood]').value = json.bairro;
+            document.querySelector('input[name=billing_city]').value = json.localidade; 
+            document.querySelector('input[name=billing_state]').value = json.uf; 
+          }
+      
       });
+      
+      
+  });  
+})();
+const tel = document.getElementById('billing_phone') // Seletor do campo de telefone
 
+tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
+tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
 
-
-    } else {
-      limpa_formulário_cep("CEP não encontrado.");
-    }
-
-  });
+const mascaraTelefone = (valor) => {
+    valor = valor.replace(/\D/g, "")
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+    tel.value = valor // Insere o(s) valor(es) no campo
 }
 
-// Digitando RUA/CIDADE/UF
-$('#billing_address_1, #billing_city, #billing_state').on('blur', function(e) {
+const progress = document.getElementById("progress");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const cricles = document.querySelectorAll(".circle");
 
-  if ($('#billing_address_1').val() !== '' && $('#billing_address_1').val() !== $('#billing_address_1').attr('info') && $('#billing_city').val() !== '' && $('#billing_city').val() !== $('#billing_city').attr('info') && $('#billing_state').val() !== '' && $('#billing_state').val() !== $('#billing_state').attr('info')) {
+let currentActive = 1;
 
-    inputsRUA.val('...');
-    get('https://viacep.com.br/ws/' + $('#billing_state').val() + '/' + $('#billing_city').val() + '/' + $('#billing_address_1').val() + '/json/');
+next.addEventListener("click", () => {
+  if (currentActive < cricles.length) {
+    currentActive++;
   }
-
+  update();
 });
 
-// Digitando CEP
-$('#billing_postcode').on('blur', function(e) {
+prev.addEventListener("click", () => {
+  if (currentActive > 1) {
+    currentActive--;
+  }
+  update();
+});
 
-  var cep = $('#billing_postcode').val().replace(/\D/g, '');
-
-  if (cep !== "" && validacep.test(cep)) {
-
-    inputsCEP.val('...');
-    get('https://viacep.com.br/ws/' + cep + '/json/');
-
+function update() {
+  cricles.forEach((circle, idx) => {
+    if (idx < currentActive) {
+      circle.classList.add("active");
+    } else {
+      circle.classList.remove("active");
+    }
+  });
+  
+  if (currentActive === 1) {
+    prev.disabled = true;
+  } else if (currentActive === cricles.length) {
+    next.disabled = true;
   } else {
-    limpa_formulário_cep(cep == "" ? undefined : "Formato de CEP inválido.");
+    prev.disabled = false;
+    next.disabled = false;
   }
-});
+}
