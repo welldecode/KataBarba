@@ -1,11 +1,4 @@
-<?php
-/**
- * This template is used for Woocommerce single product view
- *
- * @package Standard Woocommerce
- * @since 1.0
- */
-?>
+ 
 <?php get_header(); ?>
 <?php $presentation_options = get_option( 'standard_theme_presentation_options' ); ?>
 <?php global $post, $woocommerce; ?>
