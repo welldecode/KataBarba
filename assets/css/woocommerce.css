@@ -79,7 +79,7 @@ h4 {
 }
 
 .woocommerce_checkout_coupon {
-    display: none;
+    display: none !important;
 }
 
 .woocommerce-error,
