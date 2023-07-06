@@ -1,7 +1,4 @@
 .checkout {
-&_logo {
-    margin: 20px 0 20px 0;
-}
   &_content {
     height: 100vh;
     display: grid;
@@ -12,7 +9,8 @@
   }
   &_woocommerce {
     background-color: #fff;
-    display: flex; 
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     padding: 2rem 0;
     gap: 25px;
@@ -246,58 +244,4 @@
     }
   }
 } 
-
-
-.progress-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  position: relative; 
-}
-.circle { 
-  color: #6f6f6f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.4s ease;
-}
-
-.circle.active {  
-  color:$hover-color;; 
-}
  
-.circle .caption {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.btn {
-  background: $primary-color;
-  color: #fff;
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 8px 30px;
-  margin: 5px;
-}
-
-.btn:active {
-  transform: scale(0.9);
-}
-
-.btn:focus {
-  outline: 0;
-}
-
-.btn:disabled {
-  background-color: #28282b;
-  cursor: not-allowed;
-}
-
-@media only screen and (max-width: 400px) {
-  .container {
-    width: 85%;
-  } 
-}
