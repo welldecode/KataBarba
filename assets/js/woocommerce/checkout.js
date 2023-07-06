@@ -12,10 +12,8 @@
       		
       console.log(json)
           if( json.logradouro ) {
-          	document.querySelector('input[name=billing_address_1]').value = json.logradouro;
-            document.querySelector('input[name=billing_neighborhood]').value = json.bairro;
-            document.querySelector('input[name=billing_city]').value = json.localidade; 
-            document.querySelector('input[name=billing_state]').value = json.uf; 
+          	document.querySelector('input[name=billing_address_1]').value = json.logradouro; 
+            document.querySelector('input[name=billing_city]').value = json.localidade;  
           }
       
       });
@@ -35,42 +33,3 @@ const mascaraTelefone = (valor) => {
     tel.value = valor // Insere o(s) valor(es) no campo
 }
 
-const progress = document.getElementById("progress");
-const prev = document.getElementById("prev");
-const next = document.getElementById("next");
-const cricles = document.querySelectorAll(".circle");
-
-let currentActive = 1;
-
-next.addEventListener("click", () => {
-  if (currentActive < cricles.length) {
-    currentActive++;
-  }
-  update();
-});
-
-prev.addEventListener("click", () => {
-  if (currentActive > 1) {
-    currentActive--;
-  }
-  update();
-});
-
-function update() {
-  cricles.forEach((circle, idx) => {
-    if (idx < currentActive) {
-      circle.classList.add("active");
-    } else {
-      circle.classList.remove("active");
-    }
-  });
-  
-  if (currentActive === 1) {
-    prev.disabled = true;
-  } else if (currentActive === cricles.length) {
-    next.disabled = true;
-  } else {
-    prev.disabled = false;
-    next.disabled = false;
-  }
-}

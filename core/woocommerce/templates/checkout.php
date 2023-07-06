@@ -7,6 +7,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <title><?= site_title(); ?></title>
+     <link rel="stylesheet" href="<?php echo THEME_URI ?>/assets/css/woocommerce.css">
 
      <!--- WP HEAD --->
      <?php wp_head(); ?>
@@ -18,82 +19,11 @@
          <div class="checkout_content container">
              <div class="checkout_woocommerce">
                  <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
-
-                 <div class="progress-container">
-                     <div class="circle active">
-                         <div class="caption">Carrinho</div>
-                     </div>
-                     <div class="circle active">
-                         <div class="caption">Informações & Frete</div>
-                     </div>
-                     <div class="circle">
-                         <div class="caption">Pagamento</div>
-                     </div>
-                 </div>
-                 <h2 class="title_order">Informações</h2>
+ 
                  <?php 
-                 $address_fields = apply_filters('woocommerce_billing_fields', $address_fields);
-                 echo $address_fields;
+                 echo do_shortcode( '[woocommerce_checkout]');
                  ?>
-                 <form action="#" id="payment_order">
-
-                     <div class="input_group">
-                         <input type="email" placeholder="Seu E-mail">
-                     </div>
-                     <div class="input_list_group">
-                         <div class="input_group">
-                             <input type="text" placeholder="Nome" name="billing_first_name" id="billing_first_name">
-                         </div>
-                         <div class="input_group">
-                             <input type="email" placeholder="Sobrenome" name="billing_last_name" id="billing_last_name">
-                         </div>
-
-                         <div class="input_group">
-                             <input type="email" placeholder="CPF" name="billing_cpf" id="billing_cpf">
-                         </div>
-
-                         <div class="input_group">
-                             <input type="tel" placeholder="Telefone" name="billing_phone" id="billing_phone" maxlength="15" pattern="\(\d{2}\)\s*\d{5}-\d{4}">
-                         </div>
-                     </div> <br>
-
-                     <h2 class="title_order">Endereço de entrega</h2>
-
-                     <div class="input_group">
-                         <input type="number" placeholder="CEP" name="billing_postcode" id="billing_postcode">
-                     </div>
-                     <div class="input_list_group">
-                         <div class="input_group" style="width: 67%;">
-                             <input type="text" placeholder="Endereço" name="billing_address_1" id="billing_address_1">
-                         </div>
-                         <div class="input_group" style="width: 30%;">
-                             <input type="number" placeholder="Numero" name="billing_number" id="billing_number">
-                         </div>
-
-                         <div class="input_group" style="width: 52%;">
-                             <input type="text" placeholder="Bairro" name="billing_neighborhood" id="billing_neighborhood">
-                         </div>
-
-                         <div class="input_group" style="width: 45%;">
-                             <input type="text" placeholder="Complemento" name="billing_address_2" id="billing_address_2">
-                         </div>
-                         <div class="input_group">
-                             <input type="text" placeholder="Cidade" name="billing_city" id="billing_city">
-                         </div>
-
-                         <div class="input_group">
-                             <input type="text" placeholder="Estado" name="billing_state" id="billing_state">
-                         </div>
-                     </div>
-                     <div class="footer_button">
-
-                         <a href="<?php echo wc_get_cart_url(); ?>">Voltar ao Carrinho</a> 
-                         <div class="btn_steps">
-                             <button class="btn" id="prev" disabled>Anterior</button>
-                             <button class="btn" id="next">Ir para Pagamento</button>
-                         </div>
-                     </div>
-                 </form>
+             
              </div>
              <div class="checkout_items">
                  <div class="checkout_items_content">
@@ -161,49 +91,7 @@
          </div>
      </section>
  </main>
-
- <div id="payment">
-     <ul class="payment_methods methods">
-         <?php
-            if ($available_gateways = WC()->payment_gateways->get_available_payment_gateways()) {
-                // Chosen Method
-                if (sizeof($available_gateways)) {
-                    current($available_gateways)->set_current();
-                }
-
-                foreach ($available_gateways as $gateway) {
-            ?>
-                 <li class="payment_method_<?php echo $gateway->id; ?>">
-                     <input id="payment_method_<?php echo $gateway->id; ?>" type="radio" class="input-radio" name="payment_method" value="<?php echo esc_attr($gateway->id); ?>" <?php checked($gateway->chosen, true); ?> data-order_button_text="<?php echo esc_attr($gateway->order_button_text); ?>" />
-                     <label for="payment_method_<?php echo $gateway->id; ?>"><?php echo $gateway->get_title(); ?> <?php echo $gateway->get_icon(); ?></label>
-                     <?php
-                        if ($gateway->has_fields() || $gateway->get_description()) {
-                            echo '<div class="payment_box payment_method_' . $gateway->id . '" style="display:none;">';
-                            $gateway->payment_fields();
-                            echo '</div>';
-                        }
-                        ?>
-                 </li>
-         <?php
-                }
-            } else {
-
-                echo '<p>' . __('Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce') . '</p>';
-            }
-            ?>
-     </ul>
-
-     <div class="form-row">
-         <?php wp_nonce_field('woocommerce-pay'); ?>
-         <?php
-            $pay_order_button_text = apply_filters('woocommerce_pay_order_button_text', __('Pay for order', 'woocommerce'));
-
-            echo apply_filters('woocommerce_pay_order_button_html', '<input type="submit" class="button alt" id="place_order" value="' . esc_attr($pay_order_button_text) . '" data-value="' . esc_attr($pay_order_button_text) . '" />');
-            ?>
-         <input type="hidden" name="woocommerce_pay" value="1" />
-     </div>
-
- </div>
+ 
  <script>
      const base_url = '<?php echo get_site_url(); ?>';
  </script>
