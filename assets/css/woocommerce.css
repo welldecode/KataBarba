@@ -138,6 +138,36 @@ thead {
     display: none;
 }
 
+tfoot {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
 .cart_item {
     display: none;
+}
+
+th {
+    font-family: 'new-spirit';
+    color: #28282B;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+tr.cart-subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+bdi {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Poppins';
+}.woocommerce-shipping-totals.shipping {
+    display: flex;
+    flex-direction: column;
+}tr.order-total {
+    display: flex;
+    justify-content: space-between;
 }
