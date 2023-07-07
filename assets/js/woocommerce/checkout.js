@@ -1,36 +1,50 @@
-(function(){
+(function () {
+  const cep = document.querySelector("input[name=billing_postcode]");
 
-	const cep = document.querySelector("input[name=billing_postcode]");
-  
-  cep.addEventListener('blur', e=> {
-  		const value = cep.value.replace(/[^0-9]+/, '');
-      const url = `https://viacep.com.br/ws/${value}/json/`;
-       
-      fetch(url)
-      .then( response => response.json())
-      .then( json => {
-      		
-      console.log(json)
-          if( json.logradouro ) {
-          	document.querySelector('input[name=billing_address_1]').value = json.logradouro;
-            document.querySelector('input[name=billing_neighborhood]').value = json.bairro;
-            document.querySelector('input[name=billing_city]').value = json.localidade;  
-          }
-      
+  cep.addEventListener("blur", (e) => {
+    const value = cep.value.replace(/[^0-9]+/, "");
+    const url = `https://viacep.com.br/ws/${value}/json/`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        if (json.logradouro) {
+          document.querySelector("input[name=billing_address_1]").value =
+            json.logradouro;
+          document.querySelector("input[name=billing_neighborhood]").value =
+            json.bairro;
+          document.querySelector("input[name=billing_city]").value =
+            json.localidade;
+        }
       });
-      
-      
-  });  
+  });
 })();
-const tel = document.getElementById('billing_phone') // Seletor do campo de telefone
+const tel = document.getElementById("billing_phone"); // Seletor do campo de telefone
 
-tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
-tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
+tel.addEventListener("keypress", (e) => mascaraTelefone(e.target.value)); // Dispara quando digitado no campo
+tel.addEventListener("change", (e) => mascaraTelefone(e.target.value)); // Dispara quando autocompletado o campo
 
 const mascaraTelefone = (valor) => {
-    valor = valor.replace(/\D/g, "")
-    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
-    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
-    tel.value = valor // Insere o(s) valor(es) no campo
-}
+  valor = valor.replace(/\D/g, "");
+  valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2");
+  valor = valor.replace(/(\d)(\d{4})$/, "$1-$2");
+  tel.value = valor; // Insere o(s) valor(es) no campo
+};
 
+$(document).ready(function() {
+  var ckbox = $("input[name='shipping_method']");
+  var chkId = '';
+  $('input').on('click', function() {
+    
+    if (ckbox.is(':checked')) {
+      $("input[name='shipping_method']:checked").each ( function() {
+   			chkId = $(this).val() + ",";
+        chkId = chkId.slice(0, -1);
+ 	  });
+       
+       alert ( $(this).val() ); // return all values of checkboxes checked
+       alert(chkId); // return value of checkbox checked
+    }     
+  });
+});
