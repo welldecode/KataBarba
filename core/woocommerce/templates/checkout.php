@@ -65,7 +65,6 @@
                              <a href="#">Aplicar</a>
                          </div>
                      </div>
-
                      <hr>
                      <div class="price_total">
                          <div class="left_price">
