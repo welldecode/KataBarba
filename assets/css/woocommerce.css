@@ -170,8 +170,8 @@ tr.order-total {
 }
 
 bdi {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     font-family: 'Poppins';
 }
 
@@ -240,4 +240,20 @@ button#place_order {
 
 button#place_order:hover {
     background-color: #bc6626;
+}
+
+.woocommerce ul#shipping_method li input {
+    margin: unset !important;
+    vertical-align: unset !important;
+}
+
+.woocommerce ul#shipping_method li {
+    margin: unset !important;
+    line-height: unset !important;
+    list-style: none outside;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 14px;
+    font-weight: 500;
 }
