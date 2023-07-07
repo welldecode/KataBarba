@@ -228,3 +228,16 @@ tr.cart-subtotal {
     text-align: justify;
     margin: 0 0 34px 0;
 }
+
+button#place_order {
+    margin-top: 2rem;
+    background: #28272c;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    transition: all .4s;
+}
+
+button#place_order:hover {
+    background-color: #bc6626;
+}
