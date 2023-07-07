@@ -27,7 +27,7 @@ function woocommerce_block_styles()
 }
 add_action('wp_enqueue_scripts', 'woocommerce_block_styles');
 
-if (is_page('finalizar-compmra')) {
+if (!is_page('finalizar-compra')) {
     function cart_script()
     {
         wp_register_script('js',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/cart.js', array('jquery'), '1.0', true);
@@ -39,6 +39,7 @@ if (is_page('finalizar-compmra')) {
     } 
 add_action('wp_enqueue_scripts', 'cart_script',  99); 
 }
+if (is_page('finalizar-compra')) {
 function checkout_script()
 {
     wp_register_script('checkout',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/checkout.js', array('jquery'), '1.0', true);
@@ -47,8 +48,7 @@ function checkout_script()
         'home_url' => home_url('/'),
     ));
     wp_enqueue_script('checkout');
-}
-
+} 
 add_action('wp_enqueue_scripts', 'checkout_script',  99);
-
+}
 require get_parent_theme_file_path('core/woocommerce/cart/cart.php');
