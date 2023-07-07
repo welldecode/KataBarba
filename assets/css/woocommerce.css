@@ -155,13 +155,11 @@ table {
     width: 100%;
 }
 
-th {
-    font-family: 'new-spirit';
+th { 
     color: #28282B;
     font-weight: 700;
-    font-size: 20px;
-    text-align: left;
-    margin-bottom: 15px;
+    font-size:16px;
+    text-align: left; 
 }
 
 tr.order-total {
