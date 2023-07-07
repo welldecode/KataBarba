@@ -144,14 +144,17 @@ tfoot {
     gap: 30px;
     width: 100%;
 }
+
 .cart_item {
     display: none;
 }
-table { 
+
+table {
     padding: 0;
     margin: 0;
     width: 100%;
 }
+
 th {
     font-family: 'new-spirit';
     color: #28282B;
@@ -160,6 +163,7 @@ th {
     text-align: left;
     margin-bottom: 15px;
 }
+
 tr.order-total {
     display: none;
     justify-content: space-between;
@@ -169,10 +173,43 @@ bdi {
     font-size: 20px;
     font-weight: 600;
     font-family: 'Poppins';
-}.woocommerce-shipping-totals.shipping {
+}
+
+.woocommerce-shipping-totals.shipping {
     display: flex;
     flex-direction: column;
-}tr.cart-subtotal {
+}
+
+tr.cart-subtotal {
     display: none;
     justify-content: space-between;
+}
+
+
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+    background: #fff !important;
+}
+
+#add_payment_method #payment ul.payment_methods,
+.woocommerce-cart #payment ul.payment_methods,
+.woocommerce-checkout #payment ul.payment_methods {
+    text-align: left;
+    padding: unset !important;
+    border-bottom: unset !important;
+    margin: 0;
+    list-style: none outside;
+}
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
+    position: relative;
+    box-sizing: border-box;
+ width: 100%; 
+ padding: unset !important; 
+    margin: 1em 0;
+ font-size: unset !important; 
+  border-radius:unset !important;  
+     line-height: 1.5 !important;  
+     background-color:unset !important;  
+    color: #515151;
 }
