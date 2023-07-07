@@ -69,10 +69,12 @@
                      <hr>
                      <div class="price_total">
                          <div class="left_price">
-                             <div class="col-1">
-                                 <span>SubTotal</span>
-                                 <span>R$ <?php echo WC()->cart->get_subtotal(); ?></span>
-                             </div>
+
+                             <tr class="cart-subtotal">
+                                 <th><?php _e('Subtotal', 'woocommerce'); ?></th>
+                                 <td><?php wc_cart_totals_subtotal_html(); ?></td>
+                             </tr>
+
                              <div class="col-1">
                                  <div id="order_review" class="woocommerce-checkout-review-order wpmc-review-thumbnails">
                                      <table class="shop_table woocommerce-checkout-review-order-table" style="position: static; zoom: 1;">
@@ -80,13 +82,9 @@
                                          <tbody>
                                          <tfoot>
                                              <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
-
-                                                 <?php do_action('woocommerce_review_order_before_shipping'); ?>
-
+ 
                                                  <?php wc_cart_totals_shipping_html(); ?>
-
-                                                 <?php do_action('woocommerce_review_order_after_shipping'); ?>
-
+ 
                                              <?php endif; ?>
 
                                              <tr class="order-total">
@@ -97,7 +95,7 @@
                                      </table>
 
                                  </div>
-                              
+
                              </div>
                          </div>
                      </div>
