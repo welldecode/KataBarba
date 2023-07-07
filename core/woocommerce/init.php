@@ -36,10 +36,10 @@ if (!is_page('finalizar-compra')) {
             'home_url' => home_url('/'),
         ));
         wp_enqueue_script('js');
-    }
-    add_action('wp_enqueue_scripts', 'cart_script',  99);
+    } 
 }
-if (!is_page('finalizar-compra')) {
+add_action('wp_enqueue_scripts', 'cart_script',  99);
+if (is_page('finalizar-compra')) {
     function checkout_script()
     {
         wp_register_script('checkout',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/checkout.js', array('jquery'), '1.0', true);
