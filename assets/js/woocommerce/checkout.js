@@ -32,19 +32,20 @@ const mascaraTelefone = (valor) => {
   tel.value = valor; // Insere o(s) valor(es) no campo
 };
 
-$(document).ready(function() {
-  var ckbox = $("input[class='shipping_method']");
-  var chkId = '';
-  $('input').on('click', function() {
-    
-    if (ckbox.is(':checked')) {
-      $("input[class='shipping_method']:checked").each ( function() {
-   			chkId = $(this).val() + ",";
-        chkId = chkId.slice(0, -1);
- 	  });
-       
-       alert ( $(this).val() ); // return all values of checkboxes checked
-       alert(chkId); // return value of checkbox checked
-    }     
+$(document).ready(function () {
+  const input = document.querySelectorAll("#shipping_method li");
+  input.forEach((val, i) => {
+
+    const cep = val.querySelector("input"); 
+    if ($(cep).is(":checked")) {  
+      const label = val.querySelector("label");
+      $(".frete").html(label);  
+    } else { 
+      $(`#${cep.id}`).click(function(e) {
+  
+        console.log(e);
+        $(".frete").html(label);
+      }) 
+    } 
   });
 });

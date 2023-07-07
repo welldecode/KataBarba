@@ -17,7 +17,7 @@
      <section class="checkout">
          <div class="checkout_content container">
              <div class="checkout_woocommerce">
-                 <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div> 
+                 <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
                  <?php echo do_shortcode('[woocommerce_checkout]'); ?>
              </div>
              <div class="checkout_items">
@@ -71,15 +71,15 @@
                                  <span>R$ <?php echo WC()->cart->get_subtotal(); ?></span>
                              </div>
                              <div class="col-1">
-
-                                 <span>Frete</span>
-                                 <span>R$ <?php echo WC()->cart->get_subtotal_tax(); ?></span>
+                                 <span>Frete <div class="frete"></div></span>
                              </div>
                          </div>
                      </div>
                      <hr>
                      <div class="total_order">
-                         <?php echo WC()->cart->get_cart_subtotal(); ?>
+                         Total
+                         <span>
+                             <?php echo wc_cart_totals_order_total_html(); ?></span>
                      </div>
                  </div>
              </div>

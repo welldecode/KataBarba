@@ -48,8 +48,8 @@
                             <span>Digite seu Cupom</span>
                             <div class="input_group">
                                 <?php
-                                $applied_coupons = WC()->cart->get_applied_coupons(); 
-                                if (sizeof($applied_coupons) > 0) { 
+                                $applied_coupons = WC()->cart->get_applied_coupons();
+                                if (sizeof($applied_coupons) > 0) {
                                     foreach ($applied_coupons as $coupon_code) {
                                 ?>
                                         <input type="text" id="coupon_code_valid" value="<?php echo $coupon_code ?>" placeholder="Digite seu cupom.">
@@ -58,7 +58,7 @@
                                     }
                                 } else { ?>
                                     <input type="text" id="coupon_code" placeholder="Digite seu cupom.">
-                                    <div class="remove_coupon" style="display: none"> <img src="<?= THEME_URI ?>/assets/img/icons/close-circle-line.svg" alt=""></div> 
+                                    <div class="remove_coupon" style="display: none"> <img src="<?= THEME_URI ?>/assets/img/icons/close-circle-line.svg" alt=""></div>
                                 <?php } ?>
                                 <div class="apply_cupom" type="submit" id="apply_coupon">Aplicar</div>
                             </div>
