@@ -147,7 +147,11 @@ tfoot {
 .cart_item {
     display: none;
 }
-
+table { 
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
 th {
     font-family: 'new-spirit';
     color: #28282B;
