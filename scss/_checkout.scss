@@ -14,34 +14,7 @@
     padding: 2rem 0;
     gap: 25px;
 
-    .thwmscf-tabs {
-      display: flex;
-      gap: 15px;
-    }
-    .thwmscf-tabs li a {
-      padding: unset !important;
-      display: block;
-      outline: none;
-      font-size: 16px;
-      background-color: transparent !important;
-      border: 0 !important;
-      color: $primary-color;
-
-      &.active {
-        background-color: transparent !important;
-        color: $primary-color !important;
-      }
-    }
-    .breadcrumb {
-      display: flex;
-      gap: 12px;
-
-      li {
-        font-size: 16px;
-        color: #6f6f6f;
-        font-weight: 400;
-      }
-    }
+  
     .title_order {
       color: #6f6f6f;
       font-size: 16px;
