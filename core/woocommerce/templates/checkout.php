@@ -17,10 +17,8 @@
      <section class="checkout">
          <div class="checkout_content container">
              <div class="checkout_woocommerce">
-                 <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
-
+                 <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div> 
                  <?php echo do_shortcode('[woocommerce_checkout]'); ?>
- <?php echo do_shortcode('[calculadora_melhor_envio product_id="14"]');?>
              </div>
              <div class="checkout_items">
                  <div class="checkout_items_content">
@@ -73,7 +71,7 @@
                                  <span>R$ <?php echo WC()->cart->get_subtotal(); ?></span>
                              </div>
                              <div class="col-1">
-                                
+
                                  <span>Frete</span>
                                  <span>R$ <?php echo WC()->cart->get_subtotal_tax(); ?></span>
                              </div>
