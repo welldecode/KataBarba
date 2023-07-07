@@ -69,19 +69,17 @@
                      <div class="price_total">
                          <div class="left_price"> 
                              <div class="col-1">
-                                 <div id="order_review" class="woocommerce-checkout-review-order wpmc-review-thumbnails">
-                                     <table class="shop_table woocommerce-checkout-review-order-table" style="position: static; zoom: 1;"> 
-                                          
-                                         <tfoot>
-                                         
-                                             <tr class="order-total">
-                                                 <th><?php _e('Total', 'woocommerce'); ?></th>
-                                                 <td><?php wc_cart_totals_order_total_html(); ?></td>
-                                             </tr>
-                                         </tfoot>
-                                     </table>
+                                 
+		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
-                                 </div>
+<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+
+<?php wc_cart_totals_shipping_html(); ?>
+
+<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+
+<?php endif; ?>
+
 
                              </div>
                          </div>
