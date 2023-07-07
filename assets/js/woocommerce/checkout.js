@@ -33,12 +33,12 @@ const mascaraTelefone = (valor) => {
 };
 
 $(document).ready(function() {
-  var ckbox = $("input[name='shipping_method']");
+  var ckbox = $("input[class='shipping_method']");
   var chkId = '';
   $('input').on('click', function() {
     
     if (ckbox.is(':checked')) {
-      $("input[name='shipping_method']:checked").each ( function() {
+      $("input[class='shipping_method']:checked").each ( function() {
    			chkId = $(this).val() + ",";
         chkId = chkId.slice(0, -1);
  	  });
