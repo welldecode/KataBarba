@@ -112,12 +112,14 @@
     }
 
     &_content { 
-      position: relative;
+  
+      position: sticky;
       z-index: 12;
       padding: 10rem 0 0 3rem;
       display: flex;
       flex-direction: column;
-      gap: 30px; 
+      gap: 30px;
+      top: 10px; 
       hr {
       }
       .info_item {
