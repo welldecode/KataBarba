@@ -160,9 +160,8 @@ th {
     text-align: left;
     margin-bottom: 15px;
 }
-
-tr.cart-subtotal {
-    display: flex;
+tr.order-total {
+    display: none;
     justify-content: space-between;
 }
 
@@ -173,7 +172,7 @@ bdi {
 }.woocommerce-shipping-totals.shipping {
     display: flex;
     flex-direction: column;
-}tr.order-total {
-    display: flex;
+}tr.cart-subtotal {
+    display: none;
     justify-content: space-between;
 }
