@@ -36,7 +36,7 @@ $(document).ready(function () {
   const input = document.querySelectorAll("#shipping_method li");
   input.forEach((val, i) => {
 
-    const cep = val.querySelector("input"); 
+    const cep = val.querySelector('input[name^="shipping_method"]'); 
     if ($(cep).is(":checked")) {  
       const label = val.querySelector("label");
       $(".frete").html(label);  
