@@ -73,12 +73,7 @@
                                      <table class="shop_table woocommerce-checkout-review-order-table" style="position: static; zoom: 1;"> 
                                           
                                          <tfoot>
-                                             <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
- 
-                                                 <?php wc_cart_totals_shipping_html(); ?>
- 
-                                             <?php endif; ?>
-
+                                         
                                              <tr class="order-total">
                                                  <th><?php _e('Total', 'woocommerce'); ?></th>
                                                  <td><?php wc_cart_totals_order_total_html(); ?></td>
