@@ -201,15 +201,22 @@ tr.cart-subtotal {
     margin: 0;
     list-style: none outside;
 }
-#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
     position: relative;
     box-sizing: border-box;
- width: 100%; 
- padding: unset !important; 
+    width: 100%;
+    padding: unset !important;
     margin: 1em 0;
- font-size: unset !important; 
-  border-radius:unset !important;  
-     line-height: 1.5 !important;  
-     background-color:unset !important;  
+    font-size: unset !important;
+    border-radius: unset !important;
+    line-height: 1.5 !important;
+    background-color: unset !important;
     color: #515151;
+}
+
+#add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before{
+    content: none !important;
 }
