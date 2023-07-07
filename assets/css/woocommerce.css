@@ -153,6 +153,8 @@ th {
     color: #28282B;
     font-weight: 700;
     font-size: 20px;
+    text-align: left;
+    margin-bottom: 15px;
 }
 
 tr.cart-subtotal {
