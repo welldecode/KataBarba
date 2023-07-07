@@ -19,7 +19,8 @@
              <div class="checkout_woocommerce">
                  <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
 
-                 <?php echo do_shortcode('[woocommerce_checkout]'); ?> 
+                 <?php echo do_shortcode('[woocommerce_checkout]'); ?>
+ <?php echo do_shortcode('[calculadora_melhor_envio product_id="14"]');?>
              </div>
              <div class="checkout_items">
                  <div class="checkout_items_content">
@@ -67,25 +68,22 @@
 
                      <hr>
                      <div class="price_total">
-                         <div class="left_price"> 
+                         <div class="left_price">
                              <div class="col-1">
-                                 
-		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
-
-<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
-
-<?php wc_cart_totals_shipping_html(); ?>
-
-<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
-
-<?php endif; ?>
-
-
+                                 <span>SubTotal</span>
+                                 <span>R$ <?php echo WC()->cart->get_subtotal(); ?></span>
+                             </div>
+                             <div class="col-1">
+                                
+                                 <span>Frete</span>
+                                 <span>R$ <?php echo WC()->cart->get_subtotal_tax(); ?></span>
                              </div>
                          </div>
                      </div>
                      <hr>
-                 
+                     <div class="total_order">
+                         <?php echo WC()->cart->get_cart_subtotal(); ?>
+                     </div>
                  </div>
              </div>
          </div>
