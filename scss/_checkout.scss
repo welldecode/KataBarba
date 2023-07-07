@@ -1,3 +1,4 @@
+ 
 .checkout {
   &_content {
     height: 100vh;
@@ -185,15 +186,23 @@
         }
       }
 
+    
       .price_total {
         .left_price {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           gap: 15px;
-          .col-1 { 
+          .col-1 {
+            display: flex;
+            justify-content: space-between;
             gap: 25px;
- 
+
+            span:first-child {
+              font-family: 'new-spirit';
+              font-weight: 600;
+              font-size: 20px;
+            }
             span {
               font-size: 20px;
               color: $text-color;
