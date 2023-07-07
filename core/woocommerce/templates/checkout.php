@@ -75,14 +75,8 @@
                              </div>
                              <div class="col-1">
 
-                                 <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
-
-                                     <?php do_action('woocommerce_review_order_before_shipping'); ?>
-
-                                     <?php wc_cart_totals_shipping_html(); ?>
-
-                                     <?php do_action('woocommerce_review_order_after_shipping'); ?>
-
+                                 <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?> 
+                                     <?php wc_cart_totals_shipping_html(); ?>  
                                  <?php endif; ?>
 
                                  <span>Frete</span>
@@ -92,7 +86,7 @@
                      </div>
                      <hr>
                      <div class="total_order">
-                         <?php echo WC()->cart->get_cart_subtotal(); ?>
+                     <?php wc_cart_totals_order_total_html(); ?>
                      </div>
                  </div>
              </div>
