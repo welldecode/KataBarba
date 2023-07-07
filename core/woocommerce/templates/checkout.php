@@ -79,15 +79,15 @@
 
                                          <tbody>
                                          <tfoot>
-                                         <?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+                                             <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
 
-<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+                                                 <?php do_action('woocommerce_review_order_before_shipping'); ?>
 
-<?php wc_cart_totals_shipping_html(); ?>
+                                                 <?php wc_cart_totals_shipping_html(); ?>
 
-<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+                                                 <?php do_action('woocommerce_review_order_after_shipping'); ?>
 
-<?php endif; ?>
+                                             <?php endif; ?>
 
                                              <tr class="order-total">
                                                  <th><?php _e('Total', 'woocommerce'); ?></th>
@@ -97,12 +97,7 @@
                                      </table>
 
                                  </div>
-                                 <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
-                                     <?php wc_cart_totals_shipping_html(); ?>
-                                 <?php endif; ?>
-
-                                 <span>Frete</span>
-                                 <span>R$ <?php echo WC()->cart->get_subtotal_tax(); ?></span>
+                              
                              </div>
                          </div>
                      </div>
