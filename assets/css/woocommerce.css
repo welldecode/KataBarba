@@ -104,13 +104,15 @@ h4 {
     width: unset !important;
     word-wrap: unset;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+ 
     gap: 15px;
 }
 
 .woocommerce-error::before,
 .woocommerce-info::before,
 .woocommerce-message::before {
+    content: none !important;
     display: inline-block;
     position: relative !important;
     top: unset !important;
