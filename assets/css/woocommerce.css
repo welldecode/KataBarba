@@ -204,7 +204,7 @@ bdi {
     box-sizing: border-box;
     width: 100%;
     padding: unset !important;
-    margin: 1em 0;
+    margin: 10px 0 0 0 !important;
     font-size: unset !important;
     border-radius: unset !important;
     line-height: 1.5 !important;
@@ -399,8 +399,7 @@ h3#payment_heading {
     text-align: left;
     margin: unset;
     font-weight: 500;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1px solid #C5C5C5; 
     padding: 10px;
 }
 
@@ -439,5 +438,15 @@ button#place_order {
     transition: all .4s;
     margin-left: ;
     position: absolute;
-    right: 0;
+    right: 0;   
+    bottom: 0;
+}
+.mp-checkout-ticket-container{
+    padding: unset !important;
+}.wpmc-tabs-wrapper { 
+     margin-bottom:unset;  
+    border-bottom: unset !important;
+}
+.mp-checkout-custom-container {
+    padding: unset !important;
 }
