@@ -48,4 +48,34 @@ function checkout_script()
     wp_enqueue_script('checkout');
 }
 add_action('wp_enqueue_scripts', 'checkout_script',  99);
+
+add_action('wp_head', 'custom_ajax_spinner', 1000 );
+function custom_ajax_spinner() {
+    ?>
+    <style>
+    .woocommerce .blockUI.blockOverlay:before,
+    .woocommerce .loader:before {
+        height: 3em;
+        width: 3em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -.5em;
+        margin-top: -.5em;
+        display: block;
+        content: "";
+        -webkit-animation: none;
+        -moz-animation: none;
+        animation: none;
+        background-image:url('<?php echo get_stylesheet_directory_uri() . "/assets/img/icons/my_spinner.gif"; ?>') !important;
+        background-position: center center;
+        background-size: cover;
+        line-height: 1;
+        text-align: center;
+        font-size: 2em;
+    }
+    </style>
+    <?php
+}
+
 require get_parent_theme_file_path('core/woocommerce/cart/cart.php');
