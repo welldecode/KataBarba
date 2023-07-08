@@ -1,26 +1,24 @@
- 
 .checkout {
   &_content {
     height: 100vh;
-  
-display: grid;
-grid-template-columns: 1.5fr 1fr;
-grid-template-rows: 1fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 0px;
 
     .checkout_logo {
       display: none;
     }
   }
-  &_woocommerce { 
+  &_woocommerce {
     background-color: #fff;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     padding: 2rem 0;
     gap: 25px;
 
-  
     .title_order {
       color: #6f6f6f;
       font-size: 16px;
@@ -78,27 +76,26 @@ grid-row-gap: 0px;
   }
   &_items {
     position: relative;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     &::before {
       content: '';
       background-color: #fcf3ec;
       position: absolute;
-      width: 100vw; 
+      width: 100vw;
       height: 100%;
       z-index: 1;
-      bottom: 0; 
+      bottom: 0;
     }
 
-    &_content { 
-  
+    &_content {
       position: sticky;
       z-index: 12;
       padding: 10rem 0 0 3rem;
       display: flex;
       flex-direction: column;
       gap: 30px;
-      top: 10px; 
+      top: 10px;
       hr {
       }
       .info_item {
@@ -191,7 +188,6 @@ grid-row-gap: 0px;
         }
       }
 
-    
       .price_total {
         .left_price {
           display: flex;
@@ -225,5 +221,8 @@ grid-row-gap: 0px;
       }
     }
   }
-} 
- 
+}
+
+.mp-checkout-custom-card-form .mp-checkout-custom-card-row {
+  padding-bottom: 10px !important;
+}
