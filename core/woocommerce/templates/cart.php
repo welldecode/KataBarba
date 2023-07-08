@@ -1,29 +1,35 @@
 <section class="cart_block_container">
-    <div class="cart_block_content">
+    <div class="cart_block_content <?php echo WC()->cart->get_cart_contents_count()  ? 'active' : '' ?>">
         <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
             <div class="title_header">
                 <h1>Carrinho de Compras</h1>
                 <div class="close-cart"><img src="<?= THEME_URI ?>/assets/img/woocommerce/close-circle-line.svg" alt="close_cart"></div>
-            </div> 
+            </div>
         </div>
         <div class="item_lists"></div>
         <div class="depoiments_clients">
             <section class="splide" aria-label="Splide Basic HTML Example">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide">
-                            <div class="item_slide">
-                                <div class="info_title">
-                                    <figure>
-                                        <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata">
-                                    </figure>
-                                    <span>Lorraine</span>
+                        <?php
+                        foreach ($editables['messages']['itens'] as $depoiments) :
+                        ?> 
+                            <li class="splide__slide">
+                                <div class="item_slide">
+                                    <div class="info_title">
+                                        <figure>
+                                            <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata">
+                                        </figure>
+                                        <span><?= $depoiments['title'] ?></span>
+                                    </div>
+                                    <p class="info_description">
+                                    <?= $depoiments['subtitle'] ?>
+                                    </p>
                                 </div>
-                                <p class="info_description">
-                                    Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, eu reclamis.Viva Forevis aptent taciti sociosqu ad litora torquent.Tá deprimidi.
-                                </p>
-                            </div>
-                        </li>
+                            </li> 
+                        <?php
+                        endforeach;
+                        ?>
                     </ul>
                 </div>
             </section>
@@ -54,7 +60,7 @@
                         </div>
                     </div>
                 </form>
-            <?php } ?> 
+            <?php } ?>
             <div class="msg_cart"></div>
         </div>
         <div class="footer_cart">
