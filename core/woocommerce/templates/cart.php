@@ -3,21 +3,10 @@
         <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
             <div class="title_header">
                 <h1>Carrinho de Compras</h1>
-                <div class="close-cart"> <img src="<?= THEME_URI ?>/assets/img/woocommerce/close-circle-line.svg" alt="close_cart"></div>
-            </div>
-
+                <div class="close-cart"><img src="<?= THEME_URI ?>/assets/img/woocommerce/close-circle-line.svg" alt="close_cart"></div>
+            </div> 
         </div>
-
-        <div class="msg_cart"></div>
-        <?php
-
-        global $woocommerce;
-        $items = $woocommerce->cart->get_cart();
-
-        ?>
-
         <div class="item_lists"></div>
-
         <div class="depoiments_clients">
             <section class="splide" aria-label="Splide Basic HTML Example">
                 <div class="splide__track">
@@ -65,14 +54,12 @@
                         </div>
                     </div>
                 </form>
-            <?php } ?>
+            <?php } ?> 
+            <div class="msg_cart"></div>
         </div>
         <div class="footer_cart">
-
-            <a href="<?php echo wc_get_checkout_url(); ?>" class="btn_continue">Finalizar Compra > <?= $woocommerce->cart->get_cart_total()  ?> BLR</a>
-
-            <a href="#" class="btn_cancel close-cart">Cancelar compra</a>
-
+            <a href="<?php echo wc_get_checkout_url(); ?>" class="btn_continue">Finalizar Compra > <?= WC()->cart->get_cart_total()  ?> BLR</a>
+            <div href="#" class="btn_cancel close-cart">Cancelar compra</div>
             <p>Taxas e envio calculados no final</p>
         </div>
 
