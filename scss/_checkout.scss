@@ -2,11 +2,12 @@
 .checkout {
   &_content {
     height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 25px;
-    grid-row-gap: 0px;
+  
+display: grid;
+grid-template-columns: 1.5fr 1fr;
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
 
     .checkout_logo {
       display: none;
