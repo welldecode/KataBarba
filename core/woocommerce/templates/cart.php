@@ -1,3 +1,4 @@
+<?php $editables = get_itens('editables'); ?>
 <section class="cart_block_container">
     <div class="cart_block_content <?php echo WC()->cart->get_cart_contents_count()  ? 'active' : '' ?>">
         <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
@@ -13,7 +14,7 @@
                     <ul class="splide__list">
                         <?php
                         foreach ($editables['messages']['itens'] as $depoiments) :
-                        ?> 
+                        ?>
                             <li class="splide__slide">
                                 <div class="item_slide">
                                     <div class="info_title">
@@ -23,10 +24,10 @@
                                         <span><?= $depoiments['title'] ?></span>
                                     </div>
                                     <p class="info_description">
-                                    <?= $depoiments['subtitle'] ?>
+                                        <?= $depoiments['subtitle'] ?>
                                     </p>
                                 </div>
-                            </li> 
+                            </li>
                         <?php
                         endforeach;
                         ?>
@@ -34,7 +35,6 @@
                 </div>
             </section>
         </div>
-
         <div class="cart-price">
             <?php if (wc_coupons_enabled()) { ?>
                 <form action="#">
@@ -68,6 +68,5 @@
             <div href="#" class="btn_cancel close-cart">Cancelar compra</div>
             <p>Taxas e envio calculados no final</p>
         </div>
-
     </div>
 </section>
