@@ -411,3 +411,21 @@ h3#payment_heading {
 .woocommerce-terms-and-conditions-wrapper {
     display: none;
 }
+
+.payment_method_woo-mercado-pago-pix {
+    border-radius: 0 0 10px 10px !important;
+}
+
+.payment_method_woo-mercado-pago-custom {
+    border-radius: 10px 10px 0 0;
+}
+
+button#wpmc-prev {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+.woocommerce {
+    position: relative;
+}
