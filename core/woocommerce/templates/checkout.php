@@ -22,65 +22,7 @@
              </div>
              <div class="checkout_items">
                  <div class="checkout_items_content">
-
-                     <?php
-                        global $woocommerce;
-                        $items = $woocommerce->cart->get_cart();
-
-                        foreach ($items as $item => $values) {
-                            $_product = wc_get_product($values['data']->get_id());
-                        ?>
-
-                         <div class="info_item">
-                             <figure>
-                                 <?php
-                                    $getProductDetail = wc_get_product($values['product_id']);
-                                    echo $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
-                                    ?>
-                                 <div class="quantity">3</div>
-                             </figure>
-                             <div class="info">
-                                 <div class="info_title">
-                                     <h2><?php echo $_product->get_title(); ?></h2>
-                                     <span>Descrição</span>
-                                 </div>
-                                 <div class="sub_total">
-                                     <span> R$ <?php echo WC()->cart->get_subtotal(); ?> </span>
-                                 </div>
-
-                             </div>
-                         </div>
-                     <?php
-                        }
-                        ?>
-                     <hr>
-
-                     <div class="cupom_content">
-                         <h1>Tem um cupom de desconto?</h1>
-
-                         <div class="input_cupom">
-                             <input type="text" placeholder="cartão-presente ou código de desconto">
-                             <a href="#">Aplicar</a>
-                         </div>
-                     </div>
-                     <hr>
-                     <div class="price_total">
-                         <div class="left_price">
-                             <div class="col-1">
-                                 <span>SubTotal</span>
-                                 <span>R$ <?php echo WC()->cart->get_subtotal(); ?></span>
-                             </div>
-                             <div class="col-1">
-                                 <span>Frete <div class="frete"></div></span>
-                             </div>
-                         </div>
-                     </div>
-                     <hr>
-                     <div class="total_order">
-                         Total
-                         <span>
-                             <?php echo wc_cart_totals_order_total_html(); ?></span>
-                     </div>
+                     <table class="shop_table woocommerce-checkout-review-order-table"></table>
                  </div>
              </div>
          </div>

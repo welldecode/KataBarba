@@ -7,6 +7,10 @@
     grid-template-rows: 1fr;
     grid-column-gap: 25px;
     grid-row-gap: 0px;
+
+    .checkout_logo {
+      display: none;
+    }
   }
   &_woocommerce {
     background-color: #fff;

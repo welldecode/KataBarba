@@ -37,14 +37,13 @@ $(document).ready(function () {
   input.forEach((val, i) => {
 
     const cep = val.querySelector('input[name^="shipping_method"]'); 
+   
     if ($(cep).is(":checked")) {  
       const label = val.querySelector("label");
       $(".frete").html(label);  
-    } else { 
-      $(`#${cep.id}`).click(function(e) {
-  
-        console.log(e);
-        $(".frete").html(label);
+    } else {  
+      $(cep).on('change', function() {  
+        console.log(cep); 
       }) 
     } 
   });
