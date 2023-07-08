@@ -43,10 +43,9 @@
         right: 3rem;
         -webkit-animation: 10s linear infinite rotate;
         animation: 10s linear infinite rotate;
- 
+
         @keyframes rotate {
           0% {
-            
             -webkit-transform: rotate(0);
             transform: rotate(0);
           }
@@ -335,13 +334,13 @@
         margin-left: 1rem;
         li {
           display: flex;
-          align-items: center; 
+          align-items: center;
           gap: 25px;
 
           font-size: 20px;
           font-weight: 400;
           font-family: 'new-spirit';
-          color: #6F6F6F;
+          color: #6f6f6f;
         }
       }
 
@@ -391,7 +390,6 @@
 }
 
 .video {
-  
   &_content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -402,14 +400,14 @@
     .video_player {
       width: 870px;
       height: 550px;
-      background-color: #C4C4C4;
+      background-color: #c4c4c4;
       border-radius: 60px;
       display: flex;
       justify-content: center;
       align-items: center;
 
       &::before {
-        content: "";  
+        content: '';
         background: url(../img/icons/icon_play.svg) center no-repeat;
         background-size: contain;
         display: flex;
@@ -426,6 +424,157 @@
       font-weight: 600;
       display: flex;
       align-items: center;
+    }
+  }
+}
+.depoiments_kata {
+  padding: 105px;
+  background-color: #fcf3ec;
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    &_title {
+      font-family: 'new-spirit';
+      font-size: 50px;
+      font-weight: 700;
+      color: $text-color;
+      width: 45%;
+    }
+
+    .depoiments_kata_cards {
+      background-color: #fff;
+      padding: 35px;
+      border-radius: 50px;
+      box-shadow: 0px 0px 13px 2px rgba(97, 41, 41, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          border: 2px solid #bc6626;
+          border-radius: 50%;
+          padding: 5px;
+        }
+      }
+      p {
+        font-size: 16px;
+        line-height: 160%;
+        font-weight: 400;
+        color: #6f6f6f;
+        text-align: center;
+      }
+      .info_user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+          font-family: 'new-spirit';
+          font-size: 20px;
+          font-weight: 700;
+          color: $text-color;
+        }
+        span {
+          font-size: 14px;
+          font-weight: 400;
+          color: #6f6f6f;
+        }
+      }
+    }
+  }
+}
+
+.faq {
+  &_title {
+    font-family: 'new-spirit';
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    color: $text-color;
+    margin-bottom: 5rem;
+  }
+
+  &_content {
+    display: flex;
+    flex-wrap: wrap; 
+    position: relative;
+    gap: 30px;
+    flex-direction: column;
+
+    .faq-item {
+      border-bottom: 1px solid #b1bbc8;
+
+      .faq-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 30px;
+        font-weight: 600;
+        font-family: 'new-spirit';
+        cursor: pointer;
+        padding-bottom: 35px;
+        gap: 15px;
+      }
+
+      .faq-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .arrow {
+          position: relative;
+          top: 10px;
+          right: 20px;
+        }
+
+        .arrow::before,
+        .arrow::after {
+          position: relative;
+          content: '';
+          display: block;
+          width: 15px;
+          height: 2px;
+          background-color: $primary-color;
+          transition: 0.3s ease-in-out;
+        }
+
+        .arrow::before {
+          transform: rotate(45deg);
+        }
+
+        .arrow::after {
+          left: 10px;
+          top: -2px;
+          transform: rotate(-45deg);
+        }
+        &.active .arrow::before {
+          transform: rotate(-45deg);
+        }
+
+        &.active .arrow::after {
+          transform: rotate(45deg);
+        }
+      }
+
+      .faq-description {
+        position: relative;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.42, 0, 0.14, 2.07);
+        p {
+          font-size: 20px;
+          line-height: 22px; 
+          color: #646a73;
+        }
+      }
     }
   }
 }

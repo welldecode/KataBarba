@@ -168,3 +168,20 @@ main {
 }
 
 
+ .splide__arrow--prev {
+  left: -4rem;
+  background: transparent; 
+  height: 3em !important;
+  width: 3em !important;
+}
+.splide__arrow--next { 
+  right: -6em;
+  height: 3em !important;
+  width: 3em !important;
+  background: transparent;
+}
+.splide__arrow svg {
+  fill: #d78d3b;
+  height: 2em;
+  width: 2em;
+}

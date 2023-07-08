@@ -37,17 +37,17 @@ $editables = get_itens('editables');
                             </div>
                         <?php }
                     } else { ?>
-                            <div class="cart_items">
-                                <div class="number_c">
-                                    <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="1" min="1" max="10" id="quantity"><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
-                                </div>
-                                <div class="total_number">R$ 49,50</div>
-                                <div class="payment_content">
-                                    <div class="buy_c button_cart" id="button_cart">
-                                        Comprar Agora
-                                    </div>
+                        <div class="cart_items">
+                            <div class="number_c">
+                                <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="1" min="1" max="10" id="quantity"><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
+                            </div>
+                            <div class="total_number">R$ 49,50</div>
+                            <div class="payment_content">
+                                <div class="buy_c button_cart" id="button_cart">
+                                    Comprar Agora
                                 </div>
                             </div>
+                        </div>
                     <?php } ?>
                 </form>
             </div>
@@ -167,14 +167,87 @@ $editables = get_itens('editables');
     <section class="video container">
         <div class="video_content">
             <div class="video_player">
-
+                <!-- VIDEO DO YOUTUBE OU REMOTO -->
             </div>
-
             <div class="video_title">
                 Assista o vídeo para entender na prática, como o produto funciona!
             </div>
         </div>
     </section>
-    <section class="depoiments_kata"></section>
+    <section class="depoiments_kata">
+        <div class="depoiments_kata_content container">
+            <div class="depoiments_kata_content_title" data-aos="fade-in" data-aos-delay="700">
+                O que estão dizendo sobre o katabarba?
+            </div>
+
+
+            <section class="splide depoiments_slide" aria-label="Splide Basic HTML Example">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide depoiments_kata_cards" data-aos="fade-up" data-aos-delay="600">
+                            <figure>
+                                <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="">
+                            </figure>
+                            <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
+                            <div class="info_user">
+                                <h1>Celso Oliveira</h1>
+                                <span>Blogueiro</span>
+                            </div>
+                        </li>
+                        <li class="splide__slide depoiments_kata_cards" data-aos="fade-up" data-aos-delay="700">
+                            <figure>
+                                <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="">
+                            </figure>
+                            <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
+                            <div class="info_user">
+                                <h1>Celso Oliveira</h1>
+                                <span>Blogueiro</span>
+                            </div>
+                        </li>
+                        <li class="splide__slide depoiments_kata_cards" data-aos="fade-up" data-aos-delay="800">
+                            <figure>
+                                <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="">
+                            </figure>
+                            <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
+                            <div class="info_user">
+                                <h1>Celso Oliveira</h1>
+                                <span>Blogueiro</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section class="faq container">
+        <div class="faq_title" data-aos="fade-in" data-aos-delay="700">
+            Perguntas frequentes | FAQ
+        </div>
+        <ul class="faq_content">
+            <?php
+            $index = 5;
+            foreach ($editables['messages']['itens'] as $faq) {
+            ?>
+                <li class="faq-item" data-aos="fade-up" data-aos-delay="<?php echo $index; ?>00">
+                    <div class="faq-toggle">
+                        <?php echo $faq['title'] ?>
+                        <div class="faq-icon">
+                            <span class="arrow"></span>
+                        </div>
+                    </div>
+                    <div class="faq-description">
+                        <p><?php echo $faq['text'] ?></p>
+                    </div>
+                </li>
+            <?php
+                $index++;
+            }
+            ?>
+        </ul>
+    </section>
+    <br>
+    <br>
+    <br>
 </main>
 <?php get_footer(); ?>

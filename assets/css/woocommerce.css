@@ -418,7 +418,7 @@ h3#payment_heading {
 button#wpmc-prev {
     position: absolute;
     bottom: 0;
-    right: 11rem;
+    left: 0;
 }
 
 .woocommerce {

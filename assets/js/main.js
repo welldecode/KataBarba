@@ -63,3 +63,40 @@ $(".close-cart").on("click touchstart", function (e) {
   e.preventDefault();
   $(".cart_block_content").removeClass("active");
 });
+
+
+for (var x of document.querySelectorAll(".splide.depoiments_slide")) {
+  var splide = new Splide(x, {
+    type: "loop",
+    perPage:3,
+    arrows: true, 
+    gap: 35,
+  });
+  splide.mount();
+  x.style.display = "inherit";
+}
+
+let toggles = document.getElementsByClassName('faq-toggle');
+let contentDiv = document.getElementsByClassName('faq-description');
+let icons = document.getElementsByClassName('faq-icon');
+
+for (let i = 0; i < toggles.length; i++) {
+    toggles[i].addEventListener('click', () => {
+        if (parseInt(contentDiv[i].style.height) != contentDiv[i].scrollHeight) {
+            contentDiv[i].style.height = contentDiv[i].scrollHeight + "px";
+            contentDiv[i].style.marginBottom = "22px";
+            icons[i].classList.add('active');
+        } else {
+            contentDiv[i].style.height = "0px";
+            contentDiv[i].style.marginBottom = "0px";
+            icons[i].classList.remove('active');
+        }
+        for (let j = 0; j < contentDiv.length; j++) {
+            if (j !== i) {
+                contentDiv[j].style.height = "0px";
+                contentDiv[j].style.marginBottom = "0";
+                icons[j].classList.remove('active');
+            }
+        }
+    });
+}
