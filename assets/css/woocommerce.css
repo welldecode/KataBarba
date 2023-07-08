@@ -85,7 +85,7 @@ h4 {
     padding: 12px 25px;
     font-size: 16px;
     font-weight: 600;
-    border-radius: 6px;
+    border-radius:4px;
 }
 
 .woocommerce_checkout_coupon {
@@ -422,10 +422,22 @@ h3#payment_heading {
 
 button#wpmc-prev {
     position: absolute;
-    bottom: 40px;
-    right: 0;
+    bottom: 0;
+    right: 11rem;
 }
 
 .woocommerce {
     position: relative;
+}
+
+button#place_order {
+    /* margin-top: 2rem; */
+    background: #28272c;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    transition: all .4s;
+    margin-left: ;
+    position: absolute;
+    right: 0;
 }
