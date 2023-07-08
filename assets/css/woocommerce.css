@@ -431,7 +431,7 @@ button#place_order {
     font-size: 18px;
     font-weight: 500;
     letter-spacing: .5px;
-    transition: all .4s; 
+    transition: all .4s;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -491,7 +491,7 @@ button#place_order {
 #shipping_method li input[type=radio] {
     appearance: none;
     width: 23px;
-    height: 23px;
+    height: 22px;
     border-radius: 50%;
     background-clip: content-box;
     border: 2px solid rgb(147 147 147);
@@ -507,4 +507,10 @@ button#place_order {
 #shipping_method span.woocommerce-Price-amount.amount bdi {
     font-size: 20px;
     font-weight: 500;
+}
+
+#add_payment_method #payment ul.payment_methods li input,
+.woocommerce-cart #payment ul.payment_methods li input,
+.woocommerce-checkout #payment ul.payment_methods li input {
+    margin: 0 1em 0 15px;
 }

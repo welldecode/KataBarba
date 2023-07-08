@@ -9,6 +9,7 @@ if (class_exists('WooCommerce')) {
 
     add_action('after_setup_theme', 'woocommerce_support');
     // Remove Shop Title 
+    add_filter( 'woocommerce_cart_item_removed_notice_type', '__return_false' );
     add_filter('woocommerce_show_page_title', '__return_false');
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
