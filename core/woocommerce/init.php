@@ -57,8 +57,9 @@ function custom_ajax_spinner() {
     .woocommerce .loader:before {
         height: 3em;
         width: 3em;
+        transform: translateY(250%);
         position: absolute;
-        top: 50%;
+        top: -50%;
         left: 50%;
         margin-left: -.5em;
         margin-top: -.5em;
