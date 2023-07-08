@@ -230,13 +230,12 @@
       padding: 20px;
 
       #coupon_code_valid {
-        
         padding: 10px 45px 10px 10px;
       }
       input[type='text'] {
         border: 1px solid #ccc;
         border-radius: 5px;
-        padding: 10px  10px;
+        padding: 10px 10px;
         width: 100%;
       }
       span {
@@ -425,6 +424,10 @@
       font-size: 24px;
       font-weight: 500;
       color: #fff;
+      .woocommerce-Price-amount.amount bdi {
+        font-size: 24px;
+        font-weight: 600;
+      }
     }
   }
 }

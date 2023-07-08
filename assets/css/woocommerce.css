@@ -519,3 +519,7 @@ button#place_order {
 .woocommerce-checkout #payment ul.payment_methods li input {
     margin: 0 1em 0 15px;
 }
+
+.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout  {
+    display: none;
+}

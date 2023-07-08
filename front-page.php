@@ -166,20 +166,19 @@ $editables = get_itens('editables');
     </section>
     <section class="video container">
         <div class="video_content">
-            <div class="video_player"  data-aos="fade-right" data-aos-delay="600">
+            <div class="video_player" data-aos="fade-right" data-aos-delay="600">
                 <!-- VIDEO DO YOUTUBE OU REMOTO -->
             </div>
-            <div class="video_title"  data-aos="fade-left" data-aos-delay="600">
+            <div class="video_title" data-aos="fade-left" data-aos-delay="600">
                 Assista o vídeo para entender na prática, como o produto funciona!
             </div>
         </div>
     </section>
-    <section class="depoiments_kata" >
+    <section class="depoiments_kata">
         <div class="depoiments_kata_content container">
             <div class="depoiments_kata_content_title" data-aos="fade-in" data-aos-delay="700">
                 O que estão dizendo sobre o katabarba?
             </div>
-
 
             <section class="splide depoiments_slide" aria-label="Splide Basic HTML Example">
                 <div class="splide__track">
