@@ -12,7 +12,7 @@ add_action('admin_bar_menu', 'toolbaredit', 999);
 /* Mudar Rodapé da administração */
 function footerInfo()
 {
-    echo "Criado pela: DevStep - Wellington Henrique";
+    echo "Criado pela: DevStep Studio.";
 }
 add_filter('admin_footer_text', 'footerInfo'); 
 

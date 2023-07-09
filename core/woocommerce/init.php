@@ -27,7 +27,7 @@ function woocommerce_block_styles()
     wp_dequeue_style('storefront-gutenberg-blocks'); // Storefront theme 
 }
 add_action('wp_enqueue_scripts', 'woocommerce_block_styles');
-
+if(is_home() || is_front_page()) {
 function cart_script()
 {
     wp_register_script('js',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/cart.js', array('jquery'), '1.0', true);
@@ -38,6 +38,7 @@ function cart_script()
     wp_enqueue_script('js');
 }
 add_action('wp_enqueue_scripts', 'cart_script',  99);
+}
 function checkout_script()
 {
     wp_register_script('checkout',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/checkout.js', array('jquery'), '1.0', true);
