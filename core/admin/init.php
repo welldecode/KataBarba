@@ -47,6 +47,32 @@ function admin_theme()
     wp_enqueue_script('media_script', get_bloginfo('template_directory') . '/assets/admin/js/media.js', ['jquery']);
 } 
 
+
+/*Função que altera a Logo da Admin site*/
+function cutom_login_logo()
+{
+    echo "<style type=\"text/css\">
+    body.login div#login h1 a {
+    background-image: url(" . get_bloginfo('template_directory') . "/assets/img/admin/logo_devstep.svg);
+    -webkit-background-size: contain;
+    background-size: contain;
+    margin: 0 0 25px;
+    height: 80px;
+    width: 320px;
+    }
+  
+    </style>";
+}
+add_action('login_enqueue_scripts', 'cutom_login_logo');
+
+/*Função que altera a URL, trocando pelo endereço do seu site*/
+function my_login_logo_url()
+{
+    return get_bloginfo('url');
+}
+
+add_filter('login_headerurl', 'my_login_logo_url');
+
 add_filter('get_user_option_admin_color', 'admin_color', 5);
 add_action('admin_enqueue_scripts', 'admin_theme');
 add_action('wp_dashboard_setup', 'dashboard_widgets', 999);
