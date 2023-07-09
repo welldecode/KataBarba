@@ -47,8 +47,7 @@ function pluginJS() {
     .pipe(browserSync.stream());
 }
 gulp.task("libsjs", pluginJS);
-
-
+ 
 function pluginCSS() {
   return gulp
   .src([ 
@@ -60,6 +59,13 @@ function pluginCSS() {
   .pipe(browserSync.stream());
 }
 gulp.task('libscss', pluginCSS);
+ 
+function minImg() {
+  gulp.src('assets/img/*')
+  .pipe(imagemin())
+  .pipe(gulp.dest('assets/img/'))
+}
+gulp.task('minimg', minImg);
 
 function watch() {
   gulp.watch("./scss/*.scss", minSass);
@@ -70,5 +76,5 @@ gulp.task("watch", watch);
  
 gulp.task(
   "default",
-  gulp.parallel("watch", "libsjs", "libscss","minjs", "minsass")
+  gulp.parallel("watch", "libsjs", "libscss", 'minimg', "minjs", "minsass")
 );
