@@ -28,7 +28,7 @@ add_action('wp_enqueue_scripts', 'woocommerce_block_styles');
 
 function cart_script()
 {
-    if (is_front_page()) {
+    if (is_home() || is_front_page()) {
         wp_register_script('js',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/cart.js', array('jquery'), '1.0', true);
         wp_localize_script('js', 'cart_obj', array(
             'ajax_url' => admin_url("admin-ajax.php"), 

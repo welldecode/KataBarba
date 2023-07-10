@@ -4,8 +4,7 @@ const gulpSass = require("gulp-sass");
 const nodeSass = require("node-sass");
 const sass = gulpSass(nodeSass);
 const autoprefixer = require("gulp-autoprefixer");
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
+const concat = require("gulp-concat"); 
 
 function minSass() {
   return gulp
@@ -59,14 +58,7 @@ function pluginCSS() {
   .pipe(browserSync.stream());
 }
 gulp.task('libscss', pluginCSS);
- 
-function minImg() {
-  gulp.src('assets/img/*')
-  .pipe(imagemin())
-  .pipe(gulp.dest('assets/img/'))
-}
-gulp.task('minimg', minImg);
-
+  
 function watch() {
   gulp.watch("./scss/*.scss", minSass);
   gulp.watch("assets/js/*.js", minJS);
@@ -76,5 +68,5 @@ gulp.task("watch", watch);
  
 gulp.task(
   "default",
-  gulp.parallel("watch", "libsjs", "libscss", 'minimg', "minjs", "minsass")
+  gulp.parallel("watch", "libsjs", "libscss", "minjs", "minsass")
 );

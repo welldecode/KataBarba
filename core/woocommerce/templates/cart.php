@@ -1,6 +1,6 @@
 <?php $editables = get_itens('editables'); ?>
 <section class="cart_block_container">
-    <div class="cart_block_content <?php echo WC()->cart->get_cart_contents_count()  ? 'active' : '' ?>">
+    <div class="cart_block_content <?php echo WC()->cart->get_cart_contents_count()  ? ' ' : '' ?>">
         <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
             <div class="title_header">
                 <h1>Carrinho de Compras</h1>
@@ -47,7 +47,7 @@
                                 if (sizeof($applied_coupons) > 0) {
                                     foreach ($applied_coupons as $coupon_code) {
                                 ?>
-                                        <input type="text" id="coupon_code_valid" value="<?php echo $coupon_code ?>" placeholder="Digite seu cupom.">
+                                        <input type="text" id="coupon_code_valid" value="<?php echo $coupon_code ?>" placeholder="Insira aqui.">
                                         <div class="remove_coupon"> <img src="<?= THEME_URI ?>/assets/img/icons/close-circle-line.svg" alt=""></div>
                                     <?php
                                     }
