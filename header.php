@@ -14,7 +14,8 @@
 </head>
 
 <body <?php body_class() ?>>
-
+<?php 
+if(is_home() || is_front_page()) { ?>  
     <header>
         <nav class="container ">
             <a href="<?= get_home_url(); ?>" class="nav_logo">
@@ -32,4 +33,4 @@
                 <span id="total_cart"><?= WC()->cart->get_cart_contents_count(); ?> </span>
             </div>
         </nav>
-    </header>
+    </header><?php } ?>

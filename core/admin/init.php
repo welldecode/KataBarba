@@ -35,8 +35,7 @@ function admin_color($color_scheme)
     $color_scheme = 'modern';
     return $color_scheme;
 }
-
-
+ 
 function admin_theme()
 {
     wp_enqueue_style('ui-admin-theme', get_bloginfo('template_directory') . '/assets/admin/css/admin.css', []);
@@ -45,8 +44,7 @@ function admin_theme()
         wp_enqueue_media();
     }
     wp_enqueue_script('media_script', get_bloginfo('template_directory') . '/assets/admin/js/media.js', ['jquery']);
-} 
-
+}  
 
 /*Função que altera a Logo da Admin site*/
 function cutom_login_logo()
@@ -59,8 +57,7 @@ function cutom_login_logo()
     margin: 0 0 25px;
     height: 80px;
     width: 320px;
-    }
-  
+    } 
     </style>";
 }
 add_action('login_enqueue_scripts', 'cutom_login_logo');

@@ -19,78 +19,74 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+?>
 
-echo '<div class="row">';
-do_action('woocommerce_before_checkout_form', $checkout);
-echo '</div>';
+<main>
+    <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data"> 
+        <section class="checkout"> 
+            <div class="checkout_content container"> 
+                <div class="checkout_woocommerce">
+                    <div class="checkout_logo"><img src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg" alt=""></div>
 
-// If checkout registration is disabled and not logged in, the user cannot checkout
-if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
-    echo apply_filters('woocommerce_checkout_must_be_logged_in_message', esc_html__('You must be logged in to checkout.', 'martfury'));
+                    <div class="container-fluid">
+                        <div class="row justify-content-center">
+                            <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                                    <!-- progressbar -->
+                                    <ul id="progressbar">
+                                        <img class="logo_kata" src="<?php echo THEME_URI ?>/assets/img/icons/logo_minify.svg">
+                                        <li class="active" id="billing">Cobrança Envio</li>
+                                        <li id="payment">Pagamento</li>
+                                    </ul>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>  
+                                    <fieldset>
+                                        <div class="col-xs-12 col-sm-12 col-md-7 col-woo-checkout-details">
+                                            <?php if ($checkout->get_checkout_fields()) : ?>
+                                                <div id="customer_details">
+                                                    <div class="checkout-billing">
+                                                        <?php do_action('woocommerce_checkout_billing'); ?>
+                                                    </div>
 
-    return;
-}
+                                                    <div class="checkout-shipping">
+                                                        <?php do_action('woocommerce_checkout_shipping'); ?>
+                                                    </div>
+                                                </div>
 
-?> 
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                <h2 id="heading">Sign Up Your User Account</h2>
-                <p>Fill all form field to go to next step</p>
+                                                <?php do_action('woocommerce_checkout_after_customer_details'); ?>
 
-                <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
-                        <!-- progressbar -->
-                        <ul id="progressbar">
-                        <li class="active" id="billing"><strong>Cobrança Envio</strong></li>
-                        <li id="payment"><strong>Pagamento</strong></li>
-                    </ul>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div> <br> <!-- fieldsets -->
-                    <fieldset>
-                    <div class="col-xs-12 col-sm-12 col-md-7 col-woo-checkout-details">
-                            <?php if ($checkout->get_checkout_fields()) : ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <input type="button" name="next" class="next action-button" value="Ir para pagamento" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="col-xs-12 col-sm-12 col-md-5">
+                                            <?php do_action('woocommerce_checkout_before_order_review'); ?>
 
-                                <?php do_action('woocommerce_checkout_before_customer_details'); ?>
+                                            <?php do_action('woocommerce_checkout_before_customer_details'); ?>
 
-                                <div id="customer_details">
-                                    <div class="checkout-billing">
-                                        <?php do_action('woocommerce_checkout_billing'); ?>
-                                    </div>
 
-                                    <div class="checkout-shipping">
-                                        <?php do_action('woocommerce_checkout_shipping'); ?>
-                                    </div>
+                                            <?php do_action('woocommerce_checkout_after_order_review'); ?>
+                                        </div>
+                                    <input type="button" name="Voltar para informações" class="previous action-button-previous" value="Voltar para informações" />
+                                    </fieldset>
+
                                 </div>
-
-                                <?php do_action('woocommerce_checkout_after_customer_details'); ?>
-
-                            <?php endif; ?>
-                        </div>
-                        <input type="button" name="next" class="next action-button" value="Next" />
-                    </fieldset>
-                    <fieldset>
-                    <div class="col-xs-12 col-sm-12 col-md-5">
-                            <h3 id="order_review_heading"><?php esc_html_e('Your order', 'martfury'); ?></h3>
-
-                            <?php do_action('woocommerce_checkout_before_order_review'); ?>
-
-                            <div id="order_review" class="woocommerce-checkout-review-order">
-                                <?php do_action('woocommerce_checkout_order_review'); ?>
                             </div>
-
-                            <?php do_action('woocommerce_checkout_after_order_review'); ?>
                         </div>
-                        <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    </fieldset>
- 
+                    </div>
+                </div>
+                <div class="checkout_items">
+                    <div class="checkout_items_content">
+                        <?php do_action('woocommerce_checkout_order_review'); ?>
+                    </div>
+                </div>
 
-                </form>
-                 
             </div>
-        </div>
-    </div>
-</div>
+        </section>
+    </form>
+</main>
+
 
 <?php do_action('woocommerce_after_checkout_form', $checkout); ?>

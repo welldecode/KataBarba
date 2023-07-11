@@ -10,8 +10,7 @@ if (get_theme_mod('basic-emoji-callout-display') == 'Yes') {
 /*Desativar tollbar de usuario comun. */
 if (get_theme_mod('basic-user-callout-display') == 'Yes') {
     add_filter('show_admin_bar', '__return_false');
-}
- 
+} 
 
 function init_minify_html() { 
 	if (get_theme_mod('basic-minify-callout-display') == 'Yes') ob_start('minify_html_output');
