@@ -61,7 +61,7 @@ function item_cart() {
         cart_items.forEach(function (item, index) {
           let texto_contexto = "";
           texto_contexto += `
-          <div class="cart_block_item"><div class="info_item"><figure>${item.image}</figure><div class="info"><div class="info_title"><h2>${item.name}</h2><span>${item.description}</span></div><div class="quantity_item">${response.btn_quantity}${response.btn_remove}</div><div class="info_price_item">${item.price}</div></div></div></div>`;
+          <div class="cart_block_item"><div class="info_item"><figure>${item.image}</figure><div class="info"><div class="info_title"><h2>${item.name}</h2><span>${item.description}</span></div><div class="quantity_item">${response.btn_quantity}x ${response.btn_remove}</div><div class="info_price_item">${item.price}</div></div></div></div>`;
           $(".btn_continue")
             .show()
             .html(`Finalizar Compra > ${item.price} BLR`);
@@ -99,7 +99,7 @@ $(document).on("click", "#apply_coupon", function (e) {
     method: "GET",
     data: request_data,
 
-    success: function (e) { 
+    success: function (e) {
       item_cart();
       $(".msg_cart").addClass("visible").fadeIn(200);
       $(".msg_cart").html(e.msg).fadeIn(200);
@@ -124,7 +124,7 @@ $(document).on("click", ".remove_coupon", function (e) {
     method: "GET",
     data: request_data,
 
-    success: function (e) { 
+    success: function (e) {
       item_cart();
       $(".msg_cart").addClass("visible").fadeIn(200);
       $(".msg_cart").html(e.msg).fadeIn(200);
@@ -136,3 +136,94 @@ $(document).on("click", ".remove_coupon", function (e) {
     },
   });
 });
+
+(function () {
+  window.inputNumber = function (el) {
+    var min = el.attr("min") || false;
+    var max = el.attr("max") || false;
+
+    var els = {};
+
+    els.dec = el.prev();
+    els.inc = el.next();
+
+    el.each(function () {
+      init($(this));
+    });
+
+    function init(el) {
+      els.dec.on("click", decrement);
+      els.inc.on("click", increment);
+
+      function decrement() {
+        var value = el[0].value;
+        value--;
+
+        if (!min || value >= min) {
+          el[0].value = value;
+        }
+
+        
+        var form_ac = {
+          action: "woocommerce_ajax_quantity_to_cart",
+          quantity: el[0].value,
+        };
+
+        $.ajax({
+          url: cart_obj.ajax_url,
+          method: "POST",
+          dataType: "JSON",
+          data: form_ac,
+          beforeSend: function () {
+            $(".cart_content form").addClass("hidden");
+          },
+          success: function (response) {
+            let items = response;
+            $(".total_number").html(items["type"]);
+
+            $(".cart_content form").removeClass("hidden");
+            $(".total_number").html(items["type"]);
+            $("#total_cart").html(items["count_itens"]);
+
+            item_cart();
+          },
+        });
+      }
+
+      function increment() {
+        var value = el[0].value;
+        value++;
+        if (!max || value <= max) {
+          el[0].value = value++;
+        }
+
+        var form_ac = {
+          action: "woocommerce_ajax_quantity_to_cart",
+          quantity: el[0].value,
+        };
+
+        $.ajax({
+          url: cart_obj.ajax_url,
+          method: "POST",
+          dataType: "JSON",
+          data: form_ac,
+          beforeSend: function () {
+            $(".cart_content form").addClass("hidden");
+          },
+          success: function (response) {
+            let items = response;
+            $(".total_number").html(items["type"]);
+
+            $(".cart_content form").removeClass("hidden");
+            $(".total_number").html(items["type"]);
+            $("#total_cart").html(items["count_itens"]);
+ 
+            item_cart();
+          },
+        });
+      }
+    }
+  };
+})();
+
+inputNumber($(".input-number"));

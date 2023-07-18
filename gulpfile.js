@@ -39,7 +39,7 @@ function pluginJS() {
     .src([ 
       "lib/jquery/jquery.min.js",  
       "lib/aos/aos.js",  
-      "lib/splide/splide.min.js",
+      "lib/swiper/swiper.min.js",
     ])
     .pipe(concat("libs.js"))
     .pipe(gulp.dest("assets/js/"))
@@ -51,7 +51,7 @@ function pluginCSS() {
   return gulp
   .src([ 
     'lib/aos/aos.css',
-    "lib/splide/splide.min.css",
+    "lib/swiper/swiper.min.css", 
   ])
   .pipe(concat('libs.css'))
   .pipe(gulp.dest('assets/css/'))

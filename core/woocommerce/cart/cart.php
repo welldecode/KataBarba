@@ -6,7 +6,7 @@ function woocommerce_ajax_add_to_cart()
 {
 
     $product_id = '14';
-    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']); 
+    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
     $data = [];
 
     if (is_null(WC()->cart)) {
@@ -88,7 +88,7 @@ function woocommerce_ajax_get_cart()
             esc_attr($_product->get_sku())
         ), $item);
         if ($_product->is_sold_individually()) {
-            $product_quantity = sprintf('1 <input type="hidden" name="cart[%s][qty]" value="1" />', $item);
+            $product_quantity = sprintf('1x', $item);
         } else {
             $product_quantity = woocommerce_quantity_input(array(
                 'input_name'  => "cart[{$item}][qty]",
@@ -97,13 +97,13 @@ function woocommerce_ajax_get_cart()
                 'min_value'   => '0'
             ), $_product, false);
         }
-        $data['btn_quantity']  = apply_filters('woocommerce_cart_item_quantity', $product_quantity, $item, $values);
+        $data['btn_quantity'] = $values['quantity'];
         wp_send_json($data);
     }
 }
 add_action('wp_ajax_woocommerce_ajax_get_cart', 'woocommerce_ajax_get_cart');
 add_action('wp_ajax_nopriv_woocommerce_ajax_get_cart', 'woocommerce_ajax_get_cart');
- 
+
 function woocommerce_ajax_get_coupon()
 {
     global $woocommerce;
@@ -122,18 +122,18 @@ function woocommerce_ajax_get_coupon()
     $couponcode = setConfig($type, 'coupon_code');
 
     // Initializing variables 
-    $applied_coupons  = $woocommerce->cart->get_applied_coupons(); 
+    $applied_coupons  = $woocommerce->cart->get_applied_coupons();
 
-    if(!wc_get_coupon_id_by_code($couponcode) ) { 
+    if (!wc_get_coupon_id_by_code($couponcode)) {
         $data['msg'] = 'Esse cupom não existe.';
         wp_send_json($data);
         return;
-    }  
-    
+    }
+
     if ($woocommerce->cart->has_discount(sanitize_text_field($couponcode))) {
         $woocommerce->cart->remove_coupons(sanitize_text_field($couponcode));
-    } 
-    
+    }
+
     if ($woocommerce->cart->add_discount(sanitize_text_field($couponcode))) {
         $woocommerce->cart->calculate_totals();
         $data['msg'] = 'Seu cupom foi aplicado com sucesso!';
@@ -181,3 +181,38 @@ function woocommerce_ajax_remove_coupon()
 
 add_action('wp_ajax_woocommerce_ajax_remove_coupon', 'woocommerce_ajax_remove_coupon');
 add_action('wp_ajax_nopriv_woocommerce_ajax_remove_coupon', 'woocommerce_ajax_remove_coupon');
+
+
+
+function woocommerce_ajax_quantity_to_cart()
+{
+    global $woocommerce;
+ 
+    $product_id = '14';
+    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
+    $data = [];
+
+    if (is_null(WC()->cart)) {
+        wc_load_cart();
+    }
+
+    if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id($product_id))) {
+
+        foreach (WC()->cart->get_cart() as $cart_item) {
+            WC()->cart->set_quantity($cart_item['key'], $quantity);
+
+            $data['codigo'] = 1;
+            $data['ID'] = $product_id;
+            $data['quantity'] = $quantity;
+            $data['count_itens'] = WC()->cart->get_cart_contents_count();
+            $data['type'] = WC()->cart->get_cart_total();
+
+            wp_send_json($data);
+            return;
+        }
+    }
+}
+
+
+add_action('wp_ajax_woocommerce_ajax_quantity_to_cart', 'woocommerce_ajax_quantity_to_cart');
+add_action('wp_ajax_nopriv_woocommerce_ajax_quantity_to_cart', 'woocommerce_ajax_quantity_to_cart');

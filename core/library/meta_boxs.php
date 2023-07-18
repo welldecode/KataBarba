@@ -10,6 +10,8 @@ function create_meta_boxes()
         'numbers' => 'Números',
         'warning' => 'Avisos',
         'messages' => 'Mensagens',
+        'depoiments' => 'Depoimentos',
+        'faq' => 'Faq',
         'projects' => 'Projetos',
         'titles' => 'Titulos',
         'video' => 'Vídeo de destaque',

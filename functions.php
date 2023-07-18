@@ -59,9 +59,9 @@ if (!function_exists('devstep_setup')) {
  
 		wp_register_script('libs-js', get_template_directory_uri() . '/assets/js/libs.js', array(), true, true);
 		wp_register_script('main-js', get_template_directory_uri() . '/assets/js/all.min.js', array(), true, true); 
- 
-		wp_enqueue_script('libs-js');
-		wp_enqueue_script('main-js');		 
+  
+		wp_enqueue_script('libs-js'); 
+ 		wp_enqueue_script('main-js');		 
 	}
 	add_action('wp_enqueue_scripts', 'style_scripts');
 

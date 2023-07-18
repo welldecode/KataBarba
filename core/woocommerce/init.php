@@ -11,7 +11,7 @@ if (class_exists('WooCommerce')) {
     // Remove Shop Title 
     add_filter('woocommerce_cart_item_removed_notice_type', '__return_false');
     add_filter('woocommerce_show_page_title', '__return_false');
-  
+
     remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
     add_action('woocommerce_checkout_before_customer_details', 'woocommerce_checkout_payment', 10);
 }
@@ -28,7 +28,7 @@ add_action('wp_enqueue_scripts', 'woocommerce_block_styles');
 
 function cart_script()
 {
-    if (is_home() || is_front_page(  )) {
+    if (is_front_page()) {
         wp_register_script('js',  get_stylesheet_directory_uri() . '/assets/js/woocommerce/cart.js', array('jquery'), '1.0', true);
         wp_localize_script('js', 'cart_obj', array(
             'ajax_url' => admin_url("admin-ajax.php"),

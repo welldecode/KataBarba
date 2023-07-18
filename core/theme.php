@@ -66,6 +66,4 @@ function criarNonce( $id ) {
         update_option( $id, $nonce );
     }
     return get_option( $id );
-}
-
-/* ADMIN */   
+} 

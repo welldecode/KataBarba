@@ -19,7 +19,7 @@ if(is_home() || is_front_page()) { ?>
     <header>
         <nav class="container ">
             <a href="<?= get_home_url(); ?>" class="nav_logo">
-                <h1>katabarba</h1>
+                <img src="<?= THEME_URI ?>/assets/img/icons/logo_minify.svg" alt="katabarba" width="153px" height="54px">
             </a>
             <ul class="nav_menu flex flex_center">
                 <li><a href="#">O Produto</a></li>

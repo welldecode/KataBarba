@@ -11,9 +11,16 @@ footer {
     &_row {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: flex-start;
-      gap: 25px;
+      gap: 21px;
       color: #fff;
+
+      .image_footer {
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+      }
       img {
         width: 60px;
         height: 60px;
@@ -65,10 +72,18 @@ footer {
         li {
           a {
             img {
-              width:24px;
+              width: 24px;
               height: 24px;
             }
           }
+        }
+      }
+      .email_link {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        a {
+          color: #fff;
         }
       }
     }

@@ -3,7 +3,7 @@
 
   cep.addEventListener("blur", (e) => {
     const value = cep.value.replace(/[^0-9]+/, "");
-    const url = `https://viacep.com.br/ws/${value}/json/`;
+    const url = `https://brasilapi.com.br/api/cep/v2/${value}`;
 
     fetch(url)
       .then((response) => response.json())

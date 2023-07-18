@@ -1,25 +1,28 @@
 <?php $editables = get_itens('editables'); ?>
+
 <section class="cart_block_container">
-    <div class="cart_block_content <?php echo WC()->cart->get_cart_contents_count()  ? ' ' : '' ?>">
+    <div class="cart_block_content">
         <div class="title_block_cart" data-secury="<?= criarNonce('tokenCart-nonce'); ?>">
             <div class="title_header">
                 <h1>Carrinho de Compras</h1>
                 <div class="close-cart"><img src="<?= THEME_URI ?>/assets/img/woocommerce/close-circle-line.svg" alt="close_cart"></div>
             </div>
         </div>
+
         <div class="item_lists"></div>
-        <div class="depoiments_clients">
-            <section class="splide" aria-label="Splide Basic HTML Example">
-                <div class="splide__track">
-                    <ul class="splide__list">
+
+        <section class="depoiments_clients">
+            <div class="depoiments_cart">
+                <div class="swiper depoiments_cart_slide">
+                    <div class="swiper-wrapper">
                         <?php
-                        foreach ($editables['messages']['itens'] as $depoiments) :
+                        foreach ($editables['depoiments']['itens'] as $depoiments) :
                         ?>
-                            <li class="splide__slide">
+                            <div class="swiper-slide">
                                 <div class="item_slide">
                                     <div class="info_title">
                                         <figure>
-                                            <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata">
+                                            <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata" width="60px" height="60px">
                                         </figure>
                                         <span><?= $depoiments['title'] ?></span>
                                     </div>
@@ -27,14 +30,15 @@
                                         <?= $depoiments['subtitle'] ?>
                                     </p>
                                 </div>
-                            </li>
+                            </div>
                         <?php
                         endforeach;
                         ?>
-                    </ul>
+                    </div>
                 </div>
-            </section>
-        </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
         <div class="cart-price">
             <?php if (wc_coupons_enabled()) { ?>
                 <form action="#">
@@ -52,7 +56,7 @@
                                     <?php
                                     }
                                 } else { ?>
-                                    <input type="text" id="coupon_code" placeholder="Digite seu cupom.">
+                                    <input type="text" id="coupon_code" placeholder="Insira aqui.">
                                     <div class="remove_coupon" style="display: none"> <img src="<?= THEME_URI ?>/assets/img/icons/close-circle-line.svg" alt=""></div>
                                 <?php } ?>
                                 <div class="apply_cupom" type="submit" id="apply_coupon">Aplicar</div>
@@ -68,5 +72,5 @@
             <div href="#" class="btn_cancel close-cart">Cancelar compra</div>
             <p>Taxas e envio calculados no final</p>
         </div>
-    </div>
+</section>
 </section>

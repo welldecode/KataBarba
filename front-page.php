@@ -17,18 +17,18 @@ $editables = get_itens('editables');
                 ?>
             </div>
         </div>
-        <div class="cart_container" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
+        <section class="cart_container" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
             <div class="cart_content">
                 <form action="#" method="POST">
                     <?php
-                    if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id('33'))) {
+                    if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id('14'))) {
                         foreach (WC()->cart->get_cart() as $cart_item) {
                     ?>
                             <div class="cart_items">
                                 <div class="number_c">
                                     <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="<?php echo $cart_item['quantity']; ?>" min="1" max="10" id="quantity"><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
                                 </div>
-                                <div class="total_number"><?= $woocommerce->cart->get_cart_total()  ?></div>
+                                <div class="total_number"><?= WC()->cart->get_cart_total()  ?></div>
                                 <div class="payment_content">
                                     <div class="buy_c button_cart" id="button_cart">
                                         Comprar Agora
@@ -51,7 +51,7 @@ $editables = get_itens('editables');
                     <?php } ?>
                 </form>
             </div>
-        </div>
+        </section>
     </section>
 
     <section class="about container">
@@ -71,7 +71,7 @@ $editables = get_itens('editables');
                     ?>
                         <article class="card_about" data-aos="fade-up" data-aos-delay="<?= $animation; ?>00">
                             <figure>
-                                <img src="<?= $about['image'] ?>" alt="">
+                                <img src="<?= $about['image'] ?>" alt="<?= $about['title'] ?>">
                             </figure>
                             <h1><?= $about['title'] ?></h1>
                             <h4><?= $about['subtitle'] ?></h4>
@@ -96,7 +96,7 @@ $editables = get_itens('editables');
                 <div class="depoiments_content_title">O DEPOIMENTO</div>
                 <h1>“Eu não aguentava mais ouvir reclamação da minha mulher porque fiz a barba e deixei pelos espalhados pela pia. Eu gastava mais tempo limpando a bagunça do que fazendo a barba. ”</h1>
                 <div class="depoiments_content_user">
-                    <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata">
+                    <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata" width="60px" height="60px">
                     <span>Urso Kata, pai de família.</span>
                 </div>
 
@@ -108,7 +108,7 @@ $editables = get_itens('editables');
             </div>
             <div class="depoiments_content_right">
                 <figure data-aos="fade-left" data-aos-delay="800">
-                    <img src="<?= THEME_URI ?>/assets/img/image.svg" alt="">
+                    <img src="<?= THEME_URI ?>/assets/img/image.svg" alt="fade">
                 </figure>
             </div>
         </div>
@@ -149,9 +149,9 @@ $editables = get_itens('editables');
                 </div>
 
                 <ul>
-                    <li data-aos="fade-right" data-aos-delay="700"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Bag para transporte</li>
-                    <li data-aos="fade-right" data-aos-delay="900"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de mini mosquete de alumínio</li>
-                    <li data-aos="fade-right" data-aos-delay="1000"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="">1 Par de ventosa “solta rápido”</li>
+                    <li data-aos="fade-right" data-aos-delay="700"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="bag" width="27px" height="27px"> 1 Bag para transporte</li>
+                    <li data-aos="fade-right" data-aos-delay="900"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="mosquete" width="27px" height="27px"> 1 Par de mini mosquete de alumínio</li>
+                    <li data-aos="fade-right" data-aos-delay="1000"><img src="<?= THEME_URI ?>/assets/img/icons/verify.svg" alt="ventosa" width="27px" height="27px"> 1 Par de ventosa “solta rápido”</li>
                 </ul>
             </div>
 
@@ -179,43 +179,57 @@ $editables = get_itens('editables');
             <div class="depoiments_kata_content_title" data-aos="fade-in" data-aos-delay="700">
                 O que estão dizendo sobre o katabarba?
             </div>
+            <!-- Swiper -->
+            <div class="swiper depoiments_slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide depoiments_kata_cards">
+                        <figure>
+                            <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="user_none" width="76px" height="76px">
+                        </figure>
+                        <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
+                        <div class="info_user">
+                            <h1>Celso Oliveira</h1>
+                            <span>Blogueiro</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide depoiments_kata_cards">
+                        <figure>
+                            <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="user_none" width="76px" height="76px">
+                        </figure>
+                        <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
+                        <div class="info_user">
+                            <h1>Celso Oliveira</h1>
+                            <span>Blogueiro</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide depoiments_kata_cards">
+                        <figure>
+                            <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="user_none" width="76px" height="76px">
+                        </figure>
+                        <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
+                        <div class="info_user">
+                            <h1>Celso Oliveira</h1>
+                            <span>Blogueiro</span>
+                        </div>
+                    </div>
 
-            <section class="splide depoiments_slide" aria-label="Splide Basic HTML Example">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide depoiments_kata_cards" data-aos="fade-up" data-aos-delay="600">
-                            <figure>
-                                <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="">
-                            </figure>
-                            <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
-                            <div class="info_user">
-                                <h1>Celso Oliveira</h1>
-                                <span>Blogueiro</span>
-                            </div>
-                        </li>
-                        <li class="splide__slide depoiments_kata_cards" data-aos="fade-up" data-aos-delay="700">
-                            <figure>
-                                <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="">
-                            </figure>
-                            <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
-                            <div class="info_user">
-                                <h1>Celso Oliveira</h1>
-                                <span>Blogueiro</span>
-                            </div>
-                        </li>
-                        <li class="splide__slide depoiments_kata_cards" data-aos="fade-up" data-aos-delay="800">
-                            <figure>
-                                <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="">
-                            </figure>
-                            <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
-                            <div class="info_user">
-                                <h1>Celso Oliveira</h1>
-                                <span>Blogueiro</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="swiper-slide depoiments_kata_cards">
+                        <figure>
+                            <img src="<?= THEME_URI ?>/assets/img/icons/user_none.svg" alt="user_none" width="76px" height="76px">
+                        </figure>
+                        <p>Prenda a capa Katabarba confortavelmente no pescoço e grude as ventosas “solta rápido” no espelho do seu banheiro.</p>
+                        <div class="info_user">
+                            <h1>Celso Oliveira</h1>
+                            <span>Blogueiro</span>
+                        </div>
+                    </div>
+
                 </div>
-            </section>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+
         </div>
     </section>
 
@@ -226,7 +240,7 @@ $editables = get_itens('editables');
         <ul class="faq_content">
             <?php
             $index = 5;
-            foreach ($editables['messages']['itens'] as $faq) {
+            foreach ($editables['faq']['itens'] as $faq) {
             ?>
                 <li class="faq-item" data-aos="fade-up" data-aos-delay="<?php echo $index; ?>00">
                     <div class="faq-toggle">
@@ -245,8 +259,13 @@ $editables = get_itens('editables');
             ?>
         </ul>
     </section>
-    <br>
-    <br>
-    <br>
+    <section class="footer_kata">
+        <div class="footer_kata_content container">
+            <h1>O que você está esperando?</h1>
+            <p>Chega de dor de cabeça Jovi ! Faça como o urso Kata, clique no botão abaixo e garanta já a sua capa katabarba! </p>
+
+            <div class="cart_footer">cart</div>
+        </div>
+    </section>
 </main>
 <?php get_footer(); ?>
