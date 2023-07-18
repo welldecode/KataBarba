@@ -10,17 +10,7 @@ function my_theme_register_required_plugins()
             'slug'     => 'woocommerce',
             'required' => true,
         ],
-        [
-            'name'     => 'Mercado Pago payments for WooCommerce',
-            'slug'     => 'woocommerce-mercadopago',
-            'required' => true,
-        ],
 
-        [
-            'name'     => 'Flexible Checkout Fields',
-            'slug'     => 'flexible-checkout-fields',
-            'required' => true,
-        ],
     ];
 
     $config = [
