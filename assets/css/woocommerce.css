@@ -791,4 +791,10 @@ ul.terms_content {
     color: #6F6F6F;
     font-size: 16px;
     font-weight: 400;
+}.woocommerce-additional-fields {
+    /* display: none; */
+    padding: 15px;
+}
+.woocommerce-additional-fields  h3{
+  display: none;  
 }
