@@ -7,7 +7,8 @@
 
     fetch(url)
       .then((response) => response.json())
-      .then((json) => { 
+      .then((json) => {
+        console.log(json);
         if (json.street) {
           document.querySelector("input[name=billing_address_1]").value =
             json.street;
