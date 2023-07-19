@@ -321,6 +321,7 @@ tr.cart-subtotal {
     border-radius: 51px;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 18px;
     font-family: 'Poppins';
     font-weight: 500;
