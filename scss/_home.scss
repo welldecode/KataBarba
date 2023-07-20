@@ -97,6 +97,7 @@
 
         @include xl {
           background: url('../img/icons/kata_primary.svg') center no-repeat;
+          background-size: contain;
           height: 365px;
           margin-top: 4rem;
         }
