@@ -13,13 +13,18 @@
       margin: 0 auto;
 
       h1 {
-        font-size: 60px;
+        font-size: 38px;
         font-weight: 700;
         font-family: 'new-spirit';
-        line-height: 70px;
+        line-height: 110%;
         text-align: center;
         color: $text-color;
-        width: 85%;
+        width: 100%;
+
+        @include lg {
+          font-size: 60px;
+          width: 85%;
+        }
       }
 
       p {
