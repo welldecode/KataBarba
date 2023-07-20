@@ -83,8 +83,7 @@
         position: relative;
         bottom: 0;
         left: 0;
-        right: 0;
-        margin-top: 4rem;
+        right: 0; 
         animation: fadein 3s;
 
         @keyframes fadein {
@@ -99,6 +98,7 @@
         @include xl {
           background: url('../img/icons/kata_primary.svg') center no-repeat;
           height: 365px;
+          margin-top: 4rem;
         }
       }
     }
