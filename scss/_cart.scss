@@ -351,6 +351,7 @@
     right: 0;   
     -moz-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;    
+    z-index: 9999999999999;
   }
   .cart_content {
     position: relative;

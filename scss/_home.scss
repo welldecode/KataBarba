@@ -19,9 +19,9 @@
         line-height: 110%;
         text-align: center;
         color: $text-color;
-        width: 100%;
+        width: 85%;
 
-        @include lg {
+        @include xl {
           font-size: 60px;
           width: 85%;
         }
@@ -30,9 +30,14 @@
       p {
         text-align: center;
         color: #6f6f6f;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
-        width: 70%;
+        line-height: 156%;
+        width: 85%;
+
+        @include xl {
+          width: 70%;
+        }
       }
 
       &::before {
@@ -60,14 +65,19 @@
             transform: rotate(360deg);
           }
         }
+
+        display: none;
+        @include xl {
+          display: block;
+        }
       }
 
       &::after {
         content: '';
-        background: url('../img/icons/kata_primary.svg') center no-repeat;
+        background: url('../img/icons/kata_mobile.svg') center no-repeat;
         background-size: contain;
         width: 100%;
-        height: 365px;
+        height: 405px;
         z-index: 1;
         display: block;
         position: relative;
@@ -84,6 +94,11 @@
           to {
             opacity: 1;
           }
+        }
+
+        @include xl {
+          background: url('../img/icons/kata_primary.svg') center no-repeat;
+          height: 365px;
         }
       }
     }
@@ -436,7 +451,7 @@
   padding: 105px;
   background-color: #fcf3ec;
 
-  &_content {  
+  &_content {
     &_title {
       font-family: 'new-spirit';
       font-size: 50px;
@@ -505,7 +520,7 @@
 
   &_content {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     position: relative;
     gap: 30px;
     flex-direction: column;
@@ -574,7 +589,7 @@
         transition: all 0.5s cubic-bezier(0.42, 0, 0.14, 2.07);
         p {
           font-size: 20px;
-          line-height: 22px; 
+          line-height: 22px;
           color: #646a73;
         }
       }
@@ -582,15 +597,14 @@
   }
 }
 
- 
-.footer_kata { 
+.footer_kata {
   background-color: #e5e5e5;
-  padding:7rem 0 20rem 0;
+  padding: 7rem 0 20rem 0;
   &_content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 25px; 
+    gap: 25px;
     h1 {
       text-align: center;
       font-size: 50px;

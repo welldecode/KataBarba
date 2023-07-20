@@ -16,7 +16,7 @@
   background-color: $hover-color;
 }
 .container {
-  width: unquote('min(100% - 20px, 1480px)');
+  width: unquote('min(100%, 1480px)');
   margin-inline: auto;
   position: relative;
 }
