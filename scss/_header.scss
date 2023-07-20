@@ -9,8 +9,8 @@ header {
   nav {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-    padding:  20px;
+    align-items: center;
+    padding: 20px;
 
     @include xl {
       height: 115px;
@@ -61,6 +61,56 @@ header {
         width: 20px;
         height: 20px;
       }
+
+      display: none;
+      @include xl {
+        display: block;
+      }
     }
+
+    .menu-btn {  
+      position: relative; 
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      cursor: pointer; 
+      transition: all 0.3s ease-in-out; 
+
+    .menu-btn__burger,
+    .menu-btn__burger::before,
+    .menu-btn__burger::after {
+      width: 35px;
+      height: 3px;
+
+      border-radius: 5px;
+      background-color: #181616; 
+
+      transition: all 0.3s ease-in-out;
+    }
+    .menu-btn__burger::before,
+    .menu-btn__burger::after {
+      content: '';
+      position: absolute;
+    }
+    .menu-btn__burger::before {
+      transform: translateY(-12px);
+    }
+    .menu-btn__burger::after {
+      transform: translateY(12px);
+    }
+
+    /* ANIMATION */
+  &.open .menu-btn__burger {
+      transform: translateX(-50px);
+      background-color: transparent;
+      box-shadow: none;
+    }
+    &.open .menu-btn__burger::before {
+      transform: rotate(45deg) translate(35px, -35px);
+    }
+  &.open .menu-btn__burger::after {
+      transform: rotate(-45deg) translate(35px, 35px);
+    }
+  }
   }
 }
