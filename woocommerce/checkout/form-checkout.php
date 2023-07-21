@@ -22,23 +22,22 @@ if (!defined('ABSPATH')) {
 ?>
 
 <main>
-    <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data"> 
-        <section class="checkout"> 
-            <div class="checkout_content container"> 
-                <div class="checkout_woocommerce"> 
+    <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+        <section class="checkout">
+            <div class="checkout_content container">
+                <div class="checkout_woocommerce">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <a href="<?php echo get_home_url() ?>"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
+                        <li class="active" id="billing">Cobrança Envio</li>
+                        <li id="payment">Pagamento</li>
+                    </ul>
+                 
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                                    <!-- progressbar -->
-                                    <ul id="progressbar">
-                                    <a href="<?php echo get_home_url() ?>">   <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
-                                        <li class="active" id="billing">Cobrança Envio</li>
-                                        <li id="payment">Pagamento</li>
-                                    </ul>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>  
+
                                     <fieldset>
                                         <div class="col-xs-12 col-sm-12 col-md-7 col-woo-checkout-details">
                                             <?php if ($checkout->get_checkout_fields()) : ?>
@@ -67,17 +66,17 @@ if (!defined('ABSPATH')) {
 
                                             <?php do_action('woocommerce_checkout_after_order_review'); ?>
                                         </div>
-                                    <input type="button" name="Voltar para informações" class="previous action-button-previous" value="Voltar para informações" />
+                                        <input type="button" name="Voltar para informações" class="previous action-button-previous" value="Voltar para informações" />
                                     </fieldset>
 
                                 </div>
                             </div>
                         </div>
-                    </div> 
-                        <ul class="terms_content">
-                            <li><a href="#">Política de reembolso</a></li>
-                            <li><a href="#">Política de privacidade</a></li>
-                        </ul> 
+                    </div>
+                    <ul class="terms_content">
+                        <li><a href="#">Política de reembolso</a></li>
+                        <li><a href="#">Política de privacidade</a></li>
+                    </ul>
                 </div>
                 <div class="checkout_items">
                     <div class="checkout_items_content">

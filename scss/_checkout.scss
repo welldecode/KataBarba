@@ -80,6 +80,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     &::before {
       content: '';
       background-color: #fcf3ec;
@@ -93,7 +94,7 @@
     &_content {
       position: sticky;
       z-index: 12;
-      padding: 10rem 0 0 3rem;
+      padding: 0 0 0 3rem;
       display: flex;
       flex-direction: column;
       gap: 30px;
