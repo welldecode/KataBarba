@@ -5,9 +5,9 @@
   padding: 1rem 0 0 0;
 
   @include xl {
-  padding: 3rem 0 0 0;
-
+    padding: 3rem 0 0 0;
   }
+
   &_content {
     position: relative;
     &_title {
@@ -23,7 +23,7 @@
         font-family: 'new-spirit';
         line-height: 110%;
         text-align: center;
-        color: $text-color; 
+        color: $text-color;
         width: 90%;
 
         @include xl {
@@ -168,7 +168,7 @@
           &::before {
             content: '';
             position: absolute;
-            left: 65px;
+            left: 55px;
             display: block;
             top: 9px;
             background: $hover-color;
@@ -190,7 +190,7 @@
           &::after {
             content: '';
             position: absolute;
-            right: 65px;
+            right: 55px;
             display: block;
             top: 9px;
             background: $hover-color;
@@ -892,10 +892,10 @@
           font-size: 16px;
           line-height: 22px;
           color: #646a73;
-        
-        @include xl {
-          font-size: 20px;
-        }
+
+          @include xl {
+            font-size: 20px;
+          }
         }
       }
     }
