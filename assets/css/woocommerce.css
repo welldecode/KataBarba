@@ -89,7 +89,10 @@ img.logo_kata {
     width: 49%;
     overflow: visible;
 }
-
+.woocommerce form .form-row {
+    padding: 3px;
+    margin: 0 0 14px 0 !important;
+}
 .wpmc-button {
     padding: 10px 25px;
     font-size: 16px;
