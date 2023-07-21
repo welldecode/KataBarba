@@ -23,7 +23,11 @@
 main {
   display: flex;
   flex-direction: column;
-  gap: 10rem;
+  gap: 5rem;
+
+  @include xl {
+    gap: 10rem;
+  }
 }
 
 .loading-post {

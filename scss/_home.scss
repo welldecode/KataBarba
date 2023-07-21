@@ -146,7 +146,7 @@
         span {
           text-transform: uppercase;
           font-size: 18px;
-          letter-spacing: 5px;
+          letter-spacing: 4px;
           display: block;
           font-family: 'Helmet-Regular';
 
@@ -259,6 +259,9 @@
             color: #6f6f6f;
             font-size: 14px;
             font-weight: 400;
+            margin: unset !important;
+            font-family: 'Poppins' !important;
+            padding: unset !important;
           }
           figure img {
             width: 55px;
@@ -275,6 +278,7 @@
     display: flex;
     flex-direction: column;
     padding: 15px;
+    gap: 2rem;
     @include xl {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -286,19 +290,51 @@
     &_title {
       position: relative;
       font-size: 18px;
-      padding-left: 65px;
       font-family: 'Helmet-Regular';
-      letter-spacing: 5px;
+      letter-spacing: 4px;
+      text-align: center;
+
+      @include xl {
+        padding-left: 65px;
+        letter-spacing: 5px;
+        text-align: left;
+      }
       &::before {
         content: '';
         position: absolute;
+        left: 65px;
         display: block;
-        width: 55px;
+        top: 9px;
+        background: $hover-color;
         height: 3px;
-        background-color: $primary-color;
-        left: 0;
-        bottom: 0;
-        top: 8px;
+        width: 25px;
+
+        @include xl {
+          content: '';
+          position: absolute;
+          left: 0;
+          display: block;
+          top: 9px;
+          background: $hover-color;
+          height: 3px;
+          width: 55px;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 65px;
+        display: block;
+        top: 9px;
+        background: $hover-color;
+        height: 3px;
+        width: 25px;
+      }
+      @include xl {
+        &::after {
+          display: none;
+        }
       }
     }
 
@@ -312,10 +348,10 @@
         font-size: 25px;
         width: 100%;
         text-align: center;
-      }
 
-      @include xl {
-        height: 65%;
+        @include xl {
+          text-align: left;
+        }
       }
     }
 
@@ -326,7 +362,13 @@
       gap: 2rem;
 
       h1 {
-        width: 75%;
+        width: 100%;
+        text-align: center;
+
+        @include xl {
+          width: 75%;
+          text-align: left;
+        }
       }
 
       p {
@@ -334,6 +376,12 @@
         color: #6f6f6f;
         font-size: 16px;
         line-height: 160%;
+        text-align: center;
+        margin: 0 auto;
+        @include xl {
+          text-align: left;
+          margin: unset;
+        }
       }
     }
     h1 {
@@ -351,8 +399,12 @@
     &_user {
       display: flex;
       align-items: center;
+      flex-direction: column;
       gap: 25px;
 
+      @include xl {
+        flex-direction: row;
+      }
       span {
         color: $text-color;
         font-size: 16px;
@@ -363,25 +415,44 @@
 }
 
 .functions {
-  padding: 105px;
+  padding: 85px 20px;
   background-color: #fcf3ec;
+
+  @include xl {
+    padding: 105px;
+  }
 
   &_content {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 4rem;
+
+    @include xl {
+      gap: 5rem;
+    }
     &_title {
       font-family: 'new-spirit';
-      font-size: 50px;
+      font-size: 35px;
       font-weight: 700;
       color: $text-color;
+      text-align: center;
+
+      @include xl {
+        font-size: 50px;
+        text-align: left;
+      }
     }
 
     &_cards {
       display: flex;
+      flex-direction: column;
       gap: 25px;
+      @include xl {
+        flex-direction: row;
+      }
+
       .functions_cards {
-        width: calc(100% / 4);
+        width: 100%;
         background-color: #fff;
         padding: 35px;
         border-radius: 50px;
@@ -402,6 +473,10 @@
           font-weight: 400;
           color: #6f6f6f;
         }
+
+        @include xl {
+          width: calc(100% / 4);
+        }
       }
     }
   }
@@ -409,11 +484,17 @@
 
 .product {
   &_content {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 105px;
-    grid-row-gap: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @include xl {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-template-rows: repeat(1, 1fr);
+      grid-column-gap: 105px;
+      grid-row-gap: 0px;
+      gap: unset;
+    }
 
     &_left {
       display: flex;
@@ -426,16 +507,43 @@
         padding-left: 65px;
         font-family: 'Helmet-Regular';
         letter-spacing: 5px;
+
         &::before {
           content: '';
           position: absolute;
+          left: 30px;
           display: block;
-          width: 55px;
+          top: 9px;
+          background: $hover-color;
           height: 3px;
-          background-color: $primary-color;
-          left: 0;
-          bottom: 0;
-          top: 8px;
+          width: 25px;
+
+          @include xl {
+            content: '';
+            position: absolute;
+            left: 0;
+            display: block;
+            top: 9px;
+            background: $hover-color;
+            height: 3px;
+            width: 55px;
+          }
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          right: 30px;
+          display: block;
+          top: 9px;
+          background: $hover-color;
+          height: 3px;
+          width: 25px;
+        }
+        @include xl {
+          &::after {
+            display: none;
+          }
         }
       }
 
@@ -443,16 +551,23 @@
         display: flex;
         flex-direction: column;
         gap: 35px;
-        margin-left: 1rem;
+        @include xl {
+          margin-left: 1rem;
+        }
         li {
           display: flex;
           align-items: center;
-          gap: 25px;
+          gap: 5px;
+          flex-direction: column;
 
           font-size: 20px;
           font-weight: 400;
           font-family: 'new-spirit';
           color: #6f6f6f;
+
+          @include xl {
+            gap: 25px;
+          }
         }
       }
 
@@ -463,29 +578,60 @@
         h1 {
           font-family: 'new-spirit';
           font-weight: 600;
-          font-size: 33px;
+
+          font-size: 28px;
+          text-align: center;
+          width: 70%;
+          margin: 0 auto;
+          @include xl {
+            font-weight: 600;
+            font-size: 33px;
+            text-align: left;
+            width: 100%;
+            margin: unset;
+          }
         }
 
         p {
           font-size: 16px;
           font-weight: 400;
           color: #6f6f6f;
+
+          width: 80%;
+          margin: 0 auto;
+          text-align: center;
+          @include xl {
+            width: 100%;
+            margin: unset;
+            text-align: left;
+          }
         }
       }
     }
 
     &_right {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-template-rows: repeat(1, 1fr);
-      grid-column-gap: 25px;
-      grid-row-gap: 33px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      @include xl {
+        padding: unset;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(1, 1fr);
+        grid-column-gap: 25px;
+        grid-row-gap: 33px;
+      }
 
       .image_highligts {
         background-color: #d9d9d9;
         border-radius: 30px;
-        width: 380px;
-        grid-area: 1 / 1;
+        width: 100%;
+        height: 220px;
+        @include xl {
+          width: 380px;
+          grid-area: 1 / 1;
+        }
       }
       .image_right {
         grid-area: 2 / 2 / 1;
@@ -503,17 +649,24 @@
 
 .video {
   &_content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 40px;
-    grid-row-gap: 0px;
-    gap: 4rem;
+    gap: 3rem;
+
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 20px;
+    @include xl {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 40px;
+      grid-row-gap: 0px;
+      gap: 4rem;
+      padding: unset;
+    }
     .video_player {
-      width: 870px;
-      height: 550px;
+      height: 250px;
       background-color: #c4c4c4;
-      border-radius: 60px;
+      border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -525,32 +678,58 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 195px;
-        width: 195px;
+        height: 105px;
+        width: 105px;
+
+        @include xl {
+          height: 195px;
+          width: 195px;
+        }
+      }
+
+      @include xl {
+        width: 870px;
+        height: 550px;
       }
     }
 
     .video_title {
       font-family: 'new-spirit';
-      font-size: 50px;
+      font-size: 30px;
       font-weight: 600;
       display: flex;
       align-items: center;
+      text-align: center;
+      @include xl {
+        font-size: 50px;
+        text-align: left;
+      }
     }
   }
 }
 .depoiments_kata {
-  padding: 105px;
+  padding: 85px 20px;
   background-color: #fcf3ec;
 
+  @include xl {
+    padding: 105px;
+  }
   &_content {
     &_title {
-      font-family: 'new-spirit';
-      font-size: 50px;
+      font-family: 'new-spirit'; 
+      font-size: 30px;
       font-weight: 700;
       color: $text-color;
-      width: 45%;
-      margin-bottom: 4rem;
+      width: 75%;
+      margin-bottom: 3rem;
+      margin: 0 auto 3rem auto;
+      text-align: center;
+      @include xl{
+        margin-bottom: 4rem; 
+        font-size: 50px;
+        width: 45%;
+        text-align: left;
+      }
     }
 
     .depoiments_kata_cards {

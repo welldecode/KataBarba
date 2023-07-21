@@ -9,6 +9,21 @@ var swiper = new Swiper(".depoiments_slide", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  
+  breakpoints: {
+    300: {
+      slidesPerView: 1, 
+    },
+    640: {
+      slidesPerView: 2, 
+    },
+    768: {
+      slidesPerView: 2, 
+    },
+    1024: {
+      slidesPerView: 3, 
+    },
+  },
 });
 var swiper = new Swiper(".depoiments_cart_slide", {
   slidesPerView: 1,
@@ -16,7 +31,7 @@ var swiper = new Swiper(".depoiments_cart_slide", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
-  },
+  }, 
 });
 
 $(".cart_button").on("click touchstart", function (e) {
