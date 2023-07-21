@@ -13,10 +13,13 @@
     &_title {
       display: flex;
       align-items: center;
-      flex-direction: column;
-      gap: 25px;
+      flex-direction: column; 
+      gap: 10px;
       margin: 0 auto;
 
+      @include xl {
+        gap: 25px;
+      }
       h1 {
         font-size: 34px;
         font-weight: 700;
