@@ -21,11 +21,12 @@ header {
     }
 
     ul {
+      position: relative;
       display: flex;
       gap: 45px;
 
       right: -250px;
-      transition: all 0.5s ease;
+      transition: right 0.5s ease;
       li {
         font-size: 20px;
         font-weight: 600;
@@ -50,12 +51,18 @@ header {
         width: 255px;
         padding: 7rem 0 0 25px;
         transition: all 0.5s;
+        z-index: 15;
       }
       @include xl {
         display: flex;
       }
     }
-
+    .menu_r {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      /* flex-direction: row-reverse; */
+    }
     .cart_button {
       display: flex;
       align-items: center;
@@ -78,7 +85,6 @@ header {
         height: 20px;
       }
 
-      display: none;
       @include xl {
         display: flex;
       }
@@ -92,6 +98,7 @@ header {
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
+      z-index: 175;
       .menu-btn__burger,
       .menu-btn__burger::before,
       .menu-btn__burger::after {

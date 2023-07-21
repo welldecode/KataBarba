@@ -28,12 +28,13 @@
                     <li><a href="#">Vídeo explicativo</a></li>
                     <li><a href="#">FAQ</a></li>
                 </ul>
+                <div class="menu_r"> 
                 <div class="cart_button">
                     <img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="Carrinho de Compras">
                     <span id="total_cart"><?= WC()->cart->get_cart_contents_count(); ?> </span>
                 </div>
                 <div class="menu-btn">
                     <div class="menu-btn__burger"></div>
-                </div>
+                </div></div>
             </nav>
         </header><?php } ?>
