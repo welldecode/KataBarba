@@ -29,7 +29,7 @@ if (!defined('ABSPATH')) {
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <a href="<?php echo get_home_url() ?>"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
-                        <li class="active" id="billing">Cobrança Envio</li>
+                        <li class="active" id="billing">Informações & Frete</li>
                         <li id="payment">Pagamento</li>
                     </ul>
                  
