@@ -659,7 +659,7 @@ input[type=radio]:checked {
 
 .woocommerce-checkout .action-button-previous:hover,
 .woocommerce-checkout .action-button-previous:focus {
-    background-color: #b15e1f
+ color: #b15e1f
 }
 
 .card {
