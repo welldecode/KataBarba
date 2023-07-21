@@ -32,7 +32,7 @@ if (!defined('ABSPATH')) {
                         <li class="active" id="billing">Informações & Frete</li>
                         <li id="payment">Pagamento</li>
                     </ul>
-                 
+
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
@@ -73,10 +73,19 @@ if (!defined('ABSPATH')) {
                             </div>
                         </div>
                     </div>
-                    <ul class="terms_content">
-                        <li><a href="#">Política de reembolso</a></li>
-                        <li><a href="#">Política de privacidade</a></li>
-                    </ul>
+                    <div class="terms_content">
+                        <div class="left_items">
+                            <a href="#">Política de reembolso</a>
+                            <a href="#">Política de privacidade</a>
+                        </div>
+                        <div class="right_items">
+                            <ul>
+                                <li><img src="<?= THEME_URI ?>/assets/img/woocommerce/mercado-pago.svg" alt="mercadopago"></li>
+                                <li><img src="<?= THEME_URI ?>/assets/img/woocommerce/certificate.svg" alt="certificate"></li>
+                                <li><img src="<?= THEME_URI ?>/assets/img/woocommerce/payment.svg" alt="payment"></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="checkout_items">
                     <div class="checkout_items_content">

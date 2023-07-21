@@ -9,12 +9,13 @@
 }
 
 h3 {
-    font-size: 18px; 
+    font-size: 18px;
     font-weight: 600;
     margin: 15px 0 !important;
     font-family: 'new-spirit';
-    color: #3b3b3b; 
+    color: #3b3b3b;
 }
+
 h4 {
     font-size: 18px;
     color: #3b3b3b;
@@ -320,7 +321,7 @@ tr.cart-subtotal {
     top: -1.1rem;
     left: 6.8rem;
     background: #222;
-    color: #fff; 
+    color: #fff;
     border-radius: 51px;
     display: flex;
     align-items: center;
@@ -778,25 +779,37 @@ tr.woocommerce-shipping-totals.shipping td {
     font-size: 18px;
 }
 
-ul.terms_content {
+.terms_content {
     display: flex;
+    justify-content: space-between;
     gap: 15px;
     position: relative;
     padding: 0 20px;
 }
 
-.terms_content li:first-child {
+.terms_content a:first-child {
     padding-right: 15px;
     border-right: 1px solid #6F6F6F;
 }
- .terms_content li a {
+
+.terms_content a {
     color: #6F6F6F;
     font-size: 16px;
     font-weight: 400;
-}.woocommerce-additional-fields {
+    margin-right: 10px;
+}
+
+.right_items ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.woocommerce-additional-fields {
     /* display: none; */
     padding: 10px;
 }
-.woocommerce-additional-fields  h3{
-  display: none;  
+
+.woocommerce-additional-fields h3 {
+    display: none;
 }
