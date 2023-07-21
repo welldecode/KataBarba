@@ -567,6 +567,7 @@
 
           @include xl {
             gap: 25px;
+            flex-direction: row;
           }
         }
       }
@@ -631,6 +632,7 @@
         @include xl {
           width: 380px;
           grid-area: 1 / 1;
+          height: 100%;
         }
       }
       .image_right {
@@ -690,6 +692,8 @@
       @include xl {
         width: 870px;
         height: 550px;
+        
+      border-radius: 60px;
       }
     }
 
