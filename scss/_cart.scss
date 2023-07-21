@@ -344,14 +344,17 @@
   position: relative;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;    
-  &.cart_scroll {
-    bottom: 65px;
+  &.cart_scroll {      bottom: -3rem;
     position: fixed;
     left: 0;
     right: 0;   
     -moz-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;    
     z-index: 9999999999999;
+
+    @include xl {
+      bottom: 65px;
+    }
   }
   .cart_content {
     position: relative;
@@ -359,20 +362,27 @@
       position: absolute;
       right: 0;
       left: 0;
-      bottom: -2rem;
+      bottom: 5rem;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 5;
       background: $dark-color;
-      padding: 15px;
+      padding: 10px;
       width: 100%;
-      max-width: 550px;
+      max-width: 395px;
       border-radius: 15px;
       transition: bottom 0.5s;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.329);
 
+
+      @include xl {
+        bottom: -2rem;
+        padding: 15px;
+        max-width: 550px;
+
+      }
       .cart_items {
         display: flex;
         align-items: center;
@@ -393,16 +403,23 @@
 
       .number_c {
         display: flex;
-        width: 35%;
+        width: 30%;
+        @include xl {
+          width: 35%;
+        }
       }
       .number_c .btn_number {
         background: transparent;
         border: 1px solid #fff;
         border-radius: 50%;
         display: flex;
-        align-items: center;
-        padding: 15px;
+        align-items: center; 
+        padding: 10px;
         color: #fff;
+
+        @include xl {
+          padding: 15px; 
+        }
       }
 
       .number_c .btn_number img {
@@ -414,10 +431,14 @@
     input {
       background: transparent;
       color: #fff;
-      font-size: 36px;
+      font-size: 30px;
       font-weight: 500;
       width: 100%;
       text-align: center;
+
+      @include xl {
+        font-size: 36px;
+      }
     }
 
     input[type='number']::-webkit-inner-spin-button,
@@ -433,13 +454,19 @@
 
     .buy_c {
       background: $primary-color;
-      padding: 10px 15px;
+      padding: 10px 10px;
       border-radius: 10px;
       color: #fff;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.5s;
+
+      @include xl {
+        
+      padding: 10px 15px;
+      font-size: 18px;
+      }
     }
 
     .buy_c:hover {
