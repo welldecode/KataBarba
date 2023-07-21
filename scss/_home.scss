@@ -692,8 +692,8 @@
       @include xl {
         width: 870px;
         height: 550px;
-        
-      border-radius: 60px;
+
+        border-radius: 60px;
       }
     }
 
@@ -720,7 +720,7 @@
   }
   &_content {
     &_title {
-      font-family: 'new-spirit'; 
+      font-family: 'new-spirit';
       font-size: 30px;
       font-weight: 700;
       color: $text-color;
@@ -728,8 +728,8 @@
       margin-bottom: 3rem;
       margin: 0 auto 3rem auto;
       text-align: center;
-      @include xl{
-        margin-bottom: 4rem; 
+      @include xl {
+        margin-bottom: 4rem;
         font-size: 50px;
         width: 45%;
         text-align: left;
@@ -784,13 +784,25 @@
 }
 
 .faq {
+  padding: 20px;
+
+  @include xl {
+    padding: unset;
+  }
   &_title {
     font-family: 'new-spirit';
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 600;
     text-align: center;
     color: $text-color;
-    margin-bottom: 5rem;
+    margin: 0 auto 5rem auto;
+    width: 75%;
+
+    @include xl {
+      margin-bottom: 5rem;
+      font-size: 50px;
+      width: 100%;
+    }
   }
 
   &_content {
@@ -808,12 +820,16 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 30px;
+        font-size: 10px;
         font-weight: 600;
         font-family: 'new-spirit';
         cursor: pointer;
         padding-bottom: 35px;
         gap: 15px;
+
+        @include xl {
+          font-size: 30px;
+        }
       }
 
       .faq-icon {
@@ -823,8 +839,13 @@
 
         .arrow {
           position: relative;
-          top: 10px;
+          top: 5px;
           right: 20px;
+
+          
+        @include xl {
+        top: 10px;
+        }
         }
 
         .arrow::before,
