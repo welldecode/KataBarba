@@ -638,24 +638,24 @@ input[type=radio]:checked {
     background-color: #b15e1f
 }
 
-.woocommerce-checkout .action-button-previous {
-    background: #222;
-    color: #ffffff;
+.woocommerce-checkout .action-button-previous { 
+    background: transparent;
+    color: #222;
     border: 0 none;
     border-radius: 0px;
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 0;
     float: left;
     border-radius: 3px;
     font-weight: 600;
     font-size: 16px;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
 }
 
 .woocommerce-checkout .action-button-previous:hover,
 .woocommerce-checkout .action-button-previous:focus {
-    background-color: #000000
+    background-color: #b15e1f
 }
 
 .card {
