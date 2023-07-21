@@ -2,7 +2,12 @@
   position: relative;
   background-color: #fcf3ec;
   z-index: 2;
+  padding: 1rem 0 0 0;
+
+  @include xl {
   padding: 3rem 0 0 0;
+
+  }
   &_content {
     position: relative;
     &_title {
@@ -13,7 +18,7 @@
       margin: 0 auto;
 
       h1 {
-        font-size: 38px;
+        font-size: 34px;
         font-weight: 700;
         font-family: 'new-spirit';
         line-height: 110%;
