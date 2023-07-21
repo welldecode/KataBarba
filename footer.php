@@ -24,6 +24,7 @@
              </div>
              <div class="footer_row">
                  <h1>Instagram</h1>
+                 <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
              </div>
 
              <div class="footer_row">

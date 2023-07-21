@@ -82,7 +82,7 @@
         position: relative;
         bottom: 0;
         left: 0;
-        right: 0; 
+        right: 0;
         animation: fadein 3s;
 
         @keyframes fadein {
@@ -118,7 +118,6 @@
       grid-template-rows: repeat(1, 1fr);
       grid-column-gap: 105px;
       grid-row-gap: 0px;
-      gap: 0;
     }
 
     &_left {
@@ -138,6 +137,11 @@
         display: flex;
         flex-direction: column;
         gap: 25px;
+
+        @include xl {
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
         span {
           text-transform: uppercase;
           font-size: 18px;
@@ -153,7 +157,7 @@
             display: block;
             font-family: 'Helmet-Regular';
           }
- 
+
           &::before {
             content: '';
             position: absolute;
@@ -201,6 +205,7 @@
 
           @include xl {
             font-size: 34px;
+            text-align: left;
           }
         }
       }
@@ -213,9 +218,9 @@
 
         @include xl {
           padding: 0;
+          text-align: left;
         }
       }
-
     }
     &_right {
       width: 100%;
@@ -237,7 +242,7 @@
           display: flex;
           flex-direction: column;
           gap: 10px;
-          width: calc(100%/2 - 35px);
+          width: calc(100% / 2 - 35px);
 
           @include xl {
             width: 100%;
@@ -266,11 +271,16 @@
 
 .depoiments {
   &_content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    @include xl {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 50px;
+      grid-row-gap: 50px;
+    }
 
     &_title {
       position: relative;
@@ -296,8 +306,15 @@
       flex-direction: column;
       justify-content: center;
       gap: 2rem;
+
       h1 {
-        width: 65%;
+        font-size: 25px;
+        width: 100%;
+        text-align: center;
+      }
+
+      @include xl {
+        height: 65%;
       }
     }
 
