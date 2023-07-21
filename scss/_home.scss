@@ -18,11 +18,12 @@
         font-family: 'new-spirit';
         line-height: 110%;
         text-align: center;
-        color: $text-color;
-        width: 85%;
+        color: $text-color; 
+        width: 90%;
 
         @include xl {
           font-size: 60px;
+          width: 85%;
         }
       }
 
