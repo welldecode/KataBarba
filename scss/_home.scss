@@ -842,10 +842,9 @@
           top: 5px;
           right: 20px;
 
-          
-        @include xl {
-        top: 10px;
-        }
+          @include xl {
+            top: 10px;
+          }
         }
 
         .arrow::before,
@@ -884,9 +883,13 @@
         overflow: hidden;
         transition: all 0.5s cubic-bezier(0.42, 0, 0.14, 2.07);
         p {
-          font-size: 20px;
+          font-size: 16px;
           line-height: 22px;
           color: #646a73;
+        
+        @include xl {
+          font-size: 20px;
+        }
         }
       }
     }
@@ -903,9 +906,13 @@
     gap: 25px;
     h1 {
       text-align: center;
-      font-size: 50px;
+      font-size: 30px;
       font-family: 'new-spirit';
       font-weight: 600;
+
+      @include xl {
+        font-size: 50px;
+      }
     }
 
     p {
@@ -913,8 +920,12 @@
       font-weight: 400;
       color: #656565;
       text-align: center;
-      width: 45%;
+      width: 70%;
       margin: 0 auto;
+
+      @include xl {
+        width: 45%;
+      }
     }
   }
 }
