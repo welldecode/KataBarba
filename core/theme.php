@@ -67,3 +67,11 @@ function criarNonce( $id ) {
     }
     return get_option( $id );
 } 
+
+#------------------------------------------------------------
+# - Detecta se a versão é para pc ou mobile.
+#------------------------------------------------------------
+function is_mobil() {
+    $mobile = ( wp_is_mobile() == true ) ? '1' : 'false';
+    return $mobile;
+}

@@ -31,7 +31,15 @@ $editables = get_itens('editables');
                                 <div class="total_number"><?= WC()->cart->get_cart_total()  ?></div>
                                 <div class="payment_content">
                                     <div class="buy_c button_cart" id="button_cart">
-                                        Comprar Agora
+                                        <?php
+                                        if (wp_is_mobile()) {  ?>
+                                            Comprar 
+                                        <?php
+                                        } else { ?>
+                                            Comprar Agora
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +52,15 @@ $editables = get_itens('editables');
                             <div class="total_number">R$ 49,50</div>
                             <div class="payment_content">
                                 <div class="buy_c button_cart" id="button_cart">
-                                    Comprar Agora
+                                <?php
+                                        if (wp_is_mobile()) {  ?> 
+                                            Comprar
+                                        <?php
+                                        } else { ?>
+                                            Comprar Agora 
+                                        <?php
+                                        }
+                                        ?>
                                 </div>
                             </div>
                         </div>
