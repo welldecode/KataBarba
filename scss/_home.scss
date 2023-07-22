@@ -379,7 +379,10 @@
     h1 {
       font-family: 'new-spirit';
       font-weight: 600;
-      font-size: 33px;
+      font-size: 30px;
+      @include xl {
+        font-size: 33px;
+      }
     }
     figure {
       img {
