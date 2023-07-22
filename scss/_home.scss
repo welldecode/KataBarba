@@ -505,7 +505,7 @@
 
         @include xl {
           text-align: inherit;
-          padding: 65px;
+          padding: 0 65px;
         }
 
         &::before {
@@ -518,8 +518,7 @@
           height: 3px;
           width: 25px;
 
-          @include xl {
-            top: 74px;
+          @include xl { 
             left: 0;
             width: 55px;
           }
