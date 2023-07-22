@@ -23,7 +23,7 @@
 main {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 4rem;
 
   @include xl {
     gap: 10rem;
