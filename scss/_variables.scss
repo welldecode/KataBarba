@@ -17,7 +17,7 @@ $screen-xl-min: 1200px;
  }
 
  @mixin md {
-    @media (max-width: #{$screen-md-min}) {
+    @media (min-width: #{$screen-md-min}) {
         @content;
     }
  }
