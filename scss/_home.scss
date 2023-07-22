@@ -137,8 +137,6 @@
       gap: 30px;
 
       @include xl {
-        display: flex;
-        flex-direction: column;
         gap: 55px;
       }
 
@@ -160,12 +158,8 @@
           font-family: 'Helmet-Regular';
 
           @include xl {
-            text-transform: uppercase;
-            font-size: 18px;
             letter-spacing: 5px;
             padding-left: 75px;
-            display: block;
-            font-family: 'Helmet-Regular';
           }
 
           &::before {
@@ -179,13 +173,7 @@
             width: 25px;
 
             @include xl {
-              content: '';
-              position: absolute;
               left: 0;
-              display: block;
-              top: 9px;
-              background: $hover-color;
-              height: 3px;
               width: 55px;
             }
           }
@@ -319,13 +307,7 @@
         width: 25px;
 
         @include xl {
-          content: '';
-          position: absolute;
           left: 0;
-          display: block;
-          top: 9px;
-          background: $hover-color;
-          height: 3px;
           width: 55px;
         }
       }
@@ -339,9 +321,8 @@
         background: $hover-color;
         height: 3px;
         width: 25px;
-      }
-      @include xl {
-        &::after {
+
+        @include xl {
           display: none;
         }
       }
@@ -513,9 +494,14 @@
       &_title {
         position: relative;
         font-size: 18px;
-        padding-left: 65px;
+        text-align: center;
         font-family: 'Helmet-Regular';
         letter-spacing: 5px;
+
+        @include xl {
+          text-align: inherit;
+          padding: 65px;
+        }
 
         &::before {
           content: '';
@@ -528,13 +514,8 @@
           width: 25px;
 
           @include xl {
-            content: '';
-            position: absolute;
+            top: 74px;
             left: 0;
-            display: block;
-            top: 9px;
-            background: $hover-color;
-            height: 3px;
             width: 55px;
           }
         }
@@ -594,7 +575,6 @@
           width: 70%;
           margin: 0 auto;
           @include xl {
-            font-weight: 600;
             font-size: 33px;
             text-align: left;
             width: 100%;
@@ -912,15 +892,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 25px;
     h1 {
       text-align: center;
       font-size: 30px;
       font-family: 'new-spirit';
       font-weight: 600;
+      width: 65%;
 
       @include xl {
         font-size: 50px;
+        width: 100%;
       }
     }
 
@@ -929,7 +912,7 @@
       font-weight: 400;
       color: #656565;
       text-align: center;
-      width: 70%;
+      width: 65%;
       margin: 0 auto;
 
       @include xl {
