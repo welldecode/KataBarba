@@ -351,26 +351,14 @@
   position: relative;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  &.cart_scroll {
-    bottom: 4rem;
-    position: fixed;
-    left: 0;
-    right: 0;
-    -moz-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    z-index: 9999999999999;
-
-    @include xl {
-      bottom: 65px;
-    }
-  }
+ 
   .cart_content {
     position: relative;
     form {
-      position: absolute;
+      position: fixed;
       right: 0;
       left: 0;
-      bottom: 0;
+      bottom: 5rem;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -385,7 +373,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.329);
 
       @include xl {
-        bottom: -2rem;
+        bottom: 2rem;
         padding: 15px;
         max-width: 550px;
       }

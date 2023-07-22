@@ -484,7 +484,7 @@
           padding: 35px;
         }
         @include xl {
-          width: calc(100% / 4);
+          width: calc(100% / 4 - 25px);
           padding: 35px;
         }
       }
@@ -497,6 +497,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    
     @include xl {
       display: grid;
       grid-template-columns: 2fr 3fr;
@@ -673,6 +674,7 @@
       gap: 4rem;
       padding: unset;
     }
+
     .video_player {
       height: 250px;
       background-color: #c4c4c4;
@@ -734,6 +736,7 @@
   @include xl {
     padding: 105px;
   }
+
   &_content {
     &_title {
       font-family: 'new-spirit';
