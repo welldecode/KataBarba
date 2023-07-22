@@ -32,7 +32,7 @@
     transition: all 0.5s;
 
     @include md {
-      right: -80rem;
+      right: -50rem;
     }
     @include xl {
       width: 410px;
@@ -370,7 +370,7 @@
       position: absolute;
       right: 0;
       left: 0;
-      bottom: 5rem;
+      bottom: 0;
       margin: 0 auto;
       display: flex;
       align-items: center;
