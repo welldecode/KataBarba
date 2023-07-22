@@ -22,7 +22,7 @@
                      <li><a href="#">Sobre o Katabarba</a></li>
                  </ul>
              </div>
-             <div class="footer_row" style=" <?php wp_is_mobile() ? 'display: none' : 'display: block'; ?>">
+             <div class="footer_row" style="<?php echo wp_is_mobile() ? 'display: none' : 'display: block'; ?>">
                  <h1>Instagram</h1>
                  <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
              </div>
