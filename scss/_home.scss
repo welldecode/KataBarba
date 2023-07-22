@@ -104,6 +104,11 @@
           }
         }
 
+        @include md {
+          background: url('../img/icons/kata_primary.svg') center no-repeat;
+          height: 200px;
+          background-size: contain; 
+        }
         @include xl {
           background: url('../img/icons/kata_primary.svg') center no-repeat;
           background-size: contain;
@@ -421,6 +426,7 @@
     display: flex;
     flex-direction: column; 
     gap: 3rem;
+ 
     @include xl {
       gap: 5rem;
     }
@@ -441,6 +447,11 @@
       display: flex;
       flex-direction: column;
       gap: 25px;
+          
+    @include md {
+      flex-direction: row;
+      flex-wrap: wrap; 
+    }
       @include xl {
         flex-direction: row;
       }
@@ -468,6 +479,10 @@
           color: #6f6f6f;
         }
 
+        @include md {
+          width: calc(100% / 2 - 15px);
+          padding: 35px;
+        }
         @include xl {
           width: calc(100% / 4);
           padding: 35px;
@@ -644,10 +659,11 @@
 .video {
   &_content {
     gap: 3rem;
-
+    
     display: flex;
     flex-direction: column-reverse;
     padding: 0 20px;
+
     @include xl {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -681,6 +697,10 @@
         }
       }
 
+      @include md { 
+          height: 365px;
+      
+      }
       @include xl {
         width: 870px;
         height: 550px;
@@ -696,6 +716,10 @@
       display: flex;
       align-items: center;
       text-align: center;
+
+      @include md { 
+    font-size: 32px;
+      }
       @include xl {
         font-size: 50px;
         text-align: left;
