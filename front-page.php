@@ -17,7 +17,7 @@ $editables = get_itens('editables');
                 ?>
             </div>
         </div>
-        <section class="cart_container <?php echo wp_is_mobile() ? 'cart_scroll' : 'cart_scroll'; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
+        <section class="cart_container <?php echo wp_is_mobile() ? 'cart_scroll' : ''; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
             <div class="cart_content">
                 <form action="#" method="POST">
                     <?php
