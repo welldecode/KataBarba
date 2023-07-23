@@ -6,6 +6,10 @@ header {
   z-index: 4;
   margin-bottom: 0rem;
   background-color: #fcf3ec;
+
+  @include xl {
+    position: absolute;
+  }
   nav {
     display: flex;
     justify-content: space-between;
@@ -14,6 +18,10 @@ header {
     @include xl {
       padding:unset;
       height: 115px;
+    }
+    
+    @include xxl {
+      padding: 0 25px;
     }
     .nav_logo {
       font-family: 'new-spirit';

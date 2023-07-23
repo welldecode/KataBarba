@@ -5,16 +5,18 @@ $editables = get_itens('editables');
 ?>
 <main>
     <section class="dashboard">
-        <div class="dashboard_content container">
-            <div class="dashboard_content_title">
-                <?php
-                foreach ($editables['highlights']['itens'] as $highlights) :
-                ?>
-                    <h1 data-aos="fade-down" data-aos-delay="700"><?= $highlights['title'] ?></h1>
-                    <p data-aos="fade-up" data-aos-delay="800"><?= $highlights['subtitle'] ?></p>
-                <?php
-                endforeach;
-                ?>
+        <div class=" container">
+            <div class="dashboard_content">
+                <div class="dashboard_content_title">
+                    <?php
+                    foreach ($editables['highlights']['itens'] as $highlights) :
+                    ?>
+                        <h1 data-aos="fade-down" data-aos-delay="700"><?= $highlights['title'] ?></h1>
+                        <p data-aos="fade-up" data-aos-delay="800"><?= $highlights['subtitle'] ?></p>
+                    <?php
+                    endforeach;
+                    ?>
+                </div>
             </div>
         </div>
         <section class="cart_container <?php echo wp_is_mobile() ? 'cart_scroll' : ''; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
@@ -33,7 +35,7 @@ $editables = get_itens('editables');
                                     <div class="buy_c button_cart" id="button_cart">
                                         <?php
                                         if (wp_is_mobile()) {  ?>
-                                            Comprar 
+                                            Comprar
                                         <?php
                                         } else { ?>
                                             Comprar Agora
@@ -52,15 +54,15 @@ $editables = get_itens('editables');
                             <div class="total_number">R$ 49,50</div>
                             <div class="payment_content">
                                 <div class="buy_c button_cart" id="button_cart">
-                                <?php
-                                        if (wp_is_mobile()) {  ?> 
-                                            Comprar
-                                        <?php
-                                        } else { ?>
-                                            Comprar Agora 
-                                        <?php
-                                        }
-                                        ?>
+                                    <?php
+                                    if (wp_is_mobile()) {  ?>
+                                        Comprar
+                                    <?php
+                                    } else { ?>
+                                        Comprar Agora
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>

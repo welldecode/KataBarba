@@ -1,43 +1,45 @@
- 
 // set screen size
 
 $screen-sm-min: 576px;
 
 $screen-md-min: 768px;
 
-$screen-lg-min: 992px;
-
+$screen-lg-min: 992px; 
 $screen-xl-min: 1200px;
+$screen-xxl-min: 1366px;
 
 // set mixins
 @mixin sm {
-    @media (min-width: #{$screen-sm-min}) {
-        @content;
-    }
- }
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
 
- @mixin md {
-    @media (min-width: #{$screen-md-min}) {
-        @content;
-    }
- }
- 
- @mixin lg {
-    @media (min-width: #{$screen-lg-min}) {
-        @content;
-    }
- }
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
 
- @mixin xl {
-    @media (min-width: #{$screen-xl-min}) {
-        @content;
-    }
- }
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
 
-$bg-color: #FFFFFF;
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+$bg-color: #ffffff;
 $primary-color: #bc6626;
 $hover-color: #995018;
-$text-color: #28282B;
-$dark-color: #28282B;
-
- 
+$text-color: #28282b;
+$dark-color: #28282b;
