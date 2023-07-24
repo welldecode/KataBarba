@@ -225,8 +225,8 @@ function woocommerce_ajax_quantity_to_cart()
 
             WC()->cart->generate_cart_id($product_id);
 
-            print_r(WC()->cart->get_cart());
-            foreach (WC()->cart->get_cart() as $cart_item) {
+            print_r(WC()->cart);
+            foreach (WC()->cart as $cart_item) {
                 WC()->cart->set_quantity($cart_item['key'], $quantity);
  
                 $data['codigo'] = 1;
