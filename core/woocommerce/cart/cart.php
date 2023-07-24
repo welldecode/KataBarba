@@ -200,8 +200,6 @@ add_action('wp_ajax_nopriv_woocommerce_ajax_remove_coupon', 'woocommerce_ajax_re
 
 function woocommerce_ajax_quantity_to_cart()
 {
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
     global $woocommerce;
 
     $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
@@ -226,8 +224,9 @@ function woocommerce_ajax_quantity_to_cart()
             $product_id = $p->ID;
 
             WC()->cart->generate_cart_id($product_id);
-
-        $cart_item = WC()->cart;
+ 
+            foreach (WC()->cart as $cart_item) {
+                print_r($cart_item);
                 WC()->cart->set_quantity($cart_item['key'], $quantity);
  
                 $data['codigo'] = 1;
@@ -237,6 +236,7 @@ function woocommerce_ajax_quantity_to_cart()
                 $data['type'] = WC()->cart->get_cart_total(); 
                 wp_send_json($data);
                 return;
+            }
         }
     }
 }
