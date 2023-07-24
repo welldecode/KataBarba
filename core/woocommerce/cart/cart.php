@@ -5,7 +5,6 @@
 function woocommerce_ajax_add_to_cart()
 {
 
-    $product_id = '14';
     $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
     $data = [];
 
@@ -145,7 +144,6 @@ function woocommerce_ajax_get_coupon()
     }
 }
 
-
 add_action('wp_ajax_woocommerce_ajax_get_coupon', 'woocommerce_ajax_get_coupon');
 add_action('wp_ajax_nopriv_woocommerce_ajax_get_coupon', 'woocommerce_ajax_get_coupon');
 
@@ -187,8 +185,8 @@ add_action('wp_ajax_nopriv_woocommerce_ajax_remove_coupon', 'woocommerce_ajax_re
 function woocommerce_ajax_quantity_to_cart()
 {
     global $woocommerce;
- 
-    $product_id = '14';
+
+    $product_id = '33';
     $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
     $data = [];
 
@@ -196,20 +194,20 @@ function woocommerce_ajax_quantity_to_cart()
         wc_load_cart();
     }
 
-    if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id($product_id))) {
+    WC()->cart->generate_cart_id($product_id);
 
-        foreach (WC()->cart->get_cart() as $cart_item) {
-            WC()->cart->set_quantity($cart_item['key'], $quantity);
+    foreach (WC()->cart->get_cart() as $cart_item) {
+        WC()->cart->set_quantity($cart_item['key'], $quantity);
 
-            $data['codigo'] = 1;
-            $data['ID'] = $product_id;
-            $data['quantity'] = $quantity;
-            $data['count_itens'] = WC()->cart->get_cart_contents_count();
-            $data['type'] = WC()->cart->get_cart_total();
+        print_r($cart_item['key']);
+        $data['codigo'] = 1;
+        $data['ID'] = $product_id;
+        $data['quantity'] = $quantity;
+        $data['count_itens'] = WC()->cart->get_cart_contents_count();
+        $data['type'] = WC()->cart->get_cart_total();
 
-            wp_send_json($data);
-            return;
-        }
+        wp_send_json($data);
+        return;
     }
 }
 
