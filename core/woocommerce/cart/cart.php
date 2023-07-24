@@ -202,29 +202,43 @@ function woocommerce_ajax_quantity_to_cart()
 {
     global $woocommerce;
 
-    $product_id = '33';
     $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
     $data = [];
 
     if (is_null(WC()->cart)) {
         wc_load_cart();
     }
+    $results = new WP_Query(
+        [
+            'post_type'       => 'product',
+            'posts_per_page'  => -1,
+            'post_status'     => 'publish',
+            'order'           => 'DESC',
+        ]
+    );
 
-    if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id($product_id))) {
+    if (!empty($results->posts)) {
+        $data = [];
 
-        foreach (WC()->cart->get_cart() as $cart_item) {
-            WC()->cart->set_quantity($cart_item['key'], $quantity);
+        foreach ($results->posts as $p) { 
+            $product_id = $p->ID;
+         WC()->cart->generate_cart_id($product_id);
 
-            print_r($cart_item['key']);
-            $data['codigo'] = 1;
-            $data['ID'] = $product_id;
-            $data['quantity'] = $quantity;
-            $data['count_itens'] = WC()->cart->get_cart_contents_count();
-            $data['type'] = WC()->cart->get_cart_total();
+                foreach (WC()->cart->get_cart() as $cart_item) {
+                    WC()->cart->set_quantity($cart_item['key'], $quantity);
 
-            wp_send_json($data);
-            return;
-        }
+                    print_r($cart_item['key']);
+                    $data['codigo'] = 1;
+                    $data['ID'] = $product_id;
+                    $data['quantity'] = $quantity;
+                    $data['count_itens'] = WC()->cart->get_cart_contents_count();
+                    $data['type'] = WC()->cart->get_cart_total();
+
+                    wp_send_json($data);
+                    return;
+                }
+            }
+        
     }
 }
 
