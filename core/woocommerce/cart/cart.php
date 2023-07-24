@@ -208,7 +208,7 @@ function woocommerce_ajax_quantity_to_cart()
     $quantity = $_POST['quantity'];
     $data = [];
 
-    $product = wc_get_product('33');
+    $product = wc_get_product('14');
 
     $product_p = $product->get_price();
     $price_quantity = $product_p * $quantity;
