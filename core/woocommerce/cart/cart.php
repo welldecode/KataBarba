@@ -27,8 +27,7 @@ function woocommerce_ajax_add_to_cart()
             return;
         }
     }
-    if (WC()->cart->add_to_cart($product_id, $quantity)) {
-
+    if (WC()->cart->add_to_cart($product_id, $quantity)) { 
         $data['codigo'] = 1;
         $data['ID'] = $product_id;
         $data['quantity'] = $quantity;

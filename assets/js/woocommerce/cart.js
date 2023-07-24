@@ -4,7 +4,7 @@ $(document).ready(function () {
   item_cart();
 });
 
-const button_cart = document.querySelector(".button_cart");
+const button_cart = document.querySelector("#button_cart");
 button_cart.addEventListener("click", function (e) {
   e.preventDefault();
   let quantity = document.getElementById("quantity").value;
