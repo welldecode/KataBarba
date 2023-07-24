@@ -19,7 +19,7 @@ $editables = get_itens('editables');
                 </div>
             </div>
         </div>
-        <section class="cart_container <?php echo wp_is_mobile() ? 'cart_scroll' : ''; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
+        <section class="cart_container top_cart <?php echo wp_is_mobile() ? 'cart_scroll' : ''; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
             <div class="cart_content">
                 <form action="#" method="POST">
                     <?php
@@ -282,7 +282,59 @@ $editables = get_itens('editables');
             <h1>O que você está esperando?</h1>
             <p>Chega de dor de cabeça Jovi ! Faça como o urso Kata, clique no botão abaixo e garanta já a sua capa katabarba! </p>
 
-            <div class="cart_footer">cart</div>
+            <div class="cart_footer">
+                <section class="cart_container footer_cart <?php echo wp_is_mobile() ? 'cart_scroll' : ''; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
+                    <div class="cart_content">
+                        <form action="#" method="POST">
+                            <?php
+                            if (WC()->cart->find_product_in_cart(WC()->cart->generate_cart_id('14'))) {
+                                foreach (WC()->cart->get_cart() as $cart_item) {
+                            ?>
+                                    <div class="cart_items">
+                                        <div class="number_c">
+                                            <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="<?php echo $cart_item['quantity']; ?>" min="1" max="10" id="quantity"><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
+                                        </div>
+                                        <div class="total_number"><?= WC()->cart->get_cart_total()  ?></div>
+                                        <div class="payment_content">
+                                            <div class="buy_c button_cart" id="button_cart">
+                                                <?php
+                                                if (wp_is_mobile()) {  ?>
+                                                    Comprar
+                                                <?php
+                                                } else { ?>
+                                                    Comprar Agora
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php }
+                            } else { ?>
+                                <div class="cart_items">
+                                    <div class="number_c">
+                                        <span class="input-number-decrement btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/min.svg" alt=""></span><input class="input-number" disabled type="number" value="1" min="1" max="10" id="quantity"><span class="input-number-increment  btn_number"><img src="<?= THEME_URI ?>/assets/img/icons/plus.svg" alt=""></span>
+                                    </div>
+                                    <div class="total_number">R$ 49,50</div>
+                                    <div class="payment_content">
+                                        <div class="buy_c button_cart" id="button_cart">
+                                            <?php
+                                            if (wp_is_mobile()) {  ?>
+                                                Comprar
+                                            <?php
+                                            } else { ?>
+                                                Comprar Agora
+                                            <?php
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </form>
+                    </div>
+                </section>
+            </div>
         </div>
     </section>
 </main>
