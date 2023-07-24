@@ -4,38 +4,42 @@ $(document).ready(function () {
   item_cart();
 });
 
-const button_cart = document.querySelector("#button_cart");
-button_cart.addEventListener("click", function (e) {
-  e.preventDefault();
-  let quantity = document.getElementById("quantity").value;
-  var token = $(".cart_container").attr("data-secury");
-  var form_ac = {
-    action: "woocommerce_ajax_add_to_cart",
-    token: token,
-    quantity: quantity,
-  };
+const button_cart = document.querySelectorAll("#button_cart");
 
-  $.ajax({
-    url: cart_obj.ajax_url,
-    method: "POST",
-    dataType: "JSON",
-    data: form_ac,
-    beforeSend: function () {
-      $(".cart_content form").addClass("hidden");
-    },
-    success: function (response) {
-      let items = response;
-      $(".cart_content form").removeClass("hidden");
-      $(".total_number").html(items["type"]);
-      $("#total_cart").html(items["count_itens"]);
+button_cart.forEach((element) => {
+  element.addEventListener("click", function (e) {
+    e.preventDefault();
+    let quantity = document.getElementById("quantity").value;
+    var token = $(".cart_container").attr("data-secury");
+    var form_ac = {
+      action: "woocommerce_ajax_add_to_cart",
+      token: token,
+      quantity: quantity,
+    };
 
-      $(".cart_block_content").addClass("active");
-      $(".item_lists").empty().fadeIn(1500).html(item_cart());
-    },
+    $.ajax({
+      url: cart_obj.ajax_url,
+      method: "POST",
+      dataType: "JSON",
+      data: form_ac,
+      beforeSend: function () {
+        $(".cart_content form").addClass("hidden");
+      },
+      success: function (response) {
+        let items = response;
+        $(".cart_content form").removeClass("hidden");
+        $(".total_number").html(items["type"]);
+        $("#total_cart").html(items["count_itens"]);
+
+        $(".cart_block_content").addClass("active");
+        $(".item_lists").empty().fadeIn(1500).html(item_cart());
+      },
+    });
+    return false;
   });
-  return false;
-});
 
+  console.log(element);
+});
 function item_cart() {
   var request_data = {
     action: "woocommerce_ajax_get_cart",
@@ -163,7 +167,6 @@ $(document).on("click", ".remove_coupon", function (e) {
           el[0].value = value;
         }
 
-        
         var form_ac = {
           action: "woocommerce_ajax_quantity_to_cart",
           quantity: el[0].value,
@@ -217,7 +220,7 @@ $(document).on("click", ".remove_coupon", function (e) {
             $(".cart_content form").removeClass("hidden");
             $(".total_number").html(items["type"]);
             $("#total_cart").html(items["count_itens"]);
- 
+
             item_cart();
           },
         });
