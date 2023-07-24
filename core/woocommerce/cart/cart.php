@@ -225,8 +225,7 @@ function woocommerce_ajax_quantity_to_cart()
 
             WC()->cart->generate_cart_id($product_id);
 
-            print_r(WC()->cart);
-            foreach (WC()->cart as $cart_item) {
+        $cart_item = WC()->cart;
                 WC()->cart->set_quantity($cart_item['key'], $quantity);
  
                 $data['codigo'] = 1;
@@ -236,7 +235,6 @@ function woocommerce_ajax_quantity_to_cart()
                 $data['type'] = WC()->cart->get_cart_total(); 
                 wp_send_json($data);
                 return;
-            }
         }
     }
 }
