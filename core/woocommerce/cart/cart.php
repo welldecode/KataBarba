@@ -220,25 +220,24 @@ function woocommerce_ajax_quantity_to_cart()
     if (!empty($results->posts)) {
         $data = [];
 
-        foreach ($results->posts as $p) { 
+        foreach ($results->posts as $p) {
             $product_id = $p->ID;
-         WC()->cart->generate_cart_id($product_id);
 
-                foreach (WC()->cart->get_cart() as $cart_item) {
-                    WC()->cart->set_quantity($cart_item['key'], $quantity);
+            WC()->cart->generate_cart_id($product_id);
 
-                    print_r($cart_item['key']);
-                    $data['codigo'] = 1;
-                    $data['ID'] = $product_id;
-                    $data['quantity'] = $quantity;
-                    $data['count_itens'] = WC()->cart->get_cart_contents_count();
-                    $data['type'] = WC()->cart->get_cart_total();
-
-                    wp_send_json($data);
-                    return;
-                }
+            print_r(WC()->cart);
+            foreach (WC()->cart->get_cart() as $cart_item) {
+                WC()->cart->set_quantity($cart_item['key'], $quantity);
+ 
+                $data['codigo'] = 1;
+                $data['ID'] = $product_id;
+                $data['quantity'] = $quantity;
+                $data['count_itens'] = WC()->cart->get_cart_contents_count();
+                $data['type'] = WC()->cart->get_cart_total(); 
+                wp_send_json($data);
+                return;
             }
-        
+        }
     }
 }
 
