@@ -203,6 +203,7 @@ function woocommerce_ajax_quantity_to_cart()
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     global $woocommerce;
+    global $product;
 
     $quantity = $_POST['quantity'];
     $data = [];
