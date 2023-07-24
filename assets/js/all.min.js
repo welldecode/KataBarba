@@ -105,9 +105,11 @@ $(window).scroll(function () {
   if (scrollTop >= $(".faq").offset().top) {
     console.log('achou')
     $(".cart_content form").css("position", "relative");
+    $('.footer_cart').css('display', 'block');
     $(".top_cart").css("display", "none");
   } else {
-    console.log('n achou')
+    console.log('n achou') 
+    $('.footer_cart').css('display', 'none');
     $(".top_cart").css("display", "block");
     $(".top_cart form").css("position", "fixed");
   }
