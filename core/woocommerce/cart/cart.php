@@ -200,6 +200,8 @@ add_action('wp_ajax_nopriv_woocommerce_ajax_remove_coupon', 'woocommerce_ajax_re
 
 function woocommerce_ajax_quantity_to_cart()
 {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     global $woocommerce;
 
     $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
