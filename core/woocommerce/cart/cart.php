@@ -204,42 +204,19 @@ function woocommerce_ajax_quantity_to_cart()
     ini_set('display_errors', 1);
     global $woocommerce;
 
-    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
+    $quantity = $_POST['quantity'];
     $data = [];
 
-    if (is_null(WC()->cart)) {
-        wc_load_cart();
-    }
-    $results = new WP_Query(
-        [
-            'post_type'       => 'product',
-            'posts_per_page'  => -1,
-            'post_status'     => 'publish',
-            'order'           => 'DESC',
-        ]
-    );
+    $product = wc_get_product('33');
 
-    if (!empty($results->posts)) {
-        $data = [];
+    $product_p = $product->get_price();
+    $price_quantity = $product_p * $quantity;
 
-        foreach ($results->posts as $p) {
-            $product_id = $p->ID;
-
-            WC()->cart->generate_cart_id($product_id);
-   
-            foreach (WC()->cart->cart_contents as $cart_item) { 
-                WC()->cart->set_quantity($cart_item['key'], $quantity);
- 
-                $data['codigo'] = 1;
-                $data['ID'] = $product_id;
-                $data['quantity'] = $quantity;
-                $data['count_itens'] = WC()->cart->get_cart_contents_count();
-                $data['type'] = WC()->cart->get_cart_total(); 
-                wp_send_json($data);
-                return;
-            }
-        }
-    }
+    $data['codigo'] = 1;
+    $data['quantity'] = $quantity;
+    $data['type'] = 'R$ ' . $price_quantity;
+    wp_send_json($data);
+    return;
 }
 
 
