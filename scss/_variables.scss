@@ -6,7 +6,7 @@ $screen-md-min: 768px;
 
 $screen-lg-min: 992px; 
 $screen-xl-min: 1200px;
-$screen-xxl-min: 1366px;
+$screen-xxl-min: 1400px;
 
 // set mixins
 @mixin sm {
@@ -38,6 +38,7 @@ $screen-xxl-min: 1366px;
     @content;
   }
 }
+
 $bg-color: #ffffff;
 $primary-color: #bc6626;
 $hover-color: #995018;

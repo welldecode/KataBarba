@@ -24,13 +24,17 @@
 
       @include xl {
         gap: 25px;
-        margin-top: 10rem;
+        margin-top: 7rem;
       }
 
-    //  @include xxl {
-    //    
-  //  margin-top: 8rem;
-  //    }
+      @include xxl {
+        gap: 25px;
+        margin-top: 10rem;
+      }
+      //  @include xxl {
+      //
+      //  margin-top: 8rem;
+      //    }
       h1 {
         font-size: 34px;
         font-weight: 700;
@@ -39,16 +43,20 @@
         text-align: center;
         color: $text-color;
         width: 90%;
- 
+
         @include xl {
+          font-size: 42px;
+          width: 65%;
+        }
+        @include xxl { 
           font-size: 60px;
           width: 85%;
         }
 
-      //  @include xxl {
-      //    font-size: 44px;
-    //      width: 65%;
-      //  }
+        //  @include xxl {
+        //    font-size: 44px;
+        //      width: 65%;
+        //  }
       }
 
       p {
@@ -58,15 +66,14 @@
         font-weight: 400;
         line-height: 156%;
         width: 90%;
- 
-        @include xl {
-          width: 70%;
-          font-size: 16px;
+
+        @include xl {    width: 65%;
+          font-size: 14px;
         }
-      //  @include xxl {
-    //      width: 65%;
-      //    font-size: 14px;
-      //  }
+      @include xxl {
+        width: 70%;
+        font-size: 16px;
+       }
       }
 
       &::before {
@@ -98,12 +105,13 @@
         display: none;
         @include xl {
           display: block;
+          bottom: 5rem;
         }
-        //
-  //    @include xxl { 
-    //    height: 145px; 
-      //  bottom: 5rem;
-  //    }//
+
+        @include xxl {
+          display: block;
+          bottom: 15rem;
+        }
       }
     }
 
@@ -132,22 +140,22 @@
 
       @include md {
         background: url('../img/icons/kata_primary.svg') center no-repeat;
-        height: 200px ;
+        height: 200px;
         background-size: contain;
       }
 
       @include xl {
         background: url('../img/icons/kata_primary.svg') center no-repeat;
         background-size: contain;
-        height: 385px;
+        height: 250px;
         margin-top: unset;
         bottom: 0;
         position: absolute;
       }
 
-    //  @include xxl {
-    //    height: 250px;
-  //    }
+      @include xxl {
+        height: 385px;
+      }
     }
   }
 }

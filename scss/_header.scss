@@ -8,7 +8,7 @@ header {
   background-color: #fcf3ec;
 
   @include xl {
-    position: absolute;
+    position: absolute; 
   }
   nav {
     display: flex;
@@ -16,7 +16,7 @@ header {
     align-items: center;
     padding: 5px 20px;
     @include xl {
-      padding:unset;
+      padding: 20px;
       height: 115px;
     }
     
