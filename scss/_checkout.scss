@@ -1,16 +1,23 @@
 .checkout {
-  &_content {
-    height: 100vh;
-
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 0px;
-
+  &_content { 
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+ 
     .checkout_logo {
       display: none;
     }
+
+    @include xl {
+      height: 100vh;  
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 50px;
+      grid-row-gap: 0px;
+  
+
+    }  
   }
   &_woocommerce {
     background-color: #fff;
@@ -76,9 +83,7 @@
   }
   &_items {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: none; 
     &::before {
       content: '';
       background-color: #fcf3ec;
@@ -87,6 +92,12 @@
       height: 100%;
       z-index: 1;
       bottom: 0;
+    }
+
+    @include xl {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     &_content {
