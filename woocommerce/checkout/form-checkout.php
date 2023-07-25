@@ -68,10 +68,11 @@ if (!defined('ABSPATH')) {
 
                                             <?php endif; ?>
                                         </div>
-                                        <input type="button" name="next" class="next action-button" value="Ir para pagamento" />
                                         <div class="checkout_info_mobile_content">
                                             <?php do_action('woocommerce_checkout_order_review'); ?>
                                         </div>
+                                        <input type="button" name="next" class="next action-button" value="Ir para pagamento" />
+                                 
                                     </fieldset>
                                     <fieldset>
                                         <div class="col-xs-12 col-sm-12 col-md-5">
