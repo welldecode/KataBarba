@@ -24,13 +24,9 @@ if (!defined('ABSPATH')) {
 <main>
     <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
         <section class="checkout">
-            <div class="checkout_content container">
-                <div class="checkout_woocommerce">
-                    <a href="<?php echo get_home_url() ?>" class="logo_top"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
+        <a href="<?php echo get_home_url() ?>" class="logo_top"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/logo-kata.svg"></a>
 
-                    <!-- progressbar -->
-                    <div class="progress">
-                        <div class="checkout_info_mobile_container">
+        <div class="checkout_info_mobile_container">
                             <div class="checkout_info_mobile">
                                 <div class="item_left">
                                     <div class="icon_cart"><img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="cart"></div> Exibir resumo da compra
@@ -40,6 +36,12 @@ if (!defined('ABSPATH')) {
                             </div>
 
                         </div>
+            <div class="checkout_content container">
+                <div class="checkout_woocommerce">
+                 
+                    <!-- progressbar -->
+                    <div class="progress">
+                     
                         <ul id="progressbar">
                             <a href="<?php echo get_home_url() ?>"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
                             <li class="active" id="billing">Informações & Frete</li>
@@ -104,7 +106,7 @@ if (!defined('ABSPATH')) {
                         </div>
                     </div>
                 </div>
-                <div class="checkout_items">
+                <div class="checkout_items"> 
                     <div class="checkout_items_content">
                         <?php do_action('woocommerce_checkout_order_review'); ?>
                     </div>

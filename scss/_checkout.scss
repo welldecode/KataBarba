@@ -26,20 +26,7 @@
 
     @include xl {
       padding: 1rem 0;
-    }
-    .logo_top {
-      background: #fcf3ec;
-      padding: 5px 15px;
-      display: block;
-      img {
-        width: 80px;
-      }
-      @include xl {
-        background: transparent;
-        padding: unset;
-        display: none;
-      }
-    }
+    } 
     .progress {
       display: flex;
       flex-direction: column;
@@ -125,52 +112,7 @@
         padding: 20px;
       }
     }
-
-    .checkout_info_mobile_content {
-      display: block;
-
-      @include xl {
-        display: none;
-      }
-      .woocommerce table.shop_table tfoot th {
-        font-weight: 600;
-        font-size: 18px;
-      }
-      .woocommerce-shipping-totals.shipping {
-        border-top: unset !important;
-        padding-top: unset !important;
-      }
-    }
-
-    .checkout_info_mobile_container {
-      &.open {
-        display: block;
-      }
-      .checkout_info_mobile {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        background: #f9f9f9;
-
-        .item_left {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-
-          font-size: 16px;
-          font-family: 'new-spirit';
-          font-weight: 600;
-          .icon_cart {
-            width: 23px;
-            height: 23px;
-          }
-        }
-        @include xl {
-          display: none;
-        }
-      }
-    }
+ 
     input.previous.action-button-previous {
       width: 100%;
       margin: 25px 0 0 0;
@@ -178,9 +120,9 @@
    
   }
   &_items {
-    position: absolute;
+    position: relative;
     display: none;
-    top: 9rem;
+    top: 0;
 
     @include xl {
       position: relative;
@@ -189,14 +131,13 @@
     }
     &::before {
       content: '';
-      background-color: #f9f9f9;
+      background-color: #ededed;
 
       position: absolute;
       width: 100vw;
       height: 100%;
       z-index: 1;
-      top: 0;
-      box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.123);
+      top: 0; 
       @include xl {
         background-color: #fcf3ec;
         height: 100%;
@@ -438,5 +379,73 @@
   .woocommerce form .form-row-last {
     width: unset !important; 
     overflow: visible;
+  }
+}
+.checkout_info_mobile_content {
+  display: block;
+
+  @include xl {
+    display: none;
+  }
+  .woocommerce table.shop_table tfoot th {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .woocommerce-shipping-totals.shipping {
+    border-top: unset !important;
+    padding-top: unset !important;
+  }
+}
+
+.checkout_info_mobile_container {
+  display: block;
+  &.open {
+    display: block;
+  }
+  .checkout_info_mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #ededed;
+
+    .item_left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      font-size: 16px;
+      font-family: 'new-spirit';
+      font-weight: 600;
+      .icon_cart {
+        width: 23px;
+        height: 23px;
+      }
+    }
+    .price_info_m span bdi {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 110%;
+  }
+    @include xl {
+      display: none;
+    }
+  }
+}
+.logo_top {
+  background: #fcf3ec;
+  padding: 25px 0;
+  display: block;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 200px !important;
+  }
+  @include xl {
+    background: transparent;
+    padding: unset;
+    display: none;
   }
 }
