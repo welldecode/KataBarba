@@ -38,6 +38,7 @@
           display: none;
 
           @include xl {
+            margin:unset;
             display: block;
           }
         }
@@ -117,8 +118,7 @@
       width: 100%;
       margin: 25px 0 0 0;
     }
-  }
-  &_items {
+  }  &_items {
     position: relative;
     display: none;
     top: 0;
