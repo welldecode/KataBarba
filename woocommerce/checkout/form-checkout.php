@@ -35,7 +35,7 @@ if (!defined('ABSPATH')) {
                                 <div class="item_left">
                                     <div class="icon_cart"><img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="cart"></div> Exibir resumo da compra
                                 </div>
-                                <div class="price_info_m"><?= WC()->cart->get_cart_total(); ?></div>
+                                <div class="price_info_m"><?php wc_cart_totals_order_total_html(); ?></div>
 
                             </div>
 
