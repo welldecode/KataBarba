@@ -38,12 +38,10 @@ if (!defined('ABSPATH')) {
                                 <div class="price_info_m"><?= WC()->cart->get_cart_total(); ?></div>
 
                             </div>
-                            <div class="checkout_info_mobile_content">
-                                <?php do_action('woocommerce_checkout_order_review'); ?>
-                            </div>
+
                         </div>
                         <ul id="progressbar">
-                            <a href="<?php echo get_home_url() ?>" > <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
+                            <a href="<?php echo get_home_url() ?>"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
                             <li class="active" id="billing">Informações & Frete</li>
                             <li id="payment">Pagamento</li>
                         </ul>
@@ -71,6 +69,9 @@ if (!defined('ABSPATH')) {
                                             <?php endif; ?>
                                         </div>
                                         <input type="button" name="next" class="next action-button" value="Ir para pagamento" />
+                                        <div class="checkout_info_mobile_content">
+                                            <?php do_action('woocommerce_checkout_order_review'); ?>
+                                        </div>
                                     </fieldset>
                                     <fieldset>
                                         <div class="col-xs-12 col-sm-12 col-md-5">
