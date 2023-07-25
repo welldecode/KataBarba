@@ -174,20 +174,8 @@
     input.previous.action-button-previous {
       width: 100%;
       margin: 25px 0 0 0;
-    }.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first{ 
-      width: 100%;
-      overflow: visible;
     }
-    @include xl {
-      
-    .woocommerce form .form-row-first,
-    .woocommerce form .form-row-last,
-    .woocommerce-page form .form-row-first,
-    .woocommerce-page form .form-row-last {
-      width:unset;
-      overflow: visible;
-    }
-    }
+   
   }
   &_items {
     position: absolute;
@@ -438,5 +426,20 @@
   width: 100%;
   @include xl {
     width: unset;
+  }
+}
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last,
+.woocommerce-page form .form-row-first {
+  width: 100%;
+  overflow: visible;
+}
+@include xl {
+  .woocommerce form .form-row-first,
+  .woocommerce form .form-row-last,
+  .woocommerce-page form .form-row-first,
+  .woocommerce-page form .form-row-last {
+    width: unset;
+    overflow: visible;
   }
 }
