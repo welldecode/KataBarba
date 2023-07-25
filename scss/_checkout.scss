@@ -174,7 +174,24 @@
     input.previous.action-button-previous {
       width: 100%;
       margin: 25px 0 0 0;
-  }
+    }
+    .woocommerce form .form-row-first,
+    .woocommerce form .form-row-last,
+    .woocommerce-page form .form-row-first,
+    .woocommerce-page form .form-row-last {
+      width: 100%;
+      overflow: visible;
+    }
+    @include xl {
+      
+    .woocommerce form .form-row-first,
+    .woocommerce form .form-row-last,
+    .woocommerce-page form .form-row-first,
+    .woocommerce-page form .form-row-last {
+      width:unset;
+      overflow: visible;
+    }
+    }
   }
   &_items {
     position: absolute;
@@ -394,8 +411,8 @@
     color: #6f6f6f;
     font-size: 16px;
     font-weight: 400;
-    margin-right: unset; 
-    
+    margin-right: unset;
+
     @include xl {
       margin-right: 10px;
     }
@@ -421,9 +438,9 @@
   }
 }
 
-.woocommerce-checkout .action-button { 
+.woocommerce-checkout .action-button {
   width: 100%;
-@include xl {
-  width: unset;
-}
+  @include xl {
+    width: unset;
+  }
 }
