@@ -174,11 +174,7 @@
     input.previous.action-button-previous {
       width: 100%;
       margin: 25px 0 0 0;
-    }
-    .woocommerce form .form-row-first,
-    .woocommerce form .form-row-last,
-    .woocommerce-page form .form-row-first,
-    .woocommerce-page form .form-row-last {
+    }.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first{ 
       width: 100%;
       overflow: visible;
     }
