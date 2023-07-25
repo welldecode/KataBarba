@@ -132,7 +132,7 @@
       @include xl {
         display: none;
       }
-      .woocommerce-shipping-totals.shipping{
+      .woocommerce-shipping-totals.shipping {
         border-top: unset !important;
       }
     }
@@ -218,6 +218,12 @@
         position: absolute;
         bottom: -2rem;
         right: 6.7rem;
+
+        @include xl {
+          position: absolute;
+          bottom: unset;
+          right: unset;
+        }
       }
       hr {
       }
