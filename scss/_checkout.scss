@@ -33,12 +33,14 @@
 
       #progressbar {
         margin: 1rem 10px;
-
+        @include xl {
+          margin:unset; 
+        }
         a {
           display: none;
 
           @include xl {
-            margin:unset;
+            margin: 1rem 10px;
             display: block;
           }
         }
