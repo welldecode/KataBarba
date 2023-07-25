@@ -430,13 +430,13 @@
 }
 .woocommerce form .form-row-first,
 .woocommerce form .form-row-last  {
-  width: 100%;
+  width: 100% !important;
   overflow: visible;
 }
 @include xl {
   .woocommerce form .form-row-first,
   .woocommerce form .form-row-last {
-    width: unset;
+    width: unset !important; 
     overflow: visible;
   }
 }
