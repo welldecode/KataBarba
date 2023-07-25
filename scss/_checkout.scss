@@ -34,12 +34,12 @@
       #progressbar {
         margin: 1rem 10px;
         @include xl {
-          margin:unset; 
+          margin: unset;
         }
         a {
           display: none;
 
-          @include xl { 
+          @include xl {
             display: block;
           }
         }
@@ -115,11 +115,19 @@
       }
     }
 
+    
     input.previous.action-button-previous {
       width: 100%;
       margin: 25px 0 0 0;
+
+    @include xl {
+      width: unset !important;
+      margin:unset !important;
+      bottom: 15px;
     }
-  }  &_items {
+    } 
+  }
+  &_items {
     position: relative;
     display: none;
     top: 0;
@@ -388,7 +396,7 @@
 
   @include xl {
     display: none;
-  } 
+  }
   .woocommerce-shipping-totals.shipping {
     border-top: unset !important;
     padding-top: unset !important;
