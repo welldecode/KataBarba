@@ -26,13 +26,27 @@ if (!defined('ABSPATH')) {
         <section class="checkout">
             <div class="checkout_content container">
                 <div class="checkout_woocommerce">
+                <a href="<?php echo get_home_url() ?>" class="logo_top"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
+ 
                     <!-- progressbar -->
-                    <ul id="progressbar">
-                        <a href="<?php echo get_home_url() ?>"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
-                        <li class="active" id="billing">Informações & Frete</li>
-                        <li id="payment">Pagamento</li>
-                    </ul>
-
+                    <div class="progress"> 
+                        <div class="checkout_info_mobile_container">
+                        <div class="checkout_info_mobile">
+                            <div class="item_left">
+                                <div class="icon_cart"><img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="cart"></div> Exibir resumo da compra
+                            </div>
+                            <div class="price_info_m"><?= WC()->cart->get_cart_total(); ?></div>
+ 
+                        </div>
+                            <div class="checkout_info_mobile_content"> 
+                        <?php do_action('woocommerce_checkout_order_review'); ?>
+                            </div>
+                    </div>
+                        <ul id="progressbar"> 
+                            <li class="active" id="billing">Informações & Frete</li>
+                            <li id="payment">Pagamento</li>
+                        </ul> 
+                    </div>
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
