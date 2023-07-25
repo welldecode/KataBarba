@@ -132,8 +132,13 @@
       @include xl {
         display: none;
       }
+      .woocommerce table.shop_table tfoot th {
+        font-weight: 600;
+        font-size: 18px;
+      }
       .woocommerce-shipping-totals.shipping {
         border-top: unset !important;
+        padding-top: unset !important;
       }
     }
 
@@ -183,14 +188,15 @@
 
       position: absolute;
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       z-index: 1;
       top: 0;
-
+      box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.123);
       @include xl {
         background-color: #fcf3ec;
         height: 100%;
 
+        box-shadow: unset;
         bottom: 0;
       }
     }
@@ -354,4 +360,66 @@
 
 .mp-checkout-custom-card-form .mp-checkout-custom-card-row {
   padding-bottom: 10px !important;
+}
+
+.terms_content {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  position: relative;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  @include xl {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    position: relative;
+    padding: 0 20px;
+  }
+  a:first-child {
+    padding-right: 5px;
+    border-right: 1px solid #6f6f6f;
+
+    @include xl {
+      padding-right: 15px;
+    }
+  }
+  a {
+    color: #6f6f6f;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: unset; 
+    
+    @include xl {
+      margin-right: 10px;
+    }
+  }
+
+  .right_items ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    @include xl {
+      li {
+        img {
+          width: unset;
+        }
+      }
+    }
+    li {
+      img {
+        width: 95px;
+      }
+    }
+  }
+}
+
+.woocommerce-checkout .action-button { 
+  width: 100%;
+@include xl {
+  width: unset;
+}
 }
