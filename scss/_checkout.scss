@@ -39,8 +39,7 @@
         a {
           display: none;
 
-          @include xl {
-            margin: 1rem 10px;
+          @include xl { 
             display: block;
           }
         }
