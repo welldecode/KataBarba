@@ -29,12 +29,14 @@
     .logo_top {
       background: #fcf3ec;
       padding: 5px 15px;
+      display: block;
       img {
         width: 80px;
       }
       @include xl {
         background: transparent;
         padding: unset;
+        display: none;
       }
     }
     .progress {
@@ -43,6 +45,14 @@
 
       #progressbar {
         margin: 1rem 10px;
+
+        a {
+            display: none;
+         
+            @include xl {
+              display: block;
+            }
+        }
       }
       @include xl {
         display: flex;
@@ -114,34 +124,39 @@
         padding: 20px;
       }
     }
-    .checkout_info_mobile {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
-      background: #f9f9f9;
-
-      .item_left {
+    .checkout_info_mobile_container {
+      &.open {
+        display: block;
+      }
+      .checkout_info_mobile {
         display: flex;
         align-items: center;
-        gap: 15px;
+        justify-content: space-between;
+        padding: 20px;
+        background: #f9f9f9;
 
-        font-size: 16px;
-        font-family: 'new-spirit';
-        font-weight: 600;
-        .icon_cart {
-          width: 23px;
-          height: 23px;
+        .item_left {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          font-size: 16px;
+          font-family: 'new-spirit';
+          font-weight: 600;
+          .icon_cart {
+            width: 23px;
+            height: 23px;
+          }
         }
-      }
-      @include xl {
-        display: none;
+        @include xl {
+          display: none;
+        }
       }
     }
   }
   &_items {
     position: absolute;
-    display: block;
+    display: none;
     top: 9rem;
 
     @include xl {
@@ -151,7 +166,8 @@
     }
     &::before {
       content: '';
-      background-color: #fcf3ec;
+      background-color: #f9f9f9;
+
       position: absolute;
       width: 100vw;
       height: 100vh;
@@ -159,6 +175,7 @@
       top: 0;
 
       @include xl {
+        background-color: #fcf3ec;
         height: 100%;
 
         bottom: 0;
@@ -173,19 +190,22 @@
 
     &_content {
       position: sticky;
-      z-index: 12;  
+      z-index: 12;
       padding: 45px 15px 15px 15px;
       display: flex;
       flex-direction: column;
-      gap: 30px; 
+      gap: 30px;
 
       @include xl {
         position: sticky;
         top: 10px;
         padding: 0 0 0 3rem;
-
       }
-      
+      td.product-total {
+        position: absolute;
+        bottom: -2rem;
+        right: 6.7rem;
+      }
       hr {
       }
       .info_item {

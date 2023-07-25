@@ -14,8 +14,7 @@
             json.street;
           document.querySelector("input[name=billing_neighborhood]").value =
             json.neighborhood;
-          document.querySelector("input[name=billing_city]").value =
-            json.city;
+          document.querySelector("input[name=billing_city]").value = json.city;
         }
       });
   });
@@ -126,4 +125,14 @@ $(document).ready(function () {
   $(".submit").click(function () {
     return false;
   });
+});
+
+$(".checkout_info_mobile_container").click(function () {
+  if ($(this).hasClass('open')) {
+    $(this).removeClass("open");
+    $('.checkout_items').css("display", 'none'); 
+  } else { 
+    $(this).addClass("open");
+    $('.checkout_items').css("display", 'block'); 
+  }
 });
