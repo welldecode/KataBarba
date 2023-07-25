@@ -376,7 +376,7 @@
 @include xl {
   .woocommerce form .form-row-first,
   .woocommerce form .form-row-last {
-    width: unset !important;
+    width: 49% !important;
     overflow: visible;
   }
 }
@@ -386,11 +386,7 @@
 
   @include xl {
     display: none;
-  }
-  .woocommerce table.shop_table tfoot th {
-    font-weight: 600;
-    font-size: 18px;
-  }
+  } 
   .woocommerce-shipping-totals.shipping {
     border-top: unset !important;
     padding-top: unset !important;
@@ -448,4 +444,9 @@
     padding: unset;
     display: none;
   }
+}
+
+.woocommerce table.shop_table tfoot th {
+  font-weight: 600;
+  font-size: 18px;
 }
