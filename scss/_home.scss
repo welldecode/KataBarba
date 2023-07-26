@@ -3,7 +3,9 @@
   background-color: #fcf3ec;
   z-index: 2;
   padding: 1rem 0 0 0;
-
+  .container {
+    width: unquote('min(100%, 1480px)');
+  }
   @include xl {
     padding: unset;
   }
@@ -48,7 +50,7 @@
           font-size: 42px;
           width: 65%;
         }
-        @include xxl { 
+        @include xxl {
           font-size: 60px;
           width: 85%;
         }
@@ -67,13 +69,14 @@
         line-height: 156%;
         width: 90%;
 
-        @include xl {    width: 65%;
+        @include xl {
+          width: 65%;
           font-size: 14px;
         }
-      @include xxl {
-        width: 70%;
-        font-size: 16px;
-       }
+        @include xxl {
+          width: 70%;
+          font-size: 16px;
+        }
       }
 
       &::before {
@@ -195,7 +198,8 @@
           align-items: flex-start;
           justify-content: flex-start;
         }
-        span {
+        .title_g { 
+          position: relative;
           text-transform: uppercase;
           font-size: 18px;
           letter-spacing: 4px;
@@ -238,8 +242,8 @@
               display: none;
             }
           }
-        }
-
+        
+      } 
         h1 {
           font-family: 'new-spirit';
           font-weight: 700;
@@ -414,6 +418,7 @@
         font-size: 16px;
         line-height: 160%;
         text-align: center;
+        font-weight: 400;
         margin: 0 auto;
         @include xl {
           text-align: left;
@@ -424,7 +429,7 @@
     h1 {
       font-family: 'new-spirit';
       font-weight: 600;
-      font-size: 30px;
+      font-size: 24px;
       @include xl {
         font-size: 33px;
         width: 80%;
@@ -441,15 +446,25 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      gap: 25px;
-
+      gap: 10px; 
       @include xl {
         flex-direction: row;
+        gap: 25px; 
       }
       span {
         color: $text-color;
         font-size: 16px;
         font-weight: 500;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include xl {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 5px;
+        }
       }
     }
   }
@@ -460,6 +475,9 @@
   background-color: #fcf3ec;
 
   @include xl {
+    padding: 90px 20px;
+  }
+  @include xxl {
     padding: 105px;
   }
 
@@ -744,10 +762,14 @@
         height: 365px;
       }
       @include xl {
+        width: 700px;
+        height: 450px;
+        border-radius: 60px;
+      }
+
+      @include xxl {
         width: 870px;
         height: 550px;
-
-        border-radius: 60px;
       }
     }
 
@@ -774,9 +796,12 @@
   background-color: #fcf3ec;
 
   @include xl {
-    padding: 105px;
+    padding: 90px 20px;
   }
 
+  @include xxl {
+    padding: 105px;
+  }
   &_content {
     &_title {
       font-family: 'new-spirit';
@@ -992,8 +1017,8 @@
         width: 45%;
       }
     }
-    .cart_footer { 
-      padding: 10rem 0; 
-  }
+    .cart_footer {
+      padding: 10rem 0;
+    }
   }
 }

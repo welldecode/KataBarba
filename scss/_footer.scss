@@ -16,6 +16,7 @@ footer {
       grid-column-gap: 40px;
       grid-row-gap: 0px;
       gap: 0;
+      align-items: unset;
     }
     &_row {
       display: flex;
@@ -81,7 +82,11 @@ footer {
             color: #fff;
             font-family: 'new-spirit';
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 500;
+
+            &:hover {
+              color: $hover-color;
+            }
           }
         }
       }
@@ -99,7 +104,7 @@ footer {
         text-align: center;
         margin: 0 auto;
         @include xl {
-          width: 55%;
+          width: 50%;
           text-align: unset;
           margin:unset;
         }

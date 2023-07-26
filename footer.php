@@ -46,6 +46,8 @@
  <?php 
  if(!is_page(66)) { get_template_part('core/woocommerce/templates/cart'); }?>
 
+<div class="cursor"></div>
+<div class="cursor2"></div>
  <?php wp_footer(); ?>
  </body>
 

@@ -206,18 +206,31 @@ function woocommerce_ajax_quantity_to_cart()
     global $product;
 
     $quantity = $_POST['quantity'];
-    $data = [];
+    $results = new WP_Query(
+        [
+            'post_type'       => 'product',
+            'posts_per_page'  => -1,
+            'post_status'     => 'publish',
+            'order'           => 'DESC',
+        ]
+    );
 
-    $product = wc_get_product('14');
+    if (!empty($results->posts)) {
+        $data = [];
 
-    $product_p = $product->get_price();
-    $price_quantity = $product_p * $quantity;
+        foreach ($results->posts as $p) {
+            $product = wc_get_product($p->ID);
 
-    $data['codigo'] = 1;
-    $data['quantity'] = $quantity;
-    $data['type'] = 'R$ ' . $price_quantity;
-    wp_send_json($data);
-    return;
+            $product_p = $product->get_price();
+            $price_quantity = $product_p * $quantity;
+
+            $data['codigo'] = 1;
+            $data['quantity'] = $quantity;
+            $data['type'] = 'R$ ' . number_format($price_quantity, 2, ',', '.');
+            wp_send_json($data);
+            return;
+        }
+    }
 }
 
 

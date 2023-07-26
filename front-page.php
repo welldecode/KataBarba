@@ -76,7 +76,7 @@ $editables = get_itens('editables');
         <div class="about_content">
             <div class="about_content_left">
                 <div class="titles_left">
-                    <span data-aos="fade-right" data-aos-delay="800">SOBRE O PRODUTO</span>
+                    <div class="title_g">SOBRE O PRODUTO</div>
                     <h1 data-aos="fade-in" data-aos-delay="600">Elimine até 98% da sujeira causada por pelos ao fazer a barba em casa.</h1>
                 </div>
                 <p data-aos="fade-in" data-aos-delay="800">Tenha uma experiência de barbear mais prática e confortável, que pode tornar o processo de barbear em casa mais agradável. Além disso a pessoa que mora com você agradece. Hábitos de higiene são um reflexo de quem você é!</p>
@@ -115,7 +115,7 @@ $editables = get_itens('editables');
                 <h1>“Eu não aguentava mais ouvir reclamação da minha mulher porque fiz a barba e deixei pelos espalhados pela pia. Eu gastava mais tempo limpando a bagunça do que fazendo a barba. ”</h1>
                 <div class="depoiments_content_user">
                     <img src="<?= THEME_URI ?>/assets/img/icons/user_kata.svg" alt="user_kata" width="60px" height="60px">
-                    <span>Urso Kata, pai de família.</span>
+                    <span>Urso Kata, <div class="inline"> pai de família.</div></span>
                 </div>
 
             </div>
@@ -283,7 +283,7 @@ $editables = get_itens('editables');
             <p>Chega de dor de cabeça Jovi ! Faça como o urso Kata, clique no botão abaixo e garanta já a sua capa katabarba! </p>
 
             <div class="cart_footer">
-                <section class="cart_container footer_cart <?php echo wp_is_mobile() ? 'cart_scroll' : ''; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
+                <section class="cart_container footer_minicart <?php echo wp_is_mobile() ? 'cart_scroll' : ''; ?>" data-secury="<?= criarNonce('tokenLista-nonce'); ?>">
                     <div class="cart_content">
                         <form action="#" method="POST">
                             <?php
