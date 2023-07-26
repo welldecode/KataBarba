@@ -207,6 +207,8 @@ bdi {
     border-bottom: unset !important;
     margin: 0;
     list-style: none outside;
+    border: 1px solid #C5C5C5;
+    border-radius: 15px;
 }
 
 #add_payment_method #payment div.payment_box,
@@ -413,8 +415,8 @@ h3#payment_heading {
     line-height: unset;
     text-align: left;
     margin: unset;
-    font-weight: 500;
-    border: 1px solid #C5C5C5;
+    font-weight: 500; 
+    border-bottom: 1px solid #C5C5C5;
     padding: 10px;
 }
 
@@ -779,7 +781,8 @@ input#place_order {
 tr.woocommerce-shipping-totals.shipping td {
     font-family: 'Poppins';
     font-weight: 500 !important;
-    font-size: 18px;
+    font-size: 14px;
+    color: #9f9f9f;
 }
  
 
