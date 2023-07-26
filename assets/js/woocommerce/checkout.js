@@ -131,8 +131,10 @@ $(".checkout_info_mobile_container").click(function () {
   if ($(this).hasClass('open')) {
     $(this).removeClass("open");
     $('.checkout_items').css("display", 'none'); 
+    $('.checkout_info_mobile_container .arrow').removeClass("open");
   } else { 
     $(this).addClass("open");
+    $('.checkout_info_mobile_container .arrow').addClass("open");
     $('.checkout_items').css("display", 'block'); 
   }
 });

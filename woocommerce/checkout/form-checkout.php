@@ -24,24 +24,23 @@ if (!defined('ABSPATH')) {
 <main>
     <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
         <section class="checkout">
-        <a href="<?php echo get_home_url() ?>" class="logo_top"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/logo-kata.svg"></a>
+            <a href="<?php echo get_home_url() ?>" class="logo_top"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/logo-kata.svg"></a>
 
-        <div class="checkout_info_mobile_container">
-                            <div class="checkout_info_mobile">
-                                <div class="item_left">
-                                    <div class="icon_cart"><img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="cart"></div> Exibir resumo da compra
-                                </div>
-                                <div class="price_info_m"><?php wc_cart_totals_order_total_html(); ?></div>
-
-                            </div>
-
-                        </div>
+            <div class="checkout_info_mobile_container">
+                <div class="checkout_info_mobile">
+                    <div class="item_left">
+                        <div class="icon_cart"><img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="cart"></div> Exibir resumo da compra
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="price_info_m"><?php wc_cart_totals_order_total_html(); ?></div>
+                </div>
+            </div>
             <div class="checkout_content container">
                 <div class="checkout_woocommerce">
-                 
+
                     <!-- progressbar -->
                     <div class="progress">
-                     
+
                         <ul id="progressbar">
                             <a href="<?php echo get_home_url() ?>"> <img class="logo_kata" src="<?= THEME_URI ?>/assets/img/icons/kata_logo.svg"></a>
                             <li class="active" id="billing">Informações & Frete</li>
@@ -74,7 +73,7 @@ if (!defined('ABSPATH')) {
                                             <?php do_action('woocommerce_checkout_order_review'); ?>
                                         </div>
                                         <input type="button" name="next" class="next action-button" value="Ir para pagamento" />
-                                 
+
                                     </fieldset>
                                     <fieldset>
                                         <div class="col-xs-12 col-sm-12 col-md-5">
@@ -106,7 +105,7 @@ if (!defined('ABSPATH')) {
                         </div>
                     </div>
                 </div>
-                <div class="checkout_items"> 
+                <div class="checkout_items">
                     <div class="checkout_items_content">
                         <?php do_action('woocommerce_checkout_order_review'); ?>
                     </div>
