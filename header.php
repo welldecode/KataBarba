@@ -15,6 +15,14 @@
 
 <body <?php body_class() ?>>
  
+<span class="cursor">
+    <span class="cursor-move-inner">
+      <span class="cursor-inner"></span>
+    </span>
+    <span class="cursor-move-outer">
+      <span class="cursor-outer"></span>
+    </span>
+  </span>
     <?php
     if (is_home() || is_front_page()) { ?>
         <header>

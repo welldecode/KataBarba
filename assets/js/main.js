@@ -114,4 +114,66 @@ $(window).scroll(function () {
     $(".top_cart form").css("position", "fixed");
   }
 });
+const cursor = document.querySelector('.cursor');
+const cursorInner = document.querySelector('.cursor-move-inner');
+const cursorOuter = document.querySelector('.cursor-move-outer');
 
+const trigger = document.querySelectorAll('a');
+
+let mouseX = 0;
+let mouseY = 0;
+let mouseA = 0;
+
+let innerX = 0;
+let innerY = 0;
+
+let outerX = 0;
+let outerY = 0;
+
+let loop = null;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  
+  if (!loop) {
+    loop = window.requestAnimationFrame(render);
+  }
+});
+
+for (let i = 0; i < trigger.length; i++) {
+  trigger[i].addEventListener("mouseenter", function() {
+    cursor.classList.add('cursor--hover');
+  });
+}
+
+for (let i = 0; i < trigger.length; i++) {
+  trigger[i].addEventListener("mouseleave", function() {
+    cursor.classList.remove('cursor--hover');
+  });
+}
+
+function render() {
+  loop = null;
+  
+  innerX = lerp(innerX, mouseX, 0.25);
+  innerY = lerp(innerY, mouseY, 0.25);
+  
+  outerX = lerp(outerX, mouseX, 0.13);
+  outerY = lerp(outerY, mouseY, 0.13);
+  
+  const normalX = Math.min(Math.floor((Math.abs(mouseX - outerX) / outerX) * 1000) / 1000, 1);
+  const normalY = Math.min(Math.floor((Math.abs(mouseY - outerY) / outerY) * 1000) / 1000, 1);
+  const normal  = normalX + normalY * .5;
+    
+  cursorInner.style.transform = `translate3d(${innerX}px, ${innerY}px, 0)`;
+  cursorOuter.style.transform = `translate3d(${outerX}px, ${outerY}px, 0)`;
+  
+  if (normal !== 0) {
+    loop = window.requestAnimationFrame(render);
+  }
+}
+
+function lerp(s, e, t) {
+  return (1 - t) * s + t * e;
+}
