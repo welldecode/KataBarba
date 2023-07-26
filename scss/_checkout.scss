@@ -1,11 +1,12 @@
 .checkout {
   &_content {
-    position: relative;
-    display: flex;
-    flex-direction: column-reverse;
     .container {
       width: unquote('min(100%, 1480px)');
     }
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+   
     .checkout_logo {
       display: none;
     }
