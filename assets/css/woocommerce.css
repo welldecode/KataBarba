@@ -781,10 +781,14 @@ input#place_order {
 tr.woocommerce-shipping-totals.shipping td {
     font-family: 'Poppins';
     font-weight: 500 !important;
-    font-size: 14px;
+    font-size: 16px;
     color: #9f9f9f;
-}
- 
+}@media  (max-width: 768px) {
+    tr.woocommerce-shipping-totals.shipping td {
+        font-size: 14px;
+        color: #9f9f9f; 
+    }
+ }
 
 .woocommerce-additional-fields {
     /* display: none; */
