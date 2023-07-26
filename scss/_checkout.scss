@@ -1,7 +1,7 @@
 .checkout {
   &_content {
-    .container {
-      width: unquote('min(100%, 1480px)');
+  &.container{
+      width: unquote('min(100%, 1480px)') ;
     }
     position: relative;
     display: flex;
