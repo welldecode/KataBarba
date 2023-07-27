@@ -426,7 +426,7 @@
     .item_left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
       position: relative;
       font-size: 16px;
       font-family: 'new-spirit';
@@ -434,8 +434,10 @@
       width: 50%;
 
       @include sm {
+        gap: 10px;
         width: unset;
       }
+
       .icon_cart {  
         width: 42px;
         height: 25px;
