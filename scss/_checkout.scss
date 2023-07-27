@@ -463,8 +463,8 @@
     
     .arrow {
       position: absolute;
-      top: 11px;
-      right: -15px; 
+      top: 12px;
+      right: 10px;
       &.open::before {
         transform: rotate(-45deg);
       }
@@ -473,8 +473,8 @@
       }
 
       @include sm {
-        top: 12px;
-        right: 10px; 
+        top: 11px;
+        right: -15px; 
       }
     }
 
