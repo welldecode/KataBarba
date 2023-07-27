@@ -431,21 +431,34 @@
       font-size: 16px;
       font-family: 'new-spirit';
       font-weight: 600;
+
+      @include sm {
+        width: 50%;
+      }
       .icon_cart {
         width: 23px;
         height: 23px;
+
+        @include sm {
+          width: 42px;
+          height: 25px;
+        }
       }
 
       .arrow {
         position: absolute;
         top: 11px;
         right: -15px;
-
         &.open::before {
           transform: rotate(-45deg);
         }
         &.open::after {
           transform: rotate(45deg);
+        }
+
+        @include sm {
+          top: 20px;
+          right: -25px;
         }
       }
 
@@ -456,7 +469,7 @@
         display: block;
         width: 10px;
         height: 2px;
-        background: #A1A1A1;
+        background: #a1a1a1;
         transition: 0.3s ease-in-out;
       }
 
