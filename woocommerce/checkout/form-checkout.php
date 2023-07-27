@@ -30,9 +30,9 @@ if (!defined('ABSPATH')) {
                 <div class="checkout_info_mobile">
                     <div class="item_left">
                         <div class="icon_cart"><img src="<?= THEME_URI ?>/assets/img/icons/cart-icon.svg" alt="cart"></div> Exibir resumo da compra
-                        <span class="arrow"></span>
+                     
                     </div>
-                    <div class="price_info_m"><?php wc_cart_totals_order_total_html(); ?></div>
+                    <div class="price_info_m"><?php wc_cart_totals_order_total_html(); ?>    <span class="arrow"></span></div>
                 </div>
             </div>
             <div class="checkout_content container">

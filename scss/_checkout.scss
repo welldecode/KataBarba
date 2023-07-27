@@ -445,51 +445,56 @@
           width: 23px;
           height: 23px;
         }
-      }
-
-      .arrow {
-        position: absolute;
-        top: 20px;
-        right: -25px;
-        &.open::before {
-          transform: rotate(-45deg);
-        }
-        &.open::after {
-          transform: rotate(45deg);
-        }
-
-        @include sm {
-          top: 11px;
-          right: -15px; 
-        }
-      }
-
-      .arrow::before,
-      .arrow::after {
-        position: relative;
-        content: '';
-        display: block;
-        width: 10px;
-        height: 2px;
-        background: #a1a1a1;
-        transition: 0.3s ease-in-out;
-      }
-
-      .arrow::before {
-        transform: rotate(45deg);
-      }
-
-      .arrow::after {
-        left: 6px;
-        top: -2px;
-        transform: rotate(-45deg);
-      }
+      } 
     }
-    .price_info_m span bdi {
+    .price_info_m { 
+      
+      
+      span bdi {
       font-size: 20px;
       font-weight: 600;
       line-height: 110%;
     }
+
+    
+    .arrow {
+      position: absolute;
+      top: 20px;
+      right: -25px;
+      &.open::before {
+        transform: rotate(-45deg);
+      }
+      &.open::after {
+        transform: rotate(45deg);
+      }
+
+      @include sm {
+        top: 11px;
+        right: -15px; 
+      }
+    }
+
+    .arrow::before,
+    .arrow::after {
+      position: relative;
+      content: '';
+      display: block;
+      width: 10px;
+      height: 2px;
+      background: #a1a1a1;
+      transition: 0.3s ease-in-out;
+    }
+
+    .arrow::before {
+      transform: rotate(45deg);
+    }
+
+    .arrow::after {
+      left: 6px;
+      top: -2px;
+      transform: rotate(-45deg);
+    }
+  }
     @include xl {
       display: none;
     }
