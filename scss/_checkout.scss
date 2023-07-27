@@ -436,20 +436,19 @@
       @include sm {
         width: unset;
       }
-      .icon_cart {
-        width: 23px;
-        height: 23px;
-
+      .icon_cart {  
+        width: 42px;
+        height: 25px;
         @include sm {
-          width: 42px;
-          height: 25px;
+          width: 23px;
+          height: 23px;
         }
       }
 
       .arrow {
         position: absolute;
-        top: 11px;
-        right: -15px;
+        top: 20px;
+        right: -25px;
         &.open::before {
           transform: rotate(-45deg);
         }
@@ -458,8 +457,8 @@
         }
 
         @include sm {
-          top: 20px;
-          right: -25px;
+          top: 11px;
+          right: -15px; 
         }
       }
 
