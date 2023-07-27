@@ -1,5 +1,6 @@
 AOS.init({
-  once: true, 
+  once: true,
+  duration: 800,
 });
 var swiper = new Swiper(".depoiments_slide", {
   slidesPerView: 3,
