@@ -438,67 +438,69 @@
         width: unset;
       }
 
-      .icon_cart {  
+      .icon_cart {
         width: 42px;
         height: 25px;
         @include sm {
           width: 23px;
           height: 23px;
         }
-      } 
+      }
     }
-    .price_info_m { 
+    .price_info_m {
       position: relative;
       display: flex;
       padding-right: 40px;
       align-items: center;
-      
-      
-      span bdi {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 110%;
-    }
 
-    
-    .arrow {
-      position: absolute;
-      top: 12px;
-      right: 10px;
-      &.open::before {
-        transform: rotate(-45deg);
+      @include sm {
+        
+    padding-right: 25px;
       }
-      &.open::after {
+      span bdi {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 110%;
+      }
+
+      .arrow {
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        &.open::before {
+          transform: rotate(-45deg);
+        }
+        &.open::after {
+          transform: rotate(45deg);
+        }
+
+        @include sm {
+          top: 11px;
+          right: 5px;
+        }
+      }
+
+      .arrow::before,
+      .arrow::after {
+        position: relative;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 2px;
+        background: #a1a1a1;
+        transition: 0.3s ease-in-out;
+      }
+
+      .arrow::before {
         transform: rotate(45deg);
       }
 
-      @include sm {
-        top: 11px;
-        right: 5px;
+      .arrow::after {
+        left: 8px;
+        top: -2px;
+        transform: rotate(-45deg);
       }
     }
-
-    .arrow::before,
-    .arrow::after {
-      position: relative;
-      content: '';
-      display: block;
-      width: 12px;
-      height: 2px;
-      background: #a1a1a1;
-      transition: 0.3s ease-in-out;
-    }
-
-    .arrow::before {
-      transform: rotate(45deg);
-    }
-
-    .arrow::after {
-      left: 8px;
-      top: -2px;
-      transform: rotate(-45deg);
-    }
-  }
     @include xl {
       display: none;
     }
