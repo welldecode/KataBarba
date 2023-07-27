@@ -454,10 +454,9 @@
         gap: 25px; 
       }
       span {
-        color: $text-color;
-        font-size: 16px;
-        font-weight: 500;
-
+        color: $text-color; 
+        font-size: 18px;
+        font-weight: 600;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -467,6 +466,13 @@
           align-items: center;
           gap: 5px;
         }
+        .inline {
+          font-weight: 500;
+          font-size: 16px;
+          text-transform: uppercase;
+          color: #6f6f6f;
+          letter-spacing: 1.5px;
+      }
       }
     }
   }
