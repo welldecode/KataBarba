@@ -449,6 +449,9 @@
     }
     .price_info_m { 
       position: relative;
+      display: flex;
+      padding-right: 40px;
+      align-items: center;
       
       
       span bdi {
@@ -480,7 +483,7 @@
       position: relative;
       content: '';
       display: block;
-      width: 10px;
+      width: 12px;
       height: 2px;
       background: #a1a1a1;
       transition: 0.3s ease-in-out;
@@ -491,7 +494,7 @@
     }
 
     .arrow::after {
-      left: 6px;
+      left: 8px;
       top: -2px;
       transform: rotate(-45deg);
     }
