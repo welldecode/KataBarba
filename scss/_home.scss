@@ -12,7 +12,7 @@
 
   &_content {
     position: relative;
-
+    height: 100vh;
     @include xl {
       height: 100vh;
       display: flex;
@@ -22,16 +22,18 @@
       align-items: center;
       flex-direction: column;
       gap: 10px;
-      margin: 0 auto;
-
+      margin: 0 auto; 
+      padding-top: 6rem;
       @include xl {
         gap: 25px;
         margin-top: 7rem;
+        padding-top: unset;
       }
 
       @include xxl {
         gap: 25px;
         margin-top: 10rem;
+        padding-top: unset;
       }
       //  @include xxl {
       //
@@ -126,7 +128,7 @@
       height: 390px;
       z-index: 1;
       display: block;
-      position: relative;
+      position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
