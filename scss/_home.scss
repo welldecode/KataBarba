@@ -22,7 +22,7 @@
       align-items: center;
       flex-direction: column;
       gap: 10px;
-      margin: 0 auto; 
+      margin: 0 auto;
       padding-top: 4rem;
       @include xl {
         gap: 25px;
@@ -143,6 +143,14 @@
         }
       }
 
+      @include mp {
+        height: 300px;
+      }
+      
+      @include sm {
+        height: 400px;
+      }
+
       @include md {
         background: url('../img/icons/kata_primary.svg') center no-repeat;
         height: 200px;
@@ -200,7 +208,7 @@
           align-items: flex-start;
           justify-content: flex-start;
         }
-        .title_g { 
+        .title_g {
           position: relative;
           text-transform: uppercase;
           font-size: 18px;
@@ -223,6 +231,14 @@
             height: 3px;
             width: 25px;
 
+            @include mp {
+              left: 5px;
+              top: 9px;
+            }
+            @include sm {
+              left: 55px;
+              top: 8px;
+            }
             @include xl {
               left: 0;
               width: 55px;
@@ -238,14 +254,23 @@
             background: $hover-color;
             height: 3px;
             width: 25px;
+
+            @include mp {
+              right: 5px;
+              top: 9px;
+            }
+            
+            @include sm {
+              right: 55px;
+              top: 8px;
+            }
           }
           @include xl {
             &::after {
               display: none;
             }
           }
-        
-      } 
+        }
         h1 {
           font-family: 'new-spirit';
           font-weight: 700;
@@ -357,6 +382,12 @@
         height: 3px;
         width: 25px;
 
+        @include mp {
+          left: 15px;
+        }
+        @include sm {
+          left: 60px;
+        }
         @include xl {
           left: 0;
           width: 55px;
@@ -373,6 +404,12 @@
         height: 3px;
         width: 25px;
 
+        @include mp {
+          right: 15px;
+        }
+        @include sm {
+          right: 60px;
+        }
         @include xl {
           display: none;
         }
@@ -448,13 +485,13 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-      gap: 10px; 
+      gap: 10px;
       @include xl {
         flex-direction: row;
-        gap: 25px; 
+        gap: 25px;
       }
       span {
-        color: $text-color; 
+        color: $text-color;
         font-size: 18px;
         font-weight: 600;
         display: flex;
@@ -472,7 +509,7 @@
           text-transform: uppercase;
           color: #6f6f6f;
           letter-spacing: 1.5px;
-      }
+        }
       }
     }
   }
@@ -616,6 +653,15 @@
           background: $hover-color;
           height: 3px;
           width: 25px;
+        }
+
+        @include mp {
+          &::before {
+            display: none;
+          }
+          &::after {
+            display: none;
+          }
         }
         @include xl {
           &::after {

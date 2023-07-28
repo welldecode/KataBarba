@@ -1,14 +1,21 @@
 // set screen size
 
-$screen-sm-min: 386px;
-
-$screen-md-min: 768px;
-
+$screen-mp-min: 320px;
+$screen-sm-min: 425px; 
+$screen-md-min: 768px; 
 $screen-lg-min: 992px; 
 $screen-xl-min: 1200px;
 $screen-xxl-min: 1400px;
 
 // set mixins
+
+@mixin mp {
+  @media (min-width: #{$screen-mp-min}) {
+    @content;
+  }
+}
+
+
 @mixin sm {
   @media (min-width: #{$screen-sm-min}) {
     @content;
