@@ -155,6 +155,7 @@
 
       @include mp {
         height: 300px;
+        background-size: cover;
       }
 
       @include sm {
